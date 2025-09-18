@@ -166,7 +166,7 @@ const CTAButton = ({
 }) => (
   <Button
     size="lg"
-    className={`bg-accent text-accent-foreground hover:bg-accent/90 font-semibold text-lg py-7 px-8 rounded-full shadow-lg shadow-accent/20 transition-transform transform hover:scale-105 ${className}`}
+    className={`bg-accent text-accent-foreground hover:bg-accent/90 font-semibold text-base sm:text-lg py-6 sm:py-7 px-8 rounded-full shadow-lg shadow-accent/20 transition-transform transform hover:scale-105 ${className}`}
   >
     {children}
   </Button>
@@ -177,7 +177,7 @@ export default function Home() {
     <div className="flex flex-col min-h-screen">
       <main>
         {/* Hero Section */}
-        <section className="relative h-[95vh] min-h-[700px] w-full flex items-center justify-center text-center text-white overflow-hidden">
+        <section className="relative min-h-screen h-auto w-full flex items-center justify-center text-center text-white overflow-hidden py-16 pt-24 sm:pt-16">
           <Image
             src="https://picsum.photos/seed/vsecret1/1920/1080"
             alt="Jantar gourmet sofisticado"
@@ -189,14 +189,14 @@ export default function Home() {
           <div className="absolute inset-0 bg-black/70" />
           <div className="relative z-10 container mx-auto px-4 flex flex-col items-center justify-center">
             <div className="max-w-3xl">
-              <h1 className="font-headline text-5xl md:text-7xl font-bold leading-tight drop-shadow-lg">
+              <h1 className="font-headline text-4xl sm:text-5xl md:text-7xl font-bold leading-tight drop-shadow-lg">
                 Descubra o segredo da cozinha com o tempero verde mais famoso do
                 mundo 🌿✨
               </h1>
-              <p className="mt-6 text-lg md:text-xl max-w-2xl mx-auto">
+              <p className="mt-6 text-base sm:text-lg md:text-xl max-w-2xl mx-auto">
                 Aprenda, crie e desbloqueie experiências únicas com a plataforma que vai transformar sua cozinha.
               </p>
-              <div className="mt-10">
+              <div className="mt-8 sm:mt-10">
                 <CTAButton>Liberar meu acesso por apenas R$14,99</CTAButton>
               </div>
             </div>
@@ -214,9 +214,9 @@ export default function Home() {
         </section>
 
         {/* VSL Section */}
-        <section className="py-20 sm:py-32">
+        <section className="py-16 sm:py-24">
           <div className="container mx-auto px-4 text-center">
-            <h2 className="font-headline text-4xl md:text-5xl font-bold text-primary mb-8">
+            <h2 className="font-headline text-3xl md:text-5xl font-bold text-primary mb-8">
               Veja como funciona o Verdinha’s Secret 🍃
             </h2>
             <div className="relative max-w-4xl mx-auto aspect-video rounded-xl overflow-hidden shadow-2xl shadow-primary/10 border-2 border-primary/20 group">
@@ -228,21 +228,21 @@ export default function Home() {
                 data-ai-hint="recipe video"
               />
               <div className="absolute inset-0 bg-black/40 flex items-center justify-center cursor-pointer">
-                <PlayCircle className="w-24 h-24 text-white/80 group-hover:text-white transition-colors" />
+                <PlayCircle className="w-20 h-20 sm:w-24 sm:h-24 text-white/80 group-hover:text-white transition-colors" />
               </div>
             </div>
-            <div className="mt-12">
+            <div className="mt-10">
               <CTAButton>Quero entrar agora</CTAButton>
             </div>
           </div>
         </section>
 
         {/* Desire Section */}
-        <section className="py-20 sm:py-32 bg-card">
+        <section className="py-16 sm:py-24 bg-card">
           <div className="container mx-auto px-4">
             <div className="grid md:grid-cols-2 gap-12 md:gap-16 items-center">
               <div className="order-2 md:order-1 text-center md:text-left">
-                <p className="text-xl md:text-2xl leading-relaxed mb-6">
+                <p className="text-lg md:text-xl leading-relaxed mb-6">
                   Todo mundo já conhece o docinho clássico da verdinha… mas você
                   pode ir{' '}
                   <span className="text-primary font-semibold">
@@ -272,10 +272,10 @@ export default function Home() {
         </section>
 
         {/* Benefits Section */}
-        <section className="py-20 sm:py-32">
+        <section className="py-16 sm:py-24">
           <div className="container mx-auto px-4">
-            <div className="text-center mb-16">
-              <h2 className="font-headline text-4xl md:text-5xl font-bold">
+            <div className="text-center mb-12">
+              <h2 className="font-headline text-3xl md:text-5xl font-bold">
                 O que você vai destravar no{' '}
                 <span className="text-primary">Verdinha’s Secret:</span>
               </h2>
@@ -314,25 +314,25 @@ export default function Home() {
         </section>
 
         {/* AI Section */}
-        <section className="py-20 sm:py-32">
+        <section className="py-16 sm:py-24">
           <div className="container mx-auto px-4">
-            <div className="bg-black rounded-3xl p-8 sm:p-16 text-center relative overflow-hidden border border-primary/30 shadow-2xl shadow-primary/20 grid md:grid-cols-2 gap-12 items-center">
+            <div className="bg-black rounded-3xl p-8 sm:p-12 text-center relative overflow-hidden border border-primary/30 shadow-2xl shadow-primary/20 grid md:grid-cols-2 gap-12 items-center">
               <div className="absolute -inset-px rounded-3xl bg-gradient-to-br from-primary/50 to-transparent opacity-30 animate-pulse"></div>
               <div className="relative text-center md:text-left">
-                <h2 className="font-headline text-4xl md:text-5xl font-bold mb-4">
+                <h2 className="font-headline text-3xl md:text-5xl font-bold mb-4">
                   Tecnologia Gourmet Secreta 🤖🌿
                 </h2>
-                <p className="max-w-3xl mx-auto text-lg text-foreground/80">
+                <p className="max-w-3xl mx-auto text-base sm:text-lg text-foreground/80">
                   Dentro da plataforma você também terá acesso a uma Inteligência Artificial exclusiva, que ajuda com ideias criativas e sugestões personalizadas. Um recurso extra para deixar sua experiência ainda mais completa.
                 </p>
               </div>
               <div className="relative flex items-center justify-center">
-                <Bot className="w-32 h-32 text-primary opacity-20 -rotate-12"/>
+                <Bot className="w-24 h-24 sm:w-32 sm:h-32 text-primary opacity-20 -rotate-12"/>
                 <Image
                   src="https://picsum.photos/seed/ai-gourmet/500/500"
                   alt="Prato gourmet com toque de IA"
-                  width={300}
-                  height={300}
+                  width={250}
+                  height={250}
                   className="rounded-full shadow-2xl rotate-6 border-4 border-accent/50"
                   data-ai-hint="ai gourmet dish"
                 />
@@ -342,7 +342,7 @@ export default function Home() {
         </section>
 
         {/* Differentials Section */}
-        <section className="py-20 sm:py-32">
+        <section className="py-16 sm:py-24">
             <div className="container mx-auto px-4">
                 <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
                     {differentials.map((item, index) => {
@@ -364,19 +364,19 @@ export default function Home() {
         </section>
 
         {/* Social Proof Section */}
-        <section className="py-20 sm:py-32 bg-card">
+        <section className="py-16 sm:py-24 bg-card">
           <div className="container mx-auto px-4">
-            <h2 className="font-headline text-4xl md:text-5xl font-bold text-center mb-12">
+            <h2 className="font-headline text-3xl md:text-5xl font-bold text-center mb-12">
               O que os membros <span className="text-primary">estão dizendo</span>:
             </h2>
             <Carousel opts={{ align: "start", loop: true, }} className="w-full">
               <CarouselContent>
                 {testimonials.map((testimonial, index) => (
-                  <CarouselItem key={index} className="md:basis-1/2 lg:basis-1/3">
-                    <div className="p-1">
+                  <CarouselItem key={index} className="sm:basis-1/2 lg:basis-1/3">
+                    <div className="p-1 h-full">
                       <Card className="h-full bg-background/50 border-border/30 flex flex-col justify-between p-6">
                         <CardContent className="p-0">
-                          <p className="text-lg italic">"{testimonial.quote}"</p>
+                          <p className="text-base sm:text-lg italic">"{testimonial.quote}"</p>
                         </CardContent>
                         <div className="flex items-center gap-4 mt-6">
                           <Image
@@ -404,9 +404,9 @@ export default function Home() {
 
 
         {/* Offer Stack Section */}
-        <section className="py-20 sm:py-32 bg-primary/90 text-primary-foreground">
+        <section className="py-16 sm:py-24 bg-primary/90 text-primary-foreground">
              <div className="container mx-auto px-4 text-center">
-                <h2 className="font-headline text-4xl md:text-5xl font-bold mb-12">Ao entrar hoje, você desbloqueia:</h2>
+                <h2 className="font-headline text-3xl md:text-5xl font-bold mb-12">Ao entrar hoje, você desbloqueia:</h2>
                 <div className="max-w-3xl mx-auto grid grid-cols-1 sm:grid-cols-2 gap-x-8 gap-y-6 mb-12 text-left">
                     {offerStack.map(item => {
                         const Icon = item.icon
@@ -421,7 +421,7 @@ export default function Home() {
                     })}
                 </div>
                  <div className="bg-background/10 rounded-xl p-6 max-w-3xl mx-auto mb-10">
-                     <p className="text-xl md:text-2xl leading-relaxed">
+                     <p className="text-lg sm:text-xl md:text-2xl leading-relaxed">
                          Tudo isso por apenas <span className="font-bold text-accent">R$14,99</span> — menos do que uma pizza, para ter <span className="font-bold">acesso vitalício</span> ao segredo mais verde da cozinha.
                      </p>
                  </div>
@@ -431,11 +431,11 @@ export default function Home() {
 
 
         {/* Urgency Section */}
-        <section className="py-20 sm:py-32">
+        <section className="py-16 sm:py-24">
             <div className="container mx-auto px-4">
-                <div className="max-w-3xl mx-auto text-center border-2 border-accent rounded-2xl p-8 sm:p-12 bg-card shadow-2xl shadow-accent/10">
+                <div className="max-w-3xl mx-auto text-center border-2 border-accent rounded-2xl p-6 sm:p-12 bg-card shadow-2xl shadow-accent/10">
                     <h3 className="font-headline text-3xl md:text-4xl font-bold mb-4">Promoção de Lançamento</h3>
-                    <p className="text-lg text-foreground/80 mb-6">Acesso <span className="text-accent font-semibold">vitalício</span> por apenas <span className="text-accent font-semibold">R$14,99</span>. Quando o contador zerar, o preço sobe e você perde o segredo para sempre.</p>
+                    <p className="text-base sm:text-lg text-foreground/80 mb-6">Acesso <span className="text-accent font-semibold">vitalício</span> por apenas <span className="text-accent font-semibold">R$14,99</span>. Quando o contador zerar, o preço sobe e você perde o segredo para sempre.</p>
                     <Countdown />
                     <div className="mt-8">
                         <CTAButton className="w-full sm:w-auto">Garantir meu acesso antes que acabe</CTAButton>
@@ -445,15 +445,15 @@ export default function Home() {
         </section>
 
         {/* FAQ Section */}
-        <section className="py-20 sm:py-32 bg-card">
+        <section className="py-16 sm:py-24 bg-card">
           <div className="container mx-auto px-4 max-w-3xl">
-            <h2 className="font-headline text-4xl md:text-5xl font-bold text-center mb-12">
+            <h2 className="font-headline text-3xl md:text-5xl font-bold text-center mb-12">
               Perguntas Frequentes
             </h2>
              <Accordion type="single" collapsible className="w-full">
               {faqItems.map((item, index) => (
                 <AccordionItem value={`item-${index}`} key={index}>
-                  <AccordionTrigger className="text-lg font-semibold text-left">{item.question}</AccordionTrigger>
+                  <AccordionTrigger className="text-base sm:text-lg font-semibold text-left">{item.question}</AccordionTrigger>
                   <AccordionContent className="text-base text-foreground/80">
                     {item.answer}
                   </AccordionContent>
@@ -464,7 +464,7 @@ export default function Home() {
         </section>
 
         {/* Final CTA Section */}
-        <section className="py-20 sm:py-32 relative overflow-hidden text-white text-center">
+        <section className="py-16 sm:py-24 relative overflow-hidden text-white text-center">
             <Image
                 src="https://picsum.photos/seed/finalcta/1920/1080"
                 alt="Jantar gourmet final"
@@ -474,10 +474,10 @@ export default function Home() {
             />
             <div className="absolute inset-0 bg-black/75" />
              <div className="container mx-auto px-4 relative z-10">
-               <h2 className="font-headline text-4xl md:text-5xl font-bold mb-6">
+               <h2 className="font-headline text-3xl md:text-5xl font-bold mb-6">
                  O Verdinha’s Secret não é um curso comum.
                </h2>
-               <p className="max-w-3xl mx-auto text-lg md:text-xl text-white/90 mb-10">
+               <p className="max-w-3xl mx-auto text-base sm:text-lg md:text-xl text-white/90 mb-10">
                   É uma experiência secreta que transforma pratos simples em momentos únicos. Liberte agora o poder do tempero verde na sua cozinha.
                </p>
                <CTAButton>Quero liberar meu acesso agora por apenas R$14,99</CTAButton>
@@ -486,7 +486,7 @@ export default function Home() {
       </main>
 
       <footer className="py-8 bg-black">
-        <div className="container mx-auto px-4 text-center text-foreground/50">
+        <div className="container mx-auto px-4 text-center text-foreground/50 text-sm">
           <p>
             &copy; {new Date().getFullYear()} Verdinha's Secret. Todos os
             direitos reservados.

@@ -2,9 +2,10 @@
 
 import { useState, useEffect } from 'react';
 
-export function Countdown() {
-  const calculateTimeLeft = () => {
-    // Set a fixed future date for the countdown
+// Helper function to calculate time left
+const calculateTimeLeft = () => {
+    // This is a fixed date in the future for demo purposes.
+    // In a real application, you would get this from a server.
     const difference = +new Date('2024-12-31T23:59:59') - +new Date();
     let timeLeft = {};
 
@@ -18,31 +19,38 @@ export function Countdown() {
     }
 
     return timeLeft;
-  };
+};
 
+
+export function Countdown() {
   const [timeLeft, setTimeLeft] = useState<{ [key: string]: number }>({});
   
+  // This effect runs only on the client, after the initial render.
+  // This prevents hydration mismatch errors between server and client.
   useEffect(() => {
-    // Set initial value on client-side only
+    // Set initial value
     setTimeLeft(calculateTimeLeft());
-    
-    const timer = setTimeout(() => {
+
+    // Update the countdown every second
+    const timer = setInterval(() => {
       setTimeLeft(calculateTimeLeft());
     }, 1000);
 
-    return () => clearTimeout(timer);
-  });
+    // Clean up the interval on component unmount
+    return () => clearInterval(timer);
+  }, []); // Empty dependency array ensures this runs only once on mount
 
   const timerComponents: JSX.Element[] = [];
 
   Object.keys(timeLeft).forEach((interval) => {
-    if (!timeLeft[interval] && timeLeft[interval] !== 0) {
+    // Ensure the value is a number before proceeding
+    if (typeof timeLeft[interval] !== 'number') {
       return;
     }
 
     timerComponents.push(
       <div key={interval} className="flex flex-col items-center">
-        <span className="text-4xl md:text-5xl font-bold text-accent">
+        <span className="text-3xl sm:text-4xl md:text-5xl font-bold text-accent">
           {String(timeLeft[interval]).padStart(2, '0')}
         </span>
         <span className="text-xs uppercase text-foreground/60">{interval}</span>
