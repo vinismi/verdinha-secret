@@ -17,6 +17,8 @@ import {
   Bot,
   Crown,
   Donut,
+  Flame,
+  Target,
 } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
@@ -126,11 +128,11 @@ const testimonials = [
 ];
 
 const offerStack = [
-    { icon: Crown, text: 'Plataforma secreta gourmet' },
-    { icon: PartyPopper, text: 'Cardápios temáticos completos' },
-    { icon: Donut, text: 'Receitas criativas e exclusivas' },
-    { icon: Bot, text: 'Tecnologia gourmet da verdinha' },
-    { icon: Martini, text: 'Experiências e desafios' },
+    { icon: Leaf, title: 'Plataforma secreta gourmet', description: 'Seu laboratório culinário exclusivo.' },
+    { icon: Target, title: 'Cardápios temáticos completos', description: 'Experiências prontas para impressionar.' },
+    { icon: Donut, title: 'Receitas criativas e exclusivas', description: 'Do básico ao sofisticado.' },
+    { icon: Bot, title: 'Tecnologia gourmet da verdinha', description: 'Recursos inteligentes que elevam sua cozinha.' },
+    { icon: Flame, title: 'Experiências e desafios secretos', description: 'Torne-se um verdadeiro Mestre Verde.' },
 ]
 
 const faqItems = [
@@ -401,28 +403,41 @@ export default function Home() {
 
 
         {/* Offer Stack Section */}
-        <section className="py-16 sm:py-24 bg-primary/90 text-primary-foreground">
+        <section className="py-16 sm:py-24 bg-primary/90 text-primary-foreground" style={{ backgroundColor: '#0F1E0F' }}>
              <div className="container mx-auto px-4 text-center">
-                <h2 className="font-headline text-4xl md:text-6xl uppercase mb-12">Acesso vitalício por um preço secreto</h2>
-                <div className="max-w-3xl mx-auto grid grid-cols-1 sm:grid-cols-2 gap-x-8 gap-y-6 mb-12 text-left">
+                <h2 className="font-headline text-4xl md:text-5xl uppercase mb-6">Acesso vitalício ao segredo verde mais gourmet do mundo 🌿✨</h2>
+                 <p className="max-w-2xl mx-auto mb-12 text-base sm:text-lg text-primary-foreground/80">
+                    Ao entrar hoje, você desbloqueia o ecossistema completo para se tornar um Mestre Verde.
+                 </p>
+
+                <div className="max-w-4xl mx-auto grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 mb-12">
                     {offerStack.map(item => {
                         const Icon = item.icon
                         return (
-                            <div key={item.text} className="flex items-center gap-4">
-                                <div className="w-10 h-10 flex items-center justify-center rounded-lg bg-accent flex-shrink-0">
-                                    <Icon className="w-6 h-6 text-accent-foreground" />
+                            <div key={item.title} className="bg-background/20 backdrop-blur-sm p-6 rounded-xl border border-accent/20 flex flex-col items-start text-left gap-4">
+                                <div className="w-12 h-12 flex items-center justify-center rounded-lg bg-accent flex-shrink-0">
+                                    <Icon className="w-7 h-7 text-accent-foreground" />
                                 </div>
-                                <span className="text-lg font-semibold">{item.text}</span>
+                                <div>
+                                    <h3 className="text-xl font-bold font-headline normal-case">{item.title}</h3>
+                                    <p className="text-primary-foreground/70">{item.description}</p>
+                                </div>
                             </div>
                         )
                     })}
                 </div>
-                 <div className="bg-background/10 rounded-xl p-6 max-w-3xl mx-auto mb-10">
-                     <p className="text-lg sm:text-xl md:text-2xl leading-relaxed">
-                         De <span className="line-through opacity-70">R$97,00</span> por apenas <span className="font-bold text-accent">R$14,99</span>. Um pagamento único (mais barato que um correzinho) para acesso vitalício.
+                 <div className="max-w-xl mx-auto mb-10 text-center">
+                     <p className="text-xl sm:text-2xl md:text-3xl font-headline normal-case text-white/70">
+                         De <span className="line-through opacity-70">R$97,00</span> por
+                     </p>
+                      <p className="text-4xl sm:text-5xl md:text-6xl font-headline uppercase text-accent mb-2">
+                         Apenas R$14,99
+                     </p>
+                     <p className="text-base sm:text-lg text-white/80">
+                         Um pagamento único, vitalício (mais barato que um correzinho ☕).
                      </p>
                  </div>
-                <CTAButton>Quero meu acesso vitalício</CTAButton>
+                <CTAButton>Quero meu acesso vitalício agora</CTAButton>
              </div>
         </section>
 
