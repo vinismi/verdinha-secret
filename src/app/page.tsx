@@ -419,7 +419,7 @@ export default function Home() {
                 </div>
                  <div className="bg-background/10 rounded-xl p-6 max-w-3xl mx-auto mb-10">
                      <p className="text-lg sm:text-xl md:text-2xl leading-relaxed">
-                         De <span className="line-through opacity-70">R$97,00</span> por apenas <span className="font-bold text-accent">R$14,99</span>. Um pagamento único para acesso vitalício.
+                         De <span className="line-through opacity-70">R$97,00</span> por apenas <span className="font-bold text-accent">R$14,99</span>. Um pagamento único (mais barato que um correzinho) para acesso vitalício.
                      </p>
                  </div>
                 <CTAButton>Quero meu acesso vitalício</CTAButton>
