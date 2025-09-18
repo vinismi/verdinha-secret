@@ -21,6 +21,7 @@ import {
   Target,
   Lock,
   Clock,
+  KeyRound,
 } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
@@ -322,30 +323,42 @@ export default function Home() {
         {/* AI Section */}
         <section className="py-16 sm:py-24">
           <div className="container mx-auto px-4">
-            <div className="bg-black rounded-3xl p-8 sm:p-12 text-center relative overflow-hidden border border-primary/30 shadow-2xl shadow-primary/20 grid md:grid-cols-2 gap-12 items-center">
+            <div className="bg-black rounded-3xl p-8 sm:p-12 text-center relative overflow-hidden border border-primary/30 shadow-2xl shadow-primary/20">
               <div className="absolute -inset-px rounded-3xl bg-gradient-to-br from-primary/50 to-transparent opacity-30 animate-pulse"></div>
-              <div className="relative text-center md:text-left">
-                <h2 className="font-headline text-4xl md:text-6xl uppercase mb-4">
+              <div className="relative z-10">
+                <h2 className="font-headline text-4xl md:text-6xl uppercase mb-4 flex items-center justify-center gap-4">
+                  <Bot className="w-10 h-10 md:w-14 md:h-14 text-accent" />
                   Tecnologia Gourmet Secreta 🤖🌿
                 </h2>
-                <p className="max-w-3xl mx-auto text-base sm:text-lg text-foreground/80">
-                  Dentro da plataforma você também terá acesso a uma Inteligência Artificial exclusiva, que ajuda com ideias criativas e sugestões personalizadas. Um recurso extra para deixar sua experiência ainda mais completa.
-                </p>
-              </div>
-              <div className="relative flex items-center justify-center">
-                <Bot className="w-24 h-24 sm:w-32 sm:h-32 text-primary opacity-20 -rotate-12"/>
-                <Image
-                  src="https://picsum.photos/seed/ai-gourmet/500/500"
-                  alt="Prato gourmet com toque de IA"
-                  width={250}
-                  height={250}
-                  className="rounded-full shadow-2xl rotate-6 border-4 border-accent/50"
-                  data-ai-hint="ai gourmet dish"
-                />
+                <div className="max-w-3xl mx-auto grid md:grid-cols-2 gap-8 md:gap-12 items-center text-left mt-8">
+                    <div className='space-y-4'>
+                       <p className="text-base sm:text-lg text-foreground/80">
+                         Além das receitas e cardápios exclusivos, você desbloqueia um recurso secreto: uma inteligência artificial gourmet, criada para transformar seu jeito de cozinhar.
+                       </p>
+                       <p className='text-base sm:text-lg text-foreground/80'>
+                          Ela sugere combinações inusitadas, dá ideias criativas e mostra novas formas de usar o tempero verde na sua cozinha. É como ter uma chef particular da folha sagrada, disponível sempre que precisar.
+                       </p>
+                       <Button variant="link" className="text-accent text-lg p-0 h-auto font-semibold">
+                          Quero experimentar essa tecnologia secreta
+                          <ChevronRight className="w-5 h-5 ml-1" />
+                       </Button>
+                    </div>
+                    <div className="relative flex items-center justify-center">
+                        <Image
+                          src="https://picsum.photos/seed/ai-gourmet/500/500"
+                          alt="Prato gourmet com toque de IA"
+                          width={300}
+                          height={300}
+                          className="rounded-full shadow-2xl rotate-6 border-4 border-accent/50"
+                          data-ai-hint="ai gourmet dish"
+                        />
+                    </div>
+                </div>
               </div>
             </div>
           </div>
         </section>
+
 
         {/* Differentials Section */}
         <section className="py-16 sm:py-24">
@@ -501,13 +514,18 @@ export default function Home() {
                 data-ai-hint="elegant gourmet dinner"
             />
             <div className="absolute inset-0 bg-black/75" />
-             <div className="container mx-auto px-4 relative z-10">
-               <h2 className="font-headline text-4xl md:text-6xl uppercase mb-6">
-                 O Verdinha’s Secret não é um curso comum.
+             <div className="container mx-auto px-4 relative z-10 flex flex-col items-center">
+                <KeyRound className="w-12 h-12 text-accent mb-6 opacity-80" />
+               <h2 className="font-headline text-4xl md:text-5xl uppercase mb-6 max-w-4xl">
+                 O Verdinha’s Secret não é só sobre receitas. É a chave para uma experiência secreta que transforma sua cozinha em um templo gourmet 🌿✨
                </h2>
-               <p className="max-w-3xl mx-auto text-base sm:text-lg md:text-xl text-white/90 mb-10">
-                  É uma experiência secreta que transforma pratos simples em momentos únicos. Liberte agora o poder do tempero verde na sua cozinha.
-               </p>
+               <div className="max-w-2xl mx-auto text-base sm:text-lg md:text-xl text-white/90 mb-10 space-y-4">
+                  <p>Cada prato deixa de ser comum e se torna um ritual.</p>
+                  <p>Cada drink ganha um toque verde de exclusividade.</p>
+                  <p>E cada momento vira uma celebração com o tempero secreto mais famoso do mundo.</p>
+                  <p className="font-bold text-accent pt-4">Agora o segredo está ao seu alcance. Mas só se você decidir abrir essa porta hoje.</p>
+               </div>
+               <CTAButton>Liberar meu acesso secreto por apenas R$14,99</CTAButton>
            </div>
         </section>
       </main>
