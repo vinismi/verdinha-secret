@@ -42,44 +42,51 @@ import { Countdown } from '@/components/countdown';
 
 const benefits = [
   {
-    icon: UtensilsCrossed,
+    icon: Leaf,
     title: 'Receitas do básico ao gourmet',
+    description: 'Aprenda desde os clássicos até criações sofisticadas com o toque verde da folha sagrada.',
     image: 'https://picsum.photos/seed/vsecret4/400/300',
     hint: 'gourmet recipe',
   },
   {
     icon: Martini,
     title: 'Drinks e harmonizações criativas',
+    description: 'Combine sabores e descubra bebidas exclusivas que transformam qualquer encontro.',
     image: 'https://picsum.photos/seed/vsecret5/400/300',
     hint: 'cocktail pairing',
   },
   {
     icon: Cookie,
     title: 'Snacks rápidos e fáceis',
+    description: 'Lanches práticos e deliciosos para qualquer momento.',
     image: 'https://picsum.photos/seed/vsecret6/400/300',
     hint: 'gourmet snack',
   },
   {
     icon: Lightbulb,
     title: 'Técnicas secretas de infusão',
+    description: 'O passo a passo para extrair todo o poder do tempero secreto.',
     image: 'https://picsum.photos/seed/vsecret7/400/300',
     hint: 'herbs infusion',
   },
   {
     icon: PartyPopper,
     title: 'Cardápios temáticos prontos',
+    description: 'Experiências completas para noites especiais, festas e encontros.',
     image: 'https://picsum.photos/seed/vsecret8/400/300',
     hint: 'dinner party',
   },
   {
     icon: Sparkles,
     title: 'Consumo leve e consciente',
+    description: 'Orientações para aproveitar de forma equilibrada, sem exageros.',
     image: 'https://picsum.photos/seed/vsecret9/400/300',
     hint: 'healthy food',
   },
   {
     icon: Trophy,
     title: 'Desafios criativos e experiências',
+    description: 'Teste suas habilidades e libere conquistas no universo verde.',
     image: 'https://picsum.photos/seed/vsecret10/400/300',
     hint: 'celebration food',
   },
@@ -284,18 +291,18 @@ export default function Home() {
             <div className="text-center mb-12">
               <h2 className="font-headline text-4xl sm:text-5xl md:text-6xl uppercase leading-tight">
                 O que você vai destravar no{' '}
-                <span className="text-primary">Verdinha’s Secret:</span>
+                <span className="text-primary">Verdinha’s Secret 🌿✨</span>
               </h2>
             </div>
-            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6 sm:gap-8">
+            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8">
               {benefits.map((benefit, index) => {
                 const Icon = benefit.icon;
                 return (
                   <Card
                     key={index}
-                    className="bg-card border-border/50 overflow-hidden group text-left"
+                    className="bg-card border-border/50 overflow-hidden group text-left flex flex-col"
                   >
-                     <div className="relative h-48">
+                     <div className="relative h-40">
                       <Image
                         src={benefit.image}
                         alt={benefit.title}
@@ -305,14 +312,17 @@ export default function Home() {
                       />
                       <div className="absolute inset-0 bg-gradient-to-t from-card to-transparent" />
                     </div>
-                    <CardHeader className="relative -mt-12 z-10">
-                      <div className="w-14 h-14 bg-accent rounded-full flex items-center justify-center mb-3 shadow-lg shadow-accent/20">
+                    <CardHeader className="relative pt-4 flex-shrink-0">
+                       <div className="w-14 h-14 bg-accent rounded-full flex items-center justify-center mb-4 shadow-lg shadow-accent/20">
                         <Icon className="w-7 h-7 text-accent-foreground" />
                       </div>
-                      <CardTitle className="font-headline text-2xl sm:text-3xl normal-case">
+                      <CardTitle className="font-headline text-2xl normal-case leading-snug">
                         {benefit.title}
                       </CardTitle>
                     </CardHeader>
+                    <CardContent className='flex-grow'>
+                      <p className='text-foreground/70 text-sm leading-relaxed'>{benefit.description}</p>
+                    </CardContent>
                   </Card>
                 );
               })}
