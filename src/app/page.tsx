@@ -189,7 +189,7 @@ export default function Home() {
           <div className="absolute inset-0 bg-black/70" />
           <div className="relative z-10 container mx-auto px-4 flex flex-col items-center justify-center">
             <div className="max-w-3xl">
-              <h1 className="font-headline text-4xl sm:text-5xl md:text-7xl font-bold leading-tight drop-shadow-lg">
+              <h1 className="font-headline uppercase text-5xl sm:text-6xl md:text-8xl font-normal leading-tight drop-shadow-lg">
                 Descubra o segredo da cozinha com o tempero verde mais famoso do
                 mundo 🌿✨
               </h1>
@@ -216,7 +216,7 @@ export default function Home() {
         {/* VSL Section */}
         <section className="py-16 sm:py-24">
           <div className="container mx-auto px-4 text-center">
-            <h2 className="font-headline text-3xl md:text-5xl font-bold text-primary mb-8">
+            <h2 className="font-headline uppercase text-4xl md:text-6xl text-primary mb-8">
               Veja como funciona o Verdinha’s Secret 🍃
             </h2>
             <div className="relative max-w-4xl mx-auto aspect-video rounded-xl overflow-hidden shadow-2xl shadow-primary/10 border-2 border-primary/20 group">
@@ -250,7 +250,7 @@ export default function Home() {
                   </span>
                   .
                 </p>
-                <p className="font-headline text-3xl md:text-4xl leading-snug mb-8">
+                <p className="font-headline text-3xl md:text-4xl leading-snug mb-8 normal-case">
                   Imagine sua cozinha como um laboratório secreto: jantares temáticos, sobremesas irresistíveis, drinks exclusivos e snacks rápidos, todos com o toque verde da folha sagrada.
                 </p>
                 <Button variant="link" className="text-accent text-lg p-0 h-auto">
@@ -275,7 +275,7 @@ export default function Home() {
         <section className="py-16 sm:py-24">
           <div className="container mx-auto px-4">
             <div className="text-center mb-12">
-              <h2 className="font-headline text-3xl md:text-5xl font-bold">
+              <h2 className="font-headline text-4xl md:text-6xl uppercase">
                 O que você vai destravar no{' '}
                 <span className="text-primary">Verdinha’s Secret:</span>
               </h2>
@@ -302,7 +302,7 @@ export default function Home() {
                       <div className="w-16 h-16 bg-accent rounded-full flex items-center justify-center mb-4 shadow-lg shadow-accent/20">
                         <Icon className="w-8 h-8 text-accent-foreground" />
                       </div>
-                      <CardTitle className="font-headline text-2xl">
+                      <CardTitle className="font-headline text-3xl normal-case">
                         {benefit.title}
                       </CardTitle>
                     </CardHeader>
@@ -319,7 +319,7 @@ export default function Home() {
             <div className="bg-black rounded-3xl p-8 sm:p-12 text-center relative overflow-hidden border border-primary/30 shadow-2xl shadow-primary/20 grid md:grid-cols-2 gap-12 items-center">
               <div className="absolute -inset-px rounded-3xl bg-gradient-to-br from-primary/50 to-transparent opacity-30 animate-pulse"></div>
               <div className="relative text-center md:text-left">
-                <h2 className="font-headline text-3xl md:text-5xl font-bold mb-4">
+                <h2 className="font-headline text-4xl md:text-6xl uppercase mb-4">
                   Tecnologia Gourmet Secreta 🤖🌿
                 </h2>
                 <p className="max-w-3xl mx-auto text-base sm:text-lg text-foreground/80">
@@ -366,7 +366,7 @@ export default function Home() {
         {/* Social Proof Section */}
         <section className="py-16 sm:py-24 bg-card">
           <div className="container mx-auto px-4">
-            <h2 className="font-headline text-3xl md:text-5xl font-bold text-center mb-12">
+            <h2 className="font-headline text-4xl md:text-6xl uppercase text-center mb-12">
               O que os membros <span className="text-primary">estão dizendo</span>:
             </h2>
             <Carousel opts={{ align: "start", loop: true, }} className="w-full">
@@ -406,7 +406,7 @@ export default function Home() {
         {/* Offer Stack Section */}
         <section className="py-16 sm:py-24 bg-primary/90 text-primary-foreground">
              <div className="container mx-auto px-4 text-center">
-                <h2 className="font-headline text-3xl md:text-5xl font-bold mb-12">Ao entrar hoje, você desbloqueia:</h2>
+                <h2 className="font-headline text-4xl md:text-6xl uppercase mb-12">Ao entrar hoje, você desbloqueia:</h2>
                 <div className="max-w-3xl mx-auto grid grid-cols-1 sm:grid-cols-2 gap-x-8 gap-y-6 mb-12 text-left">
                     {offerStack.map(item => {
                         const Icon = item.icon
@@ -434,7 +434,7 @@ export default function Home() {
         <section className="py-16 sm:py-24">
             <div className="container mx-auto px-4">
                 <div className="max-w-3xl mx-auto text-center border-2 border-accent rounded-2xl p-6 sm:p-12 bg-card shadow-2xl shadow-accent/10">
-                    <h3 className="font-headline text-3xl md:text-4xl font-bold mb-4">Promoção de Lançamento</h3>
+                    <h3 className="font-headline text-4xl md:text-5xl uppercase mb-4">Promoção de Lançamento</h3>
                     <p className="text-base sm:text-lg text-foreground/80 mb-6">Acesso <span className="text-accent font-semibold">vitalício</span> por apenas <span className="text-accent font-semibold">R$14,99</span>. Quando o contador zerar, o preço sobe e você perde o segredo para sempre.</p>
                     <Countdown />
                     <div className="mt-8">
@@ -447,7 +447,7 @@ export default function Home() {
         {/* FAQ Section */}
         <section className="py-16 sm:py-24 bg-card">
           <div className="container mx-auto px-4 max-w-3xl">
-            <h2 className="font-headline text-3xl md:text-5xl font-bold text-center mb-12">
+            <h2 className="font-headline text-4xl md:text-6xl uppercase text-center mb-12">
               Perguntas Frequentes
             </h2>
              <Accordion type="single" collapsible className="w-full">
@@ -474,7 +474,7 @@ export default function Home() {
             />
             <div className="absolute inset-0 bg-black/75" />
              <div className="container mx-auto px-4 relative z-10">
-               <h2 className="font-headline text-3xl md:text-5xl font-bold mb-6">
+               <h2 className="font-headline text-4xl md:text-6xl uppercase mb-6">
                  O Verdinha’s Secret não é um curso comum.
                </h2>
                <p className="max-w-3xl mx-auto text-base sm:text-lg md:text-xl text-white/90 mb-10">
