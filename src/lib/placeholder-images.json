@@ -1,3 +1,70 @@
 {
-  "placeholderImages": []
+  "placeholderImages": [
+    {
+      "id": "hero-gourmet-dinner",
+      "description": "An impactful image of a sophisticated gourmet dinner, setting a premium and mysterious tone.",
+      "imageUrl": "https://picsum.photos/seed/vsecret1/1920/1080",
+      "imageHint": "gourmet dinner"
+    },
+    {
+      "id": "platform-mockup",
+      "description": "A mockup showing delicious-looking dishes and drinks available on the Verdinha's Secret platform.",
+      "imageUrl": "https://picsum.photos/seed/vsecret2/600/800",
+      "imageHint": "gourmet plate"
+    },
+    {
+      "id": "premium-green-drink",
+      "description": "A premium-looking green cocktail, conveying exclusivity and unique experiences.",
+      "imageUrl": "https://picsum.photos/seed/vsecret3/600/800",
+      "imageHint": "green cocktail"
+    },
+    {
+      "id": "benefit-recipes",
+      "description": "A gourmet dish representing the wide range of recipes from basic to advanced.",
+      "imageUrl": "https://picsum.photos/seed/vsecret4/400/300",
+      "imageHint": "gourmet recipe"
+    },
+    {
+      "id": "benefit-drinks",
+      "description": "Creative cocktails and drink pairings.",
+      "imageUrl": "https://picsum.photos/seed/vsecret5/400/300",
+      "imageHint": "cocktail pairing"
+    },
+    {
+      "id": "benefit-snacks",
+      "description": "Quick and easy gourmet snacks.",
+      "imageUrl": "https://picsum.photos/seed/vsecret6/400/300",
+      "imageHint": "gourmet snack"
+    },
+    {
+      "id": "benefit-infusion",
+      "description": "Image representing secret infusion techniques.",
+      "imageUrl": "https://picsum.photos/seed/vsecret7/400/300",
+      "imageHint": "herbs infusion"
+    },
+    {
+      "id": "benefit-menus",
+      "description": "A festive table setting representing themed menus.",
+      "imageUrl": "https://picsum.photos/seed/vsecret8/400/300",
+      "imageHint": "dinner party"
+    },
+    {
+      "id": "benefit-conscious",
+      "description": "Image representing light and conscious consumption.",
+      "imageUrl": "https://picsum.photos/seed/vsecret9/400/300",
+      "imageHint": "healthy food"
+    },
+    {
+      "id": "benefit-challenges",
+      "description": "A celebratory image representing creative challenges.",
+      "imageUrl": "https://picsum.photos/seed/vsecret10/400/300",
+      "imageHint": "celebration food"
+    },
+    {
+      "id": "vsl-thumbnail",
+      "description": "Thumbnail for the video sales letter.",
+      "imageUrl": "https://picsum.photos/seed/vsvideo/1280/720",
+      "imageHint": "recipe video"
+    }
+  ]
 }
