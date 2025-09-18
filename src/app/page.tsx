@@ -143,11 +143,11 @@ const testimonials = [
 ];
 
 const offerStack = [
-    { icon: Leaf, title: 'Plataforma secreta gourmet', description: 'Seu laboratório culinário exclusivo.' },
-    { icon: Target, title: 'Cardápios temáticos completos', description: 'Experiências prontas para impressionar.' },
-    { icon: Donut, title: 'Receitas criativas e exclusivas', description: 'Do básico ao sofisticado.' },
-    { icon: Bot, title: 'Tecnologia gourmet da verdinha', description: 'Recursos inteligentes que elevam sua cozinha.' },
-    { icon: Flame, title: 'Experiências e desafios secretos', description: 'Torne-se um verdadeiro Mestre Verde.' },
+    { icon: Leaf, title: 'Plataforma secreta gourmet', description: 'Seu laboratório culinário exclusivo, sempre à sua disposição.' },
+    { icon: Target, title: 'Cardápios temáticos completos', description: 'Experiências prontas para impressionar em qualquer ocasião.' },
+    { icon: Donut, title: 'Receitas criativas e exclusivas', description: 'Do clássico ao sofisticado, tudo com o tempero verde da folha sagrada.' },
+    { icon: Bot, title: 'Tecnologia gourmet da verdinha', description: 'Recursos inteligentes que elevam sua cozinha a outro patamar.' },
+    { icon: Flame, title: 'Experiências e desafios secretos', description: 'Prove sua criatividade e conquiste seu lugar como Mestre Verde.' },
 ]
 
 const faqItems = [
@@ -438,10 +438,11 @@ export default function Home() {
         {/* Offer Stack Section */}
         <section className="py-16 sm:py-24 bg-primary/90 text-primary-foreground" style={{ backgroundColor: '#0F1E0F' }}>
              <div className="container mx-auto px-4 text-center">
-                <h2 className="font-headline text-4xl sm:text-5xl md:text-6xl uppercase mb-6 leading-tight">Acesso vitalício ao segredo verde mais gourmet do mundo 🌿✨</h2>
+                <h2 className="font-headline text-4xl sm:text-5xl md:text-6xl uppercase mb-6 leading-tight">Acesso vitalício ao segredo mais verde e gourmet do mundo 🌿✨</h2>
                  <p className="max-w-3xl mx-auto mb-12 text-base sm:text-lg text-primary-foreground/80">
-                    Ao entrar hoje, você desbloqueia o ecossistema completo para se tornar um Mestre Verde.
+                    Ao entrar hoje, você libera um ecossistema secreto completo, feito para transformar qualquer prato em uma experiência única — e colocar você na jornada até se tornar um verdadeiro Mestre Verde.
                  </p>
+                 <h3 className='font-headline text-3xl normal-case mb-8'>O que está incluído no seu acesso:</h3>
 
                 <div className="max-w-4xl mx-auto grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8 mb-12">
                     {offerStack.map(item => {
@@ -463,14 +464,14 @@ export default function Home() {
                      <p className="text-xl sm:text-2xl md:text-3xl font-headline normal-case text-white/70">
                          De <span className="line-through opacity-70">R$97,00</span> por
                      </p>
-                      <p className="text-4xl sm:text-5xl md:text-6xl font-headline uppercase text-accent mb-2">
-                         Apenas R$14,99
+                      <p className="text-4xl sm:text-5xl md:text-6xl font-headline uppercase text-accent mb-2 flex items-center justify-center gap-3">
+                         <Flame className='w-10 h-10' /> Apenas R$14,99 <Flame className='w-10 h-10' />
                      </p>
                      <p className="text-base sm:text-lg text-white/80">
-                         Um pagamento único, vitalício (mais barato que um correzinho ☕).
+                        Pagamento único e vitalício (mais barato que um correzinho ☕, e você leva o segredo pra sempre).
                      </p>
                  </div>
-                <CTAButton>Quero meu acesso vitalício agora</CTAButton>
+                <CTAButton>Quero liberar meu acesso vitalício agora 🌿✨</CTAButton>
              </div>
         </section>
 
