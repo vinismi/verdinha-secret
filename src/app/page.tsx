@@ -8,57 +8,162 @@ import {
   Leaf,
   Trophy,
   PlayCircle,
+  Sparkles,
+  Award,
+  Users,
+  ChevronRight,
+  Plus,
+  Minus,
+  Bot,
+  Crown,
+  Donut,
 } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
-import { AIRecipeForm } from '@/components/ai-recipe-form';
+import {
+  Accordion,
+  AccordionContent,
+  AccordionItem,
+  AccordionTrigger,
+} from '@/components/ui/accordion';
+import {
+  Carousel,
+  CarouselContent,
+  CarouselItem,
+  CarouselNext,
+  CarouselPrevious,
+} from '@/components/ui/carousel';
+import { Countdown } from '@/components/countdown';
 
 const benefits = [
   {
     icon: UtensilsCrossed,
-    title: 'Receitas do básico ao gourmet 🌿',
+    title: 'Receitas do básico ao gourmet',
     image: 'https://picsum.photos/seed/vsecret4/400/300',
     hint: 'gourmet recipe',
   },
   {
     icon: Martini,
-    title: 'Drinks e harmonizações criativas 🍸',
+    title: 'Drinks e harmonizações criativas',
     image: 'https://picsum.photos/seed/vsecret5/400/300',
     hint: 'cocktail pairing',
   },
   {
     icon: Cookie,
-    title: 'Snacks rápidos e fáceis 🍪',
+    title: 'Snacks rápidos e fáceis',
     image: 'https://picsum.photos/seed/vsecret6/400/300',
     hint: 'gourmet snack',
   },
   {
     icon: Lightbulb,
-    title: 'Técnicas secretas de infusão 💡',
+    title: 'Técnicas secretas de infusão',
     image: 'https://picsum.photos/seed/vsecret7/400/300',
     hint: 'herbs infusion',
   },
   {
     icon: PartyPopper,
-    title: 'Cardápios temáticos prontos 🎉',
+    title: 'Cardápios temáticos prontos',
     image: 'https://picsum.photos/seed/vsecret8/400/300',
     hint: 'dinner party',
   },
   {
-    icon: Leaf,
-    title: 'Consumo leve e consciente ✨',
+    icon: Sparkles,
+    title: 'Consumo leve e consciente',
     image: 'https://picsum.photos/seed/vsecret9/400/300',
     hint: 'healthy food',
   },
   {
     icon: Trophy,
-    title: 'Desafios criativos e experiências 🏆',
+    title: 'Desafios criativos e experiências',
     image: 'https://picsum.photos/seed/vsecret10/400/300',
     hint: 'celebration food',
   },
 ];
 
-const CTAButton = ({ children, className }: { children: React.ReactNode, className?: string }) => (
+const differentials = [
+  {
+    icon: Award,
+    title: 'Evolução por níveis',
+    description: 'Do iniciante ao Mestre Verde, acompanhamos sua jornada.',
+  },
+  {
+    icon: Martini,
+    title: 'Receitas Inéditas',
+    description: 'Drinks e pratos que você não encontrará em nenhum outro lugar.',
+  },
+  {
+    icon: Users,
+    title: 'Comunidade Secreta',
+    description: 'Acesso a desafios, novidades e uma comunidade exclusiva.',
+  },
+];
+
+const testimonials = [
+  {
+    quote: 'Achei que era só sobre receitinhas… mas virou minha forma favorita de cozinhar.',
+    author: 'Juliana R.',
+    image: 'https://picsum.photos/seed/test1/200/200',
+    hint: 'woman portrait',
+  },
+  {
+    quote: 'Vale muito mais que o preço. Experiência única e viciante, cada semana descubro um segredo novo.',
+    author: 'Marcos L.',
+    image: 'https://picsum.photos/seed/test2/200/200',
+    hint: 'man portrait',
+  },
+  {
+    quote: 'Transformei meus jantares com amigos. Todo mundo fica chocado com os sabores. O segredo está bem guardado!',
+    author: 'Beatriz S.',
+    image: 'https://picsum.photos/seed/test3/200/200',
+    hint: 'woman smiling',
+  },
+    {
+    quote: 'A IA é genial! Peço ideias com o que tenho na geladeira e ela cria pratos incríveis na hora. Sensacional.',
+    author: 'Lucas P.',
+    image: 'https://picsum.photos/seed/test4/200/200',
+    hint: 'happy man',
+  },
+];
+
+const offerStack = [
+    { icon: Crown, text: 'Plataforma secreta gourmet' },
+    { icon: PartyPopper, text: 'Cardápios temáticos completos' },
+    { icon: Donut, text: 'Receitas criativas e exclusivas' },
+    { icon: Bot, text: 'Tecnologia gourmet da verdinha' },
+    { icon: Martini, text: 'Experiências e desafios' },
+]
+
+const faqItems = [
+  {
+    question: 'Preciso ser bom na cozinha?',
+    answer: 'Não! O Verdinha\'s Secret foi desenhado para todos os níveis. Temos conteúdos que vão do zero absoluto até técnicas avançadas para quem já domina a arte do tempero secreto.',
+  },
+  {
+    question: 'Preciso de utensílios caros?',
+    answer: 'De forma alguma. Ensinamos você a criar experiências incríveis com o que você já tem em casa. O segredo não está no equipamento, mas na técnica e na criatividade.',
+  },
+  {
+    question: 'O conteúdo é atualizado sempre?',
+    answer: 'Sim! Nossa comunidade secreta está sempre em movimento. Lançamos novas receitas, desafios e técnicas exclusivas regularmente para que sua jornada nunca perca a graça.',
+  },
+  {
+    question: 'Existem opções leves (sem exagerar)?',
+    answer: 'Com certeza. Um dos nossos pilares é o consumo consciente. Você encontrará diversas receitas e dicas para criar pratos e drinks mais leves, focados no sabor e bem-estar.',
+  },
+  {
+    question: 'O acesso é imediato?',
+    answer: 'Sim! Após a confirmação do pagamento, você recebe seu acesso secreto imediatamente no seu e-mail e já pode começar a desvendar os segredos da verdinha.',
+  },
+];
+
+
+const CTAButton = ({
+  children,
+  className,
+}: {
+  children: React.ReactNode;
+  className?: string;
+}) => (
   <Button
     size="lg"
     className={`bg-accent text-accent-foreground hover:bg-accent/90 font-semibold text-lg py-7 px-8 rounded-full shadow-lg shadow-accent/20 transition-transform transform hover:scale-105 ${className}`}
@@ -72,7 +177,7 @@ export default function Home() {
     <div className="flex flex-col min-h-screen">
       <main>
         {/* Hero Section */}
-        <section className="relative h-[90vh] min-h-[700px] w-full flex items-center justify-center text-center text-white overflow-hidden">
+        <section className="relative h-[95vh] min-h-[700px] w-full flex items-center justify-center text-center text-white overflow-hidden">
           <Image
             src="https://picsum.photos/seed/vsecret1/1920/1080"
             alt="Jantar gourmet sofisticado"
@@ -81,31 +186,28 @@ export default function Home() {
             data-ai-hint="gourmet dinner"
             priority
           />
-          <div className="absolute inset-0 bg-black/60" />
-          <div className="relative z-10 container mx-auto px-4 flex flex-col lg:flex-row items-center justify-center gap-12">
-            <div className="lg:w-1/2 lg:text-left">
+          <div className="absolute inset-0 bg-black/70" />
+          <div className="relative z-10 container mx-auto px-4 flex flex-col items-center justify-center">
+            <div className="max-w-3xl">
               <h1 className="font-headline text-5xl md:text-7xl font-bold leading-tight drop-shadow-lg">
                 Descubra o segredo da cozinha com o tempero verde mais famoso do
                 mundo 🌿✨
               </h1>
-              <p className="mt-6 text-lg md:text-xl max-w-2xl mx-auto lg:mx-0">
-                Uma experiência interativa onde você aprende receitas, cria
-                pratos únicos e ainda conta com uma inteligência artificial da
-                verdinha para personalizar tudo com os ingredientes que você já
-                tem em casa.
+              <p className="mt-6 text-lg md:text-xl max-w-2xl mx-auto">
+                Aprenda, crie e desbloqueie experiências únicas com a plataforma que vai transformar sua cozinha.
               </p>
               <div className="mt-10">
                 <CTAButton>Liberar meu acesso por apenas R$14,99</CTAButton>
               </div>
             </div>
-            <div className="hidden lg:block lg:w-1/3">
-              <Image
-                src="https://picsum.photos/seed/vsecret2/600/800"
+            <div className="mt-12 w-full max-w-4xl px-4 md:px-0">
+               <Image
+                src="https://picsum.photos/seed/vsecret2/800/600"
                 alt="Mockup de pratos da plataforma"
-                width={400}
+                width={800}
                 height={600}
-                className="rounded-xl shadow-2xl rotate-3"
-                data-ai-hint="gourmet plate"
+                className="rounded-xl shadow-2xl"
+                data-ai-hint="gourmet selection"
               />
             </div>
           </div>
@@ -125,21 +227,21 @@ export default function Home() {
                 className="object-cover transition-transform duration-500 group-hover:scale-105"
                 data-ai-hint="recipe video"
               />
-              <div className="absolute inset-0 bg-black/40 flex items-center justify-center">
-                <PlayCircle className="w-24 h-24 text-white/80 group-hover:text-white transition-colors cursor-pointer" />
+              <div className="absolute inset-0 bg-black/40 flex items-center justify-center cursor-pointer">
+                <PlayCircle className="w-24 h-24 text-white/80 group-hover:text-white transition-colors" />
               </div>
             </div>
             <div className="mt-12">
-              <CTAButton>Quero fazer parte agora</CTAButton>
+              <CTAButton>Quero entrar agora</CTAButton>
             </div>
           </div>
         </section>
 
-        {/* Problem & Desire Section */}
+        {/* Desire Section */}
         <section className="py-20 sm:py-32 bg-card">
           <div className="container mx-auto px-4">
             <div className="grid md:grid-cols-2 gap-12 md:gap-16 items-center">
-              <div className="order-2 md:order-1">
+              <div className="order-2 md:order-1 text-center md:text-left">
                 <p className="text-xl md:text-2xl leading-relaxed mb-6">
                   Todo mundo já conhece o docinho clássico da verdinha… mas você
                   pode ir{' '}
@@ -149,10 +251,7 @@ export default function Home() {
                   .
                 </p>
                 <p className="font-headline text-3xl md:text-4xl leading-snug mb-8">
-                  Imagine transformar sua cozinha em um laboratório secreto de
-                  experiências: jantares temáticos, sobremesas irresistíveis,
-                  drinks exclusivos e snacks rápidos, tudo com o toque verde da
-                  folha sagrada.
+                  Imagine sua cozinha como um laboratório secreto: jantares temáticos, sobremesas irresistíveis, drinks exclusivos e snacks rápidos, todos com o toque verde da folha sagrada.
                 </p>
                 <Button variant="link" className="text-accent text-lg p-0 h-auto">
                   Começar agora &rarr;
@@ -164,7 +263,7 @@ export default function Home() {
                   alt="Drink premium verde"
                   width={500}
                   height={700}
-                  className="rounded-xl shadow-2xl mx-auto -rotate-2"
+                  className="rounded-xl shadow-2xl mx-auto md:-rotate-2"
                   data-ai-hint="green cocktail"
                 />
               </div>
@@ -177,19 +276,19 @@ export default function Home() {
           <div className="container mx-auto px-4">
             <div className="text-center mb-16">
               <h2 className="font-headline text-4xl md:text-5xl font-bold">
-                O que você desbloqueia no{' '}
+                O que você vai destravar no{' '}
                 <span className="text-primary">Verdinha’s Secret:</span>
               </h2>
             </div>
-            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
+            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-8">
               {benefits.map((benefit, index) => {
                 const Icon = benefit.icon;
                 return (
                   <Card
                     key={index}
-                    className="bg-card border-border/50 overflow-hidden group"
+                    className="bg-card border-border/50 overflow-hidden group text-left"
                   >
-                     <div className="relative h-40">
+                     <div className="relative h-48">
                       <Image
                         src={benefit.image}
                         alt={benefit.title}
@@ -199,7 +298,7 @@ export default function Home() {
                       />
                       <div className="absolute inset-0 bg-gradient-to-t from-card to-transparent" />
                     </div>
-                    <CardHeader className="relative -mt-12 z-10">
+                    <CardHeader className="relative -mt-16 z-10">
                       <div className="w-16 h-16 bg-accent rounded-full flex items-center justify-center mb-4 shadow-lg shadow-accent/20">
                         <Icon className="w-8 h-8 text-accent-foreground" />
                       </div>
@@ -217,42 +316,182 @@ export default function Home() {
         {/* AI Section */}
         <section className="py-20 sm:py-32">
           <div className="container mx-auto px-4">
-            <div className="bg-black rounded-3xl p-8 sm:p-16 text-center relative overflow-hidden border border-primary/30 shadow-2xl shadow-primary/20">
+            <div className="bg-black rounded-3xl p-8 sm:p-16 text-center relative overflow-hidden border border-primary/30 shadow-2xl shadow-primary/20 grid md:grid-cols-2 gap-12 items-center">
               <div className="absolute -inset-px rounded-3xl bg-gradient-to-br from-primary/50 to-transparent opacity-30 animate-pulse"></div>
-              <div className="relative">
+              <div className="relative text-center md:text-left">
                 <h2 className="font-headline text-4xl md:text-5xl font-bold mb-4">
-                  Sua Chef Particular da Folha Sagrada 🤖
+                  Tecnologia Gourmet Secreta 🤖🌿
                 </h2>
-                <p className="max-w-3xl mx-auto text-lg text-foreground/80 mb-12">
-                  Você terá acesso a uma inteligência artificial exclusiva que
-                  responde dúvidas, sugere combinações e cria receitas
-                  personalizadas com base no que você já tem em casa. É como ter
-                  uma chef secreta disponível 24/7.
+                <p className="max-w-3xl mx-auto text-lg text-foreground/80">
+                  Dentro da plataforma você também terá acesso a uma Inteligência Artificial exclusiva, que ajuda com ideias criativas e sugestões personalizadas. Um recurso extra para deixar sua experiência ainda mais completa.
                 </p>
-                <AIRecipeForm />
+              </div>
+              <div className="relative flex items-center justify-center">
+                <Bot className="w-32 h-32 text-primary opacity-20 -rotate-12"/>
+                <Image
+                  src="https://picsum.photos/seed/ai-gourmet/500/500"
+                  alt="Prato gourmet com toque de IA"
+                  width={300}
+                  height={300}
+                  className="rounded-full shadow-2xl rotate-6 border-4 border-accent/50"
+                  data-ai-hint="ai gourmet dish"
+                />
               </div>
             </div>
           </div>
         </section>
 
-        {/* Final CTA Section */}
+        {/* Differentials Section */}
         <section className="py-20 sm:py-32">
-          <div className="container mx-auto px-4 text-center">
-             <h2 className="font-headline text-4xl md:text-5xl font-bold mb-4">
-                Pronto para desvendar o segredo?
-              </h2>
-              <p className="max-w-2xl mx-auto text-lg text-foreground/80 mb-10">
-                Junte-se a uma comunidade exclusiva de exploradores da culinária verde e eleve suas experiências a um novo patamar. O segredo está a um clique de distância.
-              </p>
-              <CTAButton>Liberar meu acesso por apenas R$14,99</CTAButton>
+            <div className="container mx-auto px-4">
+                <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+                    {differentials.map((item, index) => {
+                        const Icon = item.icon;
+                        return (
+                             <Card key={index} className="bg-card border-border/50 p-6 flex flex-col sm:flex-row items-center gap-6 text-center sm:text-left">
+                                <div className="w-16 h-16 bg-primary rounded-lg flex items-center justify-center flex-shrink-0">
+                                    <Icon className="w-8 h-8 text-primary-foreground" />
+                                </div>
+                                <div>
+                                    <h3 className="text-xl font-bold mb-1">{item.title}</h3>
+                                    <p className="text-foreground/70">{item.description}</p>
+                                </div>
+                             </Card>
+                        )
+                    })}
+                </div>
+            </div>
+        </section>
+
+        {/* Social Proof Section */}
+        <section className="py-20 sm:py-32 bg-card">
+          <div className="container mx-auto px-4">
+            <h2 className="font-headline text-4xl md:text-5xl font-bold text-center mb-12">
+              O que os membros <span className="text-primary">estão dizendo</span>:
+            </h2>
+            <Carousel opts={{ align: "start", loop: true, }} className="w-full">
+              <CarouselContent>
+                {testimonials.map((testimonial, index) => (
+                  <CarouselItem key={index} className="md:basis-1/2 lg:basis-1/3">
+                    <div className="p-1">
+                      <Card className="h-full bg-background/50 border-border/30 flex flex-col justify-between p-6">
+                        <CardContent className="p-0">
+                          <p className="text-lg italic">"{testimonial.quote}"</p>
+                        </CardContent>
+                        <div className="flex items-center gap-4 mt-6">
+                          <Image
+                            src={testimonial.image}
+                            alt={testimonial.author}
+                            width={50}
+                            height={50}
+                            className="rounded-full"
+                            data-ai-hint={testimonial.hint}
+                          />
+                          <div>
+                            <p className="font-bold">{testimonial.author}</p>
+                          </div>
+                        </div>
+                      </Card>
+                    </div>
+                  </CarouselItem>
+                ))}
+              </CarouselContent>
+              <CarouselPrevious className="hidden sm:flex" />
+              <CarouselNext className="hidden sm:flex"/>
+            </Carousel>
           </div>
+        </section>
+
+
+        {/* Offer Stack Section */}
+        <section className="py-20 sm:py-32 bg-primary/90 text-primary-foreground">
+             <div className="container mx-auto px-4 text-center">
+                <h2 className="font-headline text-4xl md:text-5xl font-bold mb-12">Ao entrar hoje, você desbloqueia:</h2>
+                <div className="max-w-3xl mx-auto grid grid-cols-1 sm:grid-cols-2 gap-x-8 gap-y-6 mb-12 text-left">
+                    {offerStack.map(item => {
+                        const Icon = item.icon
+                        return (
+                            <div key={item.text} className="flex items-center gap-4">
+                                <div className="w-10 h-10 flex items-center justify-center rounded-lg bg-accent flex-shrink-0">
+                                    <Icon className="w-6 h-6 text-accent-foreground" />
+                                </div>
+                                <span className="text-lg font-semibold">{item.text}</span>
+                            </div>
+                        )
+                    })}
+                </div>
+                 <div className="bg-background/10 rounded-xl p-6 max-w-3xl mx-auto mb-10">
+                     <p className="text-xl md:text-2xl leading-relaxed">
+                         Tudo isso por apenas <span className="font-bold text-accent">R$14,99</span> — menos do que uma pizza, para ter <span className="font-bold">acesso vitalício</span> ao segredo mais verde da cozinha.
+                     </p>
+                 </div>
+                <CTAButton>Liberar meu acesso agora</CTAButton>
+             </div>
+        </section>
+
+
+        {/* Urgency Section */}
+        <section className="py-20 sm:py-32">
+            <div className="container mx-auto px-4">
+                <div className="max-w-3xl mx-auto text-center border-2 border-accent rounded-2xl p-8 sm:p-12 bg-card shadow-2xl shadow-accent/10">
+                    <h3 className="font-headline text-3xl md:text-4xl font-bold mb-4">Promoção de Lançamento</h3>
+                    <p className="text-lg text-foreground/80 mb-6">Acesso <span className="text-accent font-semibold">vitalício</span> por apenas <span className="text-accent font-semibold">R$14,99</span>. Quando o contador zerar, o preço sobe e você perde o segredo para sempre.</p>
+                    <Countdown />
+                    <div className="mt-8">
+                        <CTAButton className="w-full sm:w-auto">Garantir meu acesso antes que acabe</CTAButton>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        {/* FAQ Section */}
+        <section className="py-20 sm:py-32 bg-card">
+          <div className="container mx-auto px-4 max-w-3xl">
+            <h2 className="font-headline text-4xl md:text-5xl font-bold text-center mb-12">
+              Perguntas Frequentes
+            </h2>
+             <Accordion type="single" collapsible className="w-full">
+              {faqItems.map((item, index) => (
+                <AccordionItem value={`item-${index}`} key={index}>
+                  <AccordionTrigger className="text-lg font-semibold text-left">{item.question}</AccordionTrigger>
+                  <AccordionContent className="text-base text-foreground/80">
+                    {item.answer}
+                  </AccordionContent>
+                </AccordionItem>
+              ))}
+            </Accordion>
+          </div>
+        </section>
+
+        {/* Final CTA Section */}
+        <section className="py-20 sm:py-32 relative overflow-hidden text-white text-center">
+            <Image
+                src="https://picsum.photos/seed/finalcta/1920/1080"
+                alt="Jantar gourmet final"
+                fill
+                className="object-cover"
+                data-ai-hint="elegant gourmet dinner"
+            />
+            <div className="absolute inset-0 bg-black/75" />
+             <div className="container mx-auto px-4 relative z-10">
+               <h2 className="font-headline text-4xl md:text-5xl font-bold mb-6">
+                 O Verdinha’s Secret não é um curso comum.
+               </h2>
+               <p className="max-w-3xl mx-auto text-lg md:text-xl text-white/90 mb-10">
+                  É uma experiência secreta que transforma pratos simples em momentos únicos. Liberte agora o poder do tempero verde na sua cozinha.
+               </p>
+               <CTAButton>Quero liberar meu acesso agora por apenas R$14,99</CTAButton>
+           </div>
         </section>
       </main>
 
-      <footer className="py-8 bg-card/50">
-          <div className="container mx-auto px-4 text-center text-foreground/50">
-            <p>&copy; {new Date().getFullYear()} Verdinha's Secret. Todos os direitos reservados.</p>
-          </div>
+      <footer className="py-8 bg-black">
+        <div className="container mx-auto px-4 text-center text-foreground/50">
+          <p>
+            &copy; {new Date().getFullYear()} Verdinha's Secret. Todos os
+            direitos reservados.
+          </p>
+        </div>
       </footer>
     </div>
   );
