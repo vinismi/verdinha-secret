@@ -191,7 +191,7 @@ export default function Home() {
             <div className="max-w-3xl">
               <h1 className="font-headline uppercase text-5xl sm:text-6xl md:text-8xl font-normal leading-tight drop-shadow-lg">
                 Descubra o segredo da cozinha com o tempero verde mais famoso do
-                mundo 🌿✨
+                mundo 🌿
               </h1>
               <p className="mt-6 text-base sm:text-lg md:text-xl max-w-2xl mx-auto">
                 Aprenda, crie e desbloqueie experiências únicas com a plataforma que vai transformar sua cozinha.
