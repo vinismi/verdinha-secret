@@ -86,19 +86,24 @@ const benefits = [
 
 const differentials = [
   {
+    icon: Bot,
+    title: 'Tecnologia Gourmet Secreta',
+    description: 'Uma inteligência artificial exclusiva que sugere combinações, ideias criativas e novas formas de usar o tempero secreto. Um toque futurista que leva sua cozinha a outro nível.',
+  },
+  {
     icon: Award,
-    title: 'Evolução por níveis',
-    description: 'Do iniciante ao Mestre Verde, acompanhamos sua jornada.',
+    title: 'Evolução por Níveis',
+    description: 'Do iniciante curioso ao Mestre Verde, você desbloqueia conquistas e avança em sua jornada gastronômica secreta.',
   },
   {
     icon: Martini,
     title: 'Receitas Inéditas',
-    description: 'Drinks e pratos que você não encontrará em nenhum outro lugar.',
+    description: 'Drinks e pratos que você nunca encontrará em lugar nenhum. Criações exclusivas que transformam qualquer ocasião em experiência gourmet.',
   },
   {
-    icon: Users,
-    title: 'Comunidade Secreta',
-    description: 'Acesso a desafios, novidades e uma comunidade exclusiva.',
+    icon: Lock,
+    title: 'Clube Secreto',
+    description: 'Desafios, novidades e acesso a uma comunidade exclusiva que compartilha o mesmo gosto pelo lado verde da vida.',
   },
 ];
 
@@ -195,7 +200,7 @@ export default function Home() {
             <div className="max-w-3xl">
               <h1 className="font-headline uppercase text-5xl sm:text-6xl md:text-8xl font-normal leading-tight drop-shadow-lg">
                 Descubra o segredo da cozinha com o tempero verde mais famoso do
-                mundo 🌿
+                mundo
               </h1>
               <p className="mt-6 text-base sm:text-lg md:text-xl max-w-2xl mx-auto">
                 Aprenda, crie e desbloqueie experiências únicas com a plataforma que vai transformar sua cozinha.
@@ -344,18 +349,21 @@ export default function Home() {
 
         {/* Differentials Section */}
         <section className="py-16 sm:py-24">
-            <div className="container mx-auto px-4">
-                <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+            <div className="container mx-auto px-4 text-center">
+                <h2 className="font-headline text-4xl md:text-6xl uppercase mb-12">
+                  Segredos que tornam sua experiência única 🌿✨
+                </h2>
+                <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
                     {differentials.map((item, index) => {
                         const Icon = item.icon;
                         return (
-                             <Card key={index} className="bg-card border-border/50 p-6 flex flex-col sm:flex-row items-center gap-6 text-center sm:text-left">
-                                <div className="w-16 h-16 bg-primary rounded-lg flex items-center justify-center flex-shrink-0">
-                                    <Icon className="w-8 h-8 text-primary-foreground" />
+                             <Card key={index} className="bg-card border border-accent/20 p-6 flex flex-col items-center text-center transition-transform transform hover:scale-105 hover:shadow-2xl hover:shadow-accent/20">
+                                <div className="w-16 h-16 bg-accent rounded-full flex items-center justify-center mb-6 flex-shrink-0">
+                                    <Icon className="w-8 h-8 text-accent-foreground" />
                                 </div>
                                 <div>
-                                    <h3 className="text-xl font-bold mb-1">{item.title}</h3>
-                                    <p className="text-foreground/70">{item.description}</p>
+                                    <h3 className="text-xl font-bold mb-2 font-headline normal-case">{item.title}</h3>
+                                    <p className="text-foreground/70 text-sm">{item.description}</p>
                                 </div>
                              </Card>
                         )
