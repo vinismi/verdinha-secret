@@ -19,6 +19,8 @@ import {
   Donut,
   Flame,
   Target,
+  Lock,
+  Clock,
 } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
@@ -446,12 +448,18 @@ export default function Home() {
         <section className="py-16 sm:py-24">
             <div className="container mx-auto px-4">
                 <div className="max-w-3xl mx-auto text-center border-2 border-accent rounded-2xl p-6 sm:p-12 bg-card shadow-2xl shadow-accent/10">
-                    <h3 className="font-headline text-4xl md:text-5xl uppercase mb-4">Oferta por tempo limitado</h3>
-                    <p className="text-base sm:text-lg text-foreground/80 mb-6">Acesso <span className="text-accent font-semibold">vitalício</span> por apenas <span className="text-accent font-semibold">R$14,99</span>. Quando o contador zerar, o preço sobe e você perde o segredo para sempre.</p>
+                    <div className="flex justify-center mb-4">
+                      <Lock className="w-10 h-10 text-accent" />
+                    </div>
+                    <h3 className="font-headline text-4xl md:text-5xl uppercase mb-4 flex items-center justify-center gap-3">
+                      Oferta secreta por tempo limitado <Leaf className="hidden sm:inline-block text-primary w-8 h-8"/> <Clock className="hidden sm:inline-block text-primary w-8 h-8"/>
+                    </h3>
+                    <p className="text-base sm:text-lg text-foreground/80 mb-6">Hoje você pode liberar o segredo verde mais exclusivo da cozinha por apenas R$14,99 — um pagamento único e vitalício. Quando o contador zerar, o preço sobe e o acesso ao clube secreto da verdinha desaparece para sempre.</p>
                     <Countdown />
                     <div className="mt-8">
-                        <CTAButton className="w-full sm:w-auto">Garantir meu acesso antes que acabe</CTAButton>
+                        <CTAButton className="w-full sm:w-auto">Garantir meu acesso secreto agora</CTAButton>
                     </div>
+                    <p className="mt-6 text-sm text-foreground/60">Depois que o tempo acabar, o portal se fecha e você perde essa chance única.</p>
                 </div>
             </div>
         </section>
