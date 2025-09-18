@@ -422,7 +422,7 @@ export default function Home() {
                 </div>
                  <div className="bg-background/10 rounded-xl p-6 max-w-3xl mx-auto mb-10">
                      <p className="text-lg sm:text-xl md:text-2xl leading-relaxed">
-                         Tudo isso por apenas <span className="font-bold text-accent">R$14,99</span> — menos do que uma pizza, para ter <span className="font-bold">acesso vitalício</span> ao segredo mais verde da cozinha.
+                         Tudo isso por apenas <span className="font-bold text-accent">R$14,99</span>, por menos de um correzinho, para ter <span className="font-bold">acesso vitalício</span> ao segredo mais verde da cozinha.
                      </p>
                  </div>
                 <CTAButton>Liberar meu acesso agora</CTAButton>
