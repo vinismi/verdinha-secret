@@ -500,7 +500,6 @@ export default function Home() {
                <p className="max-w-3xl mx-auto text-base sm:text-lg md:text-xl text-white/90 mb-10">
                   É uma experiência secreta que transforma pratos simples em momentos únicos. Liberte agora o poder do tempero verde na sua cozinha.
                </p>
-               <CTAButton>Quero liberar meu acesso agora por apenas R$14,99</CTAButton>
            </div>
         </section>
       </main>
