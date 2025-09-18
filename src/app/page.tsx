@@ -196,9 +196,6 @@ export default function Home() {
               <p className="mt-6 text-base sm:text-lg md:text-xl max-w-2xl mx-auto">
                 Aprenda, crie e desbloqueie experiências únicas com a plataforma que vai transformar sua cozinha.
               </p>
-              <div className="mt-8 sm:mt-10">
-                <CTAButton>Liberar meu acesso por apenas R$14,99</CTAButton>
-              </div>
             </div>
             <div className="mt-12 w-full max-w-4xl px-4 md:px-0">
                <Image
@@ -406,7 +403,7 @@ export default function Home() {
         {/* Offer Stack Section */}
         <section className="py-16 sm:py-24 bg-primary/90 text-primary-foreground">
              <div className="container mx-auto px-4 text-center">
-                <h2 className="font-headline text-4xl md:text-6xl uppercase mb-12">Ao entrar hoje, você desbloqueia:</h2>
+                <h2 className="font-headline text-4xl md:text-6xl uppercase mb-12">Acesso vitalício por um preço secreto</h2>
                 <div className="max-w-3xl mx-auto grid grid-cols-1 sm:grid-cols-2 gap-x-8 gap-y-6 mb-12 text-left">
                     {offerStack.map(item => {
                         const Icon = item.icon
@@ -422,10 +419,10 @@ export default function Home() {
                 </div>
                  <div className="bg-background/10 rounded-xl p-6 max-w-3xl mx-auto mb-10">
                      <p className="text-lg sm:text-xl md:text-2xl leading-relaxed">
-                         Tudo isso por apenas <span className="font-bold text-accent">R$14,99</span>, por menos de um correzinho, para ter <span className="font-bold">acesso vitalício</span> ao segredo mais verde da cozinha.
+                         De <span className="line-through opacity-70">R$97,00</span> por apenas <span className="font-bold text-accent">R$14,99</span>. Um pagamento único para acesso vitalício.
                      </p>
                  </div>
-                <CTAButton>Liberar meu acesso agora</CTAButton>
+                <CTAButton>Quero meu acesso vitalício</CTAButton>
              </div>
         </section>
 
@@ -434,7 +431,7 @@ export default function Home() {
         <section className="py-16 sm:py-24">
             <div className="container mx-auto px-4">
                 <div className="max-w-3xl mx-auto text-center border-2 border-accent rounded-2xl p-6 sm:p-12 bg-card shadow-2xl shadow-accent/10">
-                    <h3 className="font-headline text-4xl md:text-5xl uppercase mb-4">Promoção de Lançamento</h3>
+                    <h3 className="font-headline text-4xl md:text-5xl uppercase mb-4">Oferta por tempo limitado</h3>
                     <p className="text-base sm:text-lg text-foreground/80 mb-6">Acesso <span className="text-accent font-semibold">vitalício</span> por apenas <span className="text-accent font-semibold">R$14,99</span>. Quando o contador zerar, o preço sobe e você perde o segredo para sempre.</p>
                     <Countdown />
                     <div className="mt-8">
