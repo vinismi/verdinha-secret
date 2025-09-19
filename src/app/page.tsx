@@ -191,7 +191,7 @@ const CTAButton = ({
 
 export default function Home() {
   return (
-    <div className="flex flex-col min-h-screen">
+    <div className="flex flex-col min-h-screen bg-background">
       <main>
         {/* Hero Section */}
         <section className="relative min-h-screen h-auto w-full flex items-center justify-center text-center text-white overflow-hidden py-20">
@@ -231,7 +231,7 @@ export default function Home() {
         <section className="py-16 sm:py-24">
           <div className="container mx-auto px-4 text-center">
             <h2 className="font-headline uppercase text-4xl sm:text-5xl md:text-6xl text-primary mb-8 leading-tight">
-              Veja como funciona o Verdinha’s Secret 🍃
+              Assista ao convite secreto 🍃
             </h2>
             <div className="relative max-w-4xl mx-auto aspect-video rounded-xl overflow-hidden shadow-2xl shadow-primary/10 border-2 border-primary/20 group">
               <Image
@@ -291,7 +291,7 @@ export default function Home() {
             <div className="text-center mb-12">
               <h2 className="font-headline text-4xl sm:text-5xl md:text-6xl uppercase leading-tight">
                 O que você vai destravar no{' '}
-                <span className="text-primary">Verdinha’s Secret 🌿✨</span>
+                <span className="text-primary">Verdinha’s Secret</span>
               </h2>
             </div>
             <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8">
@@ -300,9 +300,9 @@ export default function Home() {
                 return (
                   <Card
                     key={index}
-                    className="bg-card border-border/50 overflow-hidden group text-left flex flex-col"
+                    className="bg-card border-border/50 overflow-hidden group text-left flex flex-col transition-all duration-300 hover:border-accent hover:shadow-2xl hover:shadow-accent/10"
                   >
-                     <div className="relative h-40">
+                     <div className="relative h-48">
                       <Image
                         src={benefit.image}
                         alt={benefit.title}
@@ -369,12 +369,11 @@ export default function Home() {
           </div>
         </section>
 
-
         {/* Differentials Section */}
         <section className="py-16 sm:py-24">
             <div className="container mx-auto px-4 text-center">
                 <h2 className="font-headline text-4xl sm:text-5xl md:text-6xl uppercase mb-12 leading-tight">
-                  Segredos que tornam sua experiência única 🌿✨
+                  Segredos que tornam sua experiência única 🌿
                 </h2>
                 <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 sm:gap-8">
                     {differentials.map((item, index) => {
@@ -406,7 +405,7 @@ export default function Home() {
                 {testimonials.map((testimonial, index) => (
                   <CarouselItem key={index} className="pl-4 sm:basis-1/2 lg:basis-1/3">
                     <div className="p-1 h-full">
-                      <Card className="h-full bg-background/50 border-border/30 flex flex-col justify-between p-6">
+                      <Card className="h-full bg-background/50 border border-accent/20 p-6 rounded-lg flex flex-col justify-between">
                         <CardContent className="p-0">
                           <p className="text-base italic">"{testimonial.quote}"</p>
                         </CardContent>
@@ -434,27 +433,26 @@ export default function Home() {
           </div>
         </section>
 
-
         {/* Offer Stack Section */}
-        <section className="py-16 sm:py-24 bg-primary/90 text-primary-foreground" style={{ backgroundColor: '#0F1E0F' }}>
+        <section className="py-16 sm:py-24" style={{ backgroundColor: '#0B1F14' }}>
              <div className="container mx-auto px-4 text-center">
-                <h2 className="font-headline text-4xl sm:text-5xl md:text-6xl uppercase mb-6 leading-tight">Acesso vitalício ao segredo mais verde e gourmet do mundo 🌿✨</h2>
-                 <p className="max-w-3xl mx-auto mb-12 text-base sm:text-lg text-primary-foreground/80">
+                <h2 className="font-headline text-4xl sm:text-5xl md:text-6xl uppercase mb-6 leading-tight text-white">Acesso vitalício ao segredo verde mais gourmet do mundo 🌿</h2>
+                 <p className="max-w-3xl mx-auto mb-12 text-base sm:text-lg text-white/80">
                     Ao entrar hoje, você libera um ecossistema secreto completo, feito para transformar qualquer prato em uma experiência única — e colocar você na jornada até se tornar um verdadeiro Mestre Verde.
                  </p>
-                 <h3 className='font-headline text-3xl normal-case mb-8'>O que está incluído no seu acesso:</h3>
+                 <h3 className='font-headline text-3xl normal-case mb-8 text-white'>O que está incluído no seu acesso:</h3>
 
                 <div className="max-w-4xl mx-auto grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8 mb-12">
                     {offerStack.map(item => {
                         const Icon = item.icon
                         return (
-                            <div key={item.title} className="bg-background/20 backdrop-blur-sm p-6 rounded-xl border border-accent/20 flex flex-col items-start text-left gap-4">
+                            <div key={item.title} className="bg-background/20 backdrop-blur-sm p-6 rounded-xl border border-accent/20 flex flex-col items-start text-left gap-4 text-white">
                                 <div className="w-12 h-12 flex items-center justify-center rounded-lg bg-accent flex-shrink-0">
                                     <Icon className="w-6 h-6 text-accent-foreground" />
                                 </div>
                                 <div>
                                     <h3 className="text-xl font-bold font-headline normal-case">{item.title}</h3>
-                                    <p className="text-primary-foreground/70 text-sm leading-relaxed">{item.description}</p>
+                                    <p className="text-white/70 text-sm leading-relaxed">{item.description}</p>
                                 </div>
                             </div>
                         )
@@ -471,10 +469,9 @@ export default function Home() {
                         Pagamento único e vitalício (mais barato que um correzinho ☕, e você leva o segredo pra sempre).
                      </p>
                  </div>
-                <CTAButton>Quero liberar meu acesso vitalício agora 🌿✨</CTAButton>
+                <CTAButton>Quero liberar meu acesso vitalício agora</CTAButton>
              </div>
         </section>
-
 
         {/* Urgency Section */}
         <section className="py-16 sm:py-24">
@@ -487,7 +484,7 @@ export default function Home() {
                       <span>Oferta secreta</span> <span>por tempo limitado</span>
                       <Leaf className="hidden sm:inline-block text-primary w-7 h-7"/> <Clock className="hidden sm:inline-block text-primary w-7 h-7"/>
                     </h3>
-                    <p className="text-base sm:text-lg text-foreground/80 mb-6 max-w-2xl mx-auto">Hoje você pode liberar o segredo verde mais exclusivo da cozinha por apenas R$14,99 — um pagamento único e vitalício. Quando o contador zerar, o preço sobe e o acesso ao clube secreto da verdinha desaparece para forever.</p>
+                    <p className="text-base sm:text-lg text-foreground/80 mb-6 max-w-2xl mx-auto">Hoje você pode liberar o segredo verde mais exclusivo da cozinha por apenas R$14,99 — um pagamento único e vitalício. Quando o contador zerar, o preço sobe e o acesso ao clube secreto da verdinha desaparece para sempre.</p>
                     <Countdown />
                     <div className="mt-8">
                         <CTAButton className="w-full sm:w-auto">Garantir meu acesso secreto agora</CTAButton>
@@ -505,8 +502,8 @@ export default function Home() {
             </h2>
              <Accordion type="single" collapsible className="w-full">
               {faqItems.map((item, index) => (
-                <AccordionItem value={`item-${index}`} key={index}>
-                  <AccordionTrigger className="text-base sm:text-lg font-semibold text-left py-5">{item.question}</AccordionTrigger>
+                <AccordionItem value={`item-${index}`} key={index} className="border-border/50">
+                  <AccordionTrigger className="text-base sm:text-lg font-semibold text-left py-5 hover:text-primary">{item.question}</AccordionTrigger>
                   <AccordionContent className="text-base text-foreground/80 leading-relaxed">
                     {item.answer}
                   </AccordionContent>
@@ -529,7 +526,7 @@ export default function Home() {
              <div className="container mx-auto px-4 relative z-10 flex flex-col items-center">
                 <KeyRound className="w-10 h-10 sm:w-12 sm:h-12 text-accent mb-6 opacity-80" />
                <h2 className="font-headline text-3xl sm:text-4xl md:text-5xl uppercase mb-6 max-w-4xl leading-tight">
-                 O Verdinha’s Secret não é só sobre receitas. É a chave para uma experiência secreta que transforma sua cozinha em um templo gourmet 🌿✨
+                 O Verdinha’s Secret não é só sobre receitas. É a chave para uma experiência secreta que transforma sua cozinha em um templo gourmet.
                </h2>
                <div className="max-w-3xl mx-auto text-base sm:text-lg text-white/90 mb-10 space-y-4">
                   <p>Cada prato deixa de ser comum e se torna um ritual.</p>
