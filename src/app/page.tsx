@@ -400,7 +400,7 @@ export default function Home() {
                          De <span className="line-through opacity-70">R$97,00</span> por
                      </p>
                       <p className="text-4xl sm:text-5xl md:text-6xl font-headline uppercase text-accent mb-2 flex items-center justify-center gap-3">
-                         <Flame className='w-10 h-10' /> Apenas R$14,99 <Flame className='w-10 h-10' />
+                         <Flame className='w-10 h-10' /> Apenas R$21,99 <Flame className='w-10 h-10' />
                      </p>
                      <p className="text-base sm:text-lg text-white/80">
                         Pagamento único e vitalício (mais barato que um correzinho ☕, e você leva o segredo pra sempre).
@@ -420,7 +420,7 @@ export default function Home() {
                     <h3 className="font-headline text-3xl sm:text-4xl md:text-5xl uppercase mb-4 flex items-center justify-center flex-wrap gap-x-3 gap-y-2 leading-tight">
                       <span>⚠️ Oferta secreta</span> <span>por tempo limitado</span>
                     </h3>
-                    <p className="text-base sm:text-lg text-foreground/80 mb-6 max-w-2xl mx-auto">Esta é sua única chance. Acesso vitalício por apenas R$14,99. Quando o contador zerar, o preço sobe e o portal para o clube secreto da verdinha se fecha. Para sempre.</p>
+                    <p className="text-base sm:text-lg text-foreground/80 mb-6 max-w-2xl mx-auto">Esta é sua única chance. Acesso vitalício por apenas R$21,99. Quando o contador zerar, o preço sobe e o portal para o clube secreto da verdinha se fecha. Para sempre.</p>
                     <Countdown />
                     <div className="mt-8">
                         <CTAButton className="w-full sm:w-auto">Garantir meu acesso secreto agora</CTAButton>
