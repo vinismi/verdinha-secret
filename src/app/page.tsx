@@ -208,7 +208,7 @@ export default function Home() {
             </div>
             <div className="mt-12 w-full max-w-2xl sm:max-w-3xl md:max-w-4xl px-4 md:px-0">
                <Image
-                src="https://picsum.photos/seed/vsecret2/800/600"
+                src="https://i.imgur.com/jbMButp.jpeg"
                 alt="Mockup de pratos da plataforma"
                 width={800}
                 height={600}
