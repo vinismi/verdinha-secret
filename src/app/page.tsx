@@ -261,7 +261,7 @@ export default function Home() {
               </div>
               <div className="order-1 md:order-2">
                 <Image
-                  src="https://picsum.photos/seed/vsecret3/600/800"
+                  src="https://i.imgur.com/eHsnwjG.jpeg"
                   alt="Drink premium verde"
                   width={500}
                   height={700}
