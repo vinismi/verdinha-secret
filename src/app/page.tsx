@@ -470,7 +470,7 @@ export default function Home() {
                   </div>
                   <div className="md:order-1">
                     <Image
-                      src="https://i.imgur.com/QDzt8Rb.jpeg"
+                      src="https://i.imgur.com/lpWzA7Z.png"
                       alt="Tecnologia Gourmet Secreta - Chef Robô"
                       width={600}
                       height={700}
