@@ -1,13 +1,12 @@
 'use client';
 
 import Script from 'next/script';
+import { Fragment } from 'react';
 
 export function WistiaPlayer() {
   return (
     <>
-      <Script src="https://fast.wistia.com/player.js" strategy="lazyOnload" />
       <div
-        className="wistia_embed wistia_async_8cbxka7tns videoFoam=true"
         style={{
           height: '100%',
           position: 'relative',
@@ -15,32 +14,16 @@ export function WistiaPlayer() {
         }}
       >
         <div
-          className="wistia_swatch"
+          className="wistia_embed wistia_async_8cbxka7tns"
           style={{
             height: '100%',
-            left: 0,
-            opacity: 0,
-            overflow: 'hidden',
-            position: 'absolute',
-            top: 0,
-            transition: 'opacity 200ms',
+            position: 'relative',
             width: '100%',
           }}
-        >
-          <img
-            src="https://fast.wistia.com/embed/medias/8cbxka7tns/swatch"
-            style={{
-              filter: 'blur(5px)',
-              height: '100%',
-              objectFit: 'contain',
-              width: '100%',
-            }}
-            alt=""
-            aria-hidden="true"
-          />
-        </div>
+        >&nbsp;</div>
       </div>
+      <Script src="https://fast.wistia.com/embed/medias/8cbxka7tns.jsonp" strategy="lazyOnload" />
+      <Script src="https://fast.wistia.com/assets/external/E-v1.js" strategy="lazyOnload" />
     </>
   );
 }
-
