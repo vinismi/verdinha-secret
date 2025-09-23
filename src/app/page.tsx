@@ -486,7 +486,7 @@ export default function Home() {
             <section className="relative py-20 sm:py-28 text-white overflow-hidden">
                 <div className="absolute inset-0 w-full h-full bg-black/80 -z-10" />
                   <Image
-                    src="https://picsum.photos/seed/offerbg/1920/1080"
+                    src="https://i.imgur.com/VOmiqBj.png"
                     alt="Offer Background"
                     fill
                     className="object-cover -z-20"
@@ -560,8 +560,7 @@ export default function Home() {
                  <Accordion type="single" collapsible className="w-full">
                   {faqItems.map((item, index) => (
                     <AccordionItem value={`item-${index}`} key={index} className="border-border/50">
-                      <AccordionTrigger className="text-base sm:text-lg font-semibold text-left py-5 hover:text-primary">{item.question}</AccordionTrigger>
-                      <AccordionContent className="text-base text-foreground/80 leading-relaxed">
+                      <AccordionTrigger className="text-base sm:text-lg font-semibold text-left py-5 hover:text-primary">{item.question}</AccordionTrigger>                      <AccordionContent className="text-base text-foreground/80 leading-relaxed">
                         {item.answer}
                       </AccordionContent>
                     </AccordionItem>
