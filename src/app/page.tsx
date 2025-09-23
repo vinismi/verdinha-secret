@@ -233,7 +233,7 @@ export default function Home() {
         <section className="py-16 sm:py-24">
           <div className="container mx-auto px-4 text-center">
             <h2 className="font-headline uppercase text-4xl sm:text-5xl md:text-6xl text-primary mb-8 leading-tight">
-              Assista ao convite secreto 🍃
+              Descubra em poucos minutos
             </h2>
             <div className="relative max-w-md mx-auto aspect-[9/16] rounded-xl overflow-hidden shadow-2xl shadow-primary/10 border-2 border-primary/20 group">
               <WistiaPlayer />
@@ -510,4 +510,3 @@ export default function Home() {
     </div>
   );
 }
-
