@@ -1,6 +1,6 @@
 'use client';
 
-import React, { useState, useEffect } from 'react';
+import { useState, useEffect } from 'react';
 import Image from 'next/image';
 import {
   UtensilsCrossed,
@@ -200,10 +200,10 @@ export default function Home() {
       setContentUnlocked(true);
     }, 230000);
 
-    // Timer para habilitar o botão após 3min (180000 ms)
+    // Timer para habilitar o botão após 2min20s (140000 ms)
     const enableButtonTimer = setTimeout(() => {
       setButtonEnabled(true);
-    }, 180000);
+    }, 140000);
 
     // Limpa os timers se o componente for desmontado ou se o conteúdo for desbloqueado antes
     return () => {
