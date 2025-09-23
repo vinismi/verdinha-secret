@@ -213,7 +213,7 @@ export default function Home() {
                 Você realmente acha que conhece o poder da verdinha? Pense de novo.
               </h1>
               <p className="mt-6 text-base sm:text-lg md:text-xl max-w-2xl mx-auto">
-                Prepare-se para destravar a arte da cozinha verde gourmet — uma experiência que transforma o prato em ritual, o drink em magia e o momento em uma celebração secreta. Você tem coragem?
+                Prepare-se para destravar a arte da cozinha verde gourmet, uma experiência que transforma o prato em ritual, o drink em magia e o momento em uma celebração secreta. Você tem coragem?
               </p>
             </div>
             <div className="mt-12 w-full max-w-2xl sm:max-w-3xl md:max-w-4xl px-4 md:px-0">
