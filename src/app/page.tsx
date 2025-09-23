@@ -192,15 +192,24 @@ const CTAButton = ({
 
 export default function Home() {
   const [contentUnlocked, setContentUnlocked] = useState(false);
+  const [buttonEnabled, setButtonEnabled] = useState(false);
 
   useEffect(() => {
     // Timer para desbloquear o conteúdo automaticamente após 3min50s (230000 ms)
-    const timer = setTimeout(() => {
+    const autoUnlockTimer = setTimeout(() => {
       setContentUnlocked(true);
     }, 230000);
 
-    // Limpa o timer se o componente for desmontado ou se o conteúdo for desbloqueado antes
-    return () => clearTimeout(timer);
+    // Timer para habilitar o botão após 3min (180000 ms)
+    const enableButtonTimer = setTimeout(() => {
+      setButtonEnabled(true);
+    }, 180000);
+
+    // Limpa os timers se o componente for desmontado ou se o conteúdo for desbloqueado antes
+    return () => {
+      clearTimeout(autoUnlockTimer);
+      clearTimeout(enableButtonTimer);
+    };
   }, []);
 
   return (
@@ -252,8 +261,10 @@ export default function Home() {
               <div className="mt-8 text-center">
                 <Button
                   onClick={() => setContentUnlocked(true)}
+                  disabled={!buttonEnabled}
                   size="lg"
-                  className="bg-primary hover:bg-primary/90 text-primary-foreground font-semibold text-base sm:text-lg py-4 px-8 rounded-full shadow-lg shadow-primary/20 animate-pulse"
+                  className="bg-primary hover:bg-primary/90 text-primary-foreground font-semibold text-base sm:text-lg py-4 px-8 rounded-full shadow-lg shadow-primary/20 disabled:bg-gray-500 disabled:cursor-not-allowed disabled:opacity-70 data-[enabled=true]:animate-pulse"
+                  data-enabled={buttonEnabled}
                 >
                   Quero ver o resto do segredo 🍃
                 </Button>
