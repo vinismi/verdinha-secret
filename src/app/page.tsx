@@ -220,6 +220,22 @@ const CTAButton = ({
 
 export default function Home() {
   const [contentUnlocked, setContentUnlocked] = useState(false);
+  const [buttonEnabled, setButtonEnabled] = useState(false);
+
+  useEffect(() => {
+    const unlockTimeout = setTimeout(() => {
+      setContentUnlocked(true);
+    }, 180000); // 3 minutes
+
+    const buttonTimeout = setTimeout(() => {
+      setButtonEnabled(true);
+    }, 140000); // 2 minutes and 20 seconds
+
+    return () => {
+      clearTimeout(unlockTimeout);
+      clearTimeout(buttonTimeout);
+    };
+  }, []);
 
   return (
     <div className="flex flex-col min-h-screen bg-background">
@@ -227,11 +243,11 @@ export default function Home() {
         {/* Hero Section */}
         <section className="relative min-h-screen h-auto w-full flex items-center justify-center text-center text-white overflow-hidden py-20">
           <Image
-            src="https://picsum.photos/seed/vsecret1/1920/1080"
+            src="https://i.imgur.com/VOmiqBj.png"
             alt="Jantar gourmet sofisticado"
             fill
             className="object-cover"
-            data-ai-hint="gourmet dinner"
+            data-ai-hint="dark elegant texture"
             priority
           />
           <div className="absolute inset-0 bg-black/70" />
@@ -271,7 +287,8 @@ export default function Home() {
                 <Button
                   onClick={() => setContentUnlocked(true)}
                   size="lg"
-                  className="bg-primary hover:bg-primary/90 text-primary-foreground font-semibold text-base sm:text-lg py-4 px-8 rounded-full shadow-lg shadow-primary/20 animate-pulse"
+                  disabled={!buttonEnabled}
+                  className="bg-primary hover:bg-primary/90 text-primary-foreground font-semibold text-base sm:text-lg py-4 px-8 rounded-full shadow-lg shadow-primary/20 disabled:opacity-50 disabled:cursor-not-allowed enabled:animate-pulse"
                 >
                   Quero ver o resto do segredo 🍃
                 </Button>
