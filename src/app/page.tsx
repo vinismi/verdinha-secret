@@ -1,6 +1,6 @@
 'use client';
 
-import { useState, useEffect } from 'react';
+import React, { useState, useEffect } from 'react';
 import Image from 'next/image';
 import {
   UtensilsCrossed,
@@ -26,6 +26,11 @@ import {
   Clock,
   KeyRound,
   Unlock,
+  Wand2,
+  Salad,
+  ChefHat,
+  Clock4,
+  ArrowRight
 } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
@@ -169,6 +174,29 @@ const faqItems = [
     question: 'O acesso é imediato?',
     answer: 'Sim! Após a confirmação do pagamento, você recebe seu acesso secreto imediatamente no seu e-mail e já pode começar a desvendar os segredos da verdinha.',
   },
+];
+
+const techBenefits = [
+  {
+    icon: Wand2,
+    title: "Sugestões Inusitadas",
+    description: "Combinações que você nunca imaginou, para surpreender até os paladares mais exigentes."
+  },
+  {
+    icon: ChefHat,
+    title: "Pratos Personalizados",
+    description: "Crie receitas únicas com os ingredientes que você já tem na sua geladeira ou despensa."
+  },
+  {
+    icon: Salad,
+    title: "Harmonizações Únicas",
+    description: "Descubra os drinks e acompanhamentos perfeitos para cada uma das suas criações verdes."
+  },
+  {
+    icon: Clock4,
+    title: "Disponível 24/7",
+    description: "Sua chef particular está sempre pronta para ajudar, a qualquer hora do dia ou da noite."
+  }
 ];
 
 
@@ -402,6 +430,55 @@ export default function Home() {
                   <CarouselPrevious className="hidden sm:flex" />
                   <CarouselNext className="hidden sm:flex"/>
                 </Carousel>
+              </div>
+            </section>
+
+            {/* AI Tech Section */}
+            <section className="py-16 sm:py-24">
+              <div className="container mx-auto px-4">
+                <div className="text-center mb-12">
+                  <h2 className="font-headline text-4xl sm:text-5xl md:text-6xl uppercase leading-tight">
+                    A inteligência que muda tudo 🍃🤖
+                  </h2>
+                </div>
+                <div className="grid md:grid-cols-2 gap-8 md:gap-16 items-center">
+                  <div className="md:order-2">
+                    <div className="text-lg space-y-4 text-left">
+                       <p className='text-foreground/80'>Além de receitas, cardápios e experiências, o Verdinha’s Secret esconde um recurso que ninguém mais tem.</p>
+                       <p>A <strong className="text-primary">Tecnologia Gourmet Secreta</strong> é a sua chef particular da folha sagrada:</p>
+                    </div>
+                    <div className="mt-8 space-y-4">
+                      {techBenefits.map((item, index) => {
+                        const Icon = item.icon;
+                        return (
+                          <div key={index} className="flex items-start gap-4">
+                            <div className="w-10 h-10 flex items-center justify-center rounded-full bg-accent flex-shrink-0 mt-1">
+                                <Icon className="w-5 h-5 text-accent-foreground" />
+                            </div>
+                            <div>
+                                <h4 className="text-lg font-bold text-foreground">{item.title}</h4>
+                                <p className="text-sm text-foreground/70">{item.description}</p>
+                            </div>
+                          </div>
+                        )
+                      })}
+                    </div>
+                     <p className='mt-8 text-left'>É como ter uma verdadeira chef-robô exclusiva, feita só para quem atravessa o portal.</p>
+                     <Button variant="link" className="mt-4 p-0 h-auto text-base text-accent hover:text-accent/90">
+                       Quero experimentar a Tecnologia Gourmet Secreta <ArrowRight className="w-4 h-4 ml-2" />
+                     </Button>
+                  </div>
+                  <div className="md:order-1">
+                    <Image
+                      src="https://i.imgur.com/QDzt8Rb.jpeg"
+                      alt="Tecnologia Gourmet Secreta - Chef Robô"
+                      width={600}
+                      height={700}
+                      className="rounded-xl shadow-2xl mx-auto w-full max-w-md h-auto shadow-primary/20 border-2 border-primary/30"
+                      data-ai-hint="ai chef assistant"
+                    />
+                  </div>
+                </div>
               </div>
             </section>
 
