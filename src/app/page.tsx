@@ -195,10 +195,10 @@ export default function Home() {
   const [buttonEnabled, setButtonEnabled] = useState(false);
 
   useEffect(() => {
-    // Timer para desbloquear o conteúdo automaticamente após 3min50s (230000 ms)
+    // Timer para desbloquear o conteúdo automaticamente após 3min (180000 ms)
     const autoUnlockTimer = setTimeout(() => {
       setContentUnlocked(true);
-    }, 230000);
+    }, 180000);
 
     // Timer para habilitar o botão após 2min20s (140000 ms)
     const enableButtonTimer = setTimeout(() => {
