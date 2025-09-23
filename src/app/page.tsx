@@ -245,8 +245,7 @@ export default function Home() {
                   size="lg"
                   className="bg-primary hover:bg-primary/90 text-primary-foreground font-semibold text-base sm:text-lg py-4 px-8 rounded-full shadow-lg shadow-primary/20 animate-pulse"
                 >
-                  <Unlock className="mr-2 h-5 w-5" />
-                  Desbloquear o Resto da Página
+                  Quero ver o resto do segredo 🍃
                 </Button>
               </div>
             )}
