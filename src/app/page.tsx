@@ -1,6 +1,6 @@
 'use client';
 
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import Image from 'next/image';
 import {
   UtensilsCrossed,
@@ -192,6 +192,16 @@ const CTAButton = ({
 
 export default function Home() {
   const [contentUnlocked, setContentUnlocked] = useState(false);
+
+  useEffect(() => {
+    // Timer para desbloquear o conteúdo automaticamente após 3min50s (230000 ms)
+    const timer = setTimeout(() => {
+      setContentUnlocked(true);
+    }, 230000);
+
+    // Limpa o timer se o componente for desmontado ou se o conteúdo for desbloqueado antes
+    return () => clearTimeout(timer);
+  }, []);
 
   return (
     <div className="flex flex-col min-h-screen bg-background">
