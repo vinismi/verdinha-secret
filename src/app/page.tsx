@@ -220,25 +220,6 @@ const CTAButton = ({
 
 export default function Home() {
   const [contentUnlocked, setContentUnlocked] = useState(false);
-  const [buttonEnabled, setButtonEnabled] = useState(false);
-
-  useEffect(() => {
-    // Timer para desbloquear o conteúdo automaticamente após 3min (180000 ms)
-    const autoUnlockTimer = setTimeout(() => {
-      setContentUnlocked(true);
-    }, 180000);
-
-    // Timer para habilitar o botão após 2min20s (140000 ms)
-    const enableButtonTimer = setTimeout(() => {
-      setButtonEnabled(true);
-    }, 140000);
-
-    // Limpa os timers se o componente for desmontado ou se o conteúdo for desbloqueado antes
-    return () => {
-      clearTimeout(autoUnlockTimer);
-      clearTimeout(enableButtonTimer);
-    };
-  }, []);
 
   return (
     <div className="flex flex-col min-h-screen bg-background">
@@ -286,15 +267,20 @@ export default function Home() {
               <WistiaPlayer />
             </div>
             {!contentUnlocked && (
-              <div className="mt-8 text-center">
+              <div className="mt-8 text-center flex flex-col items-center gap-4">
                 <Button
                   onClick={() => setContentUnlocked(true)}
-                  disabled={!buttonEnabled}
                   size="lg"
-                  className="bg-primary hover:bg-primary/90 text-primary-foreground font-semibold text-base sm:text-lg py-4 px-8 rounded-full shadow-lg shadow-primary/20 disabled:bg-gray-500 disabled:cursor-not-allowed disabled:opacity-70 data-[enabled=true]:animate-pulse"
-                  data-enabled={buttonEnabled}
+                  className="bg-primary hover:bg-primary/90 text-primary-foreground font-semibold text-base sm:text-lg py-4 px-8 rounded-full shadow-lg shadow-primary/20 animate-pulse"
                 >
                   Quero ver o resto do segredo 🍃
+                </Button>
+                <Button
+                    onClick={() => setContentUnlocked(true)}
+                    variant="link"
+                    className="text-foreground/70"
+                >
+                    Pular vídeo
                 </Button>
               </div>
             )}
