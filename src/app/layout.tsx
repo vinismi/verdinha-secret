@@ -1,6 +1,21 @@
 import type { Metadata } from 'next';
+import { Poppins, Lilita_One } from 'next/font/google';
 import './globals.css';
 import { Toaster } from '@/components/ui/toaster';
+
+const poppins = Poppins({
+  subsets: ['latin'],
+  display: 'swap',
+  variable: '--font-poppins',
+  weight: ['400', '600'],
+});
+
+const lilitaOne = Lilita_One({
+  subsets: ['latin'],
+  display: 'swap',
+  variable: '--font-lilita-one',
+  weight: '400',
+});
 
 export const metadata: Metadata = {
   title: "Verdinha's Secret",
@@ -14,19 +29,10 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="pt-BR">
-      <head>
-        <link rel="preconnect" href="https://fonts.googleapis.com" />
-        <link
-          rel="preconnect"
-          href="https://fonts.gstatic.com"
-          crossOrigin="anonymous"
-        />
-        <link
-          href="https://fonts.googleapis.com/css2?family=Lilita+One&family=Poppins:wght@400;600&display=swap"
-          rel="stylesheet"
-        />
-      </head>
+    <html
+      lang="pt-BR"
+      className={`${poppins.variable} ${lilitaOne.variable}`}
+    >
       <body className="font-body antialiased">
         {children}
         <Toaster />
