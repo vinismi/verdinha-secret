@@ -114,12 +114,24 @@ const testimonials = [
     image: 'https://i.imgur.com/jW3CQeP.png',
     hint: 'woman smiling',
   },
-    {
+  {
     quote: 'A IA é genial. Cria pratos incríveis com o que tenho na geladeira.',
     author: 'Lucas P.',
     image: 'https://i.imgur.com/m3IB8eg.png',
     hint: 'happy man',
   },
+  {
+    quote: 'O investimento se pagou no primeiro jantar que fiz. Recomendo demais!',
+    author: 'Fernanda M.',
+    image: 'https://i.imgur.com/hnfumBA.png',
+    hint: 'smiling woman',
+  },
+  {
+    quote: 'Nunca imaginei que poderia fazer drinks tão bons em casa. O segredo realmente funciona.',
+    author: 'Ricardo T.',
+    image: 'https://i.imgur.com/0TF6w3S.png',
+    hint: 'man drinking cocktail',
+  }
 ];
 
 const offerStack = [
@@ -412,14 +424,14 @@ export default function Home() {
             {/* AI Tech Section */}
             <section className="py-16 sm:py-24">
               <div className="container mx-auto px-4">
-                <div className="grid md:grid-cols-2 gap-8 md:gap-16 items-center">
-                  <div className="flex justify-center md:order-2 text-center">
+                <div className="flex flex-col md:grid md:grid-cols-2 gap-8 md:gap-16 items-center text-center">
+                  <div className="md:order-2">
                      <Image
                       src="https://i.imgur.com/lpWzA7Z.png"
                       alt="Tecnologia Gourmet Secreta - Chef Robô"
                       width={600}
                       height={700}
-                      className="rounded-xl shadow-2xl w-full max-w-md h-auto shadow-primary/20 border-2 border-primary/30"
+                      className="rounded-xl shadow-2xl w-full max-w-md h-auto shadow-primary/20 border-2 border-primary/30 mx-auto"
                       data-ai-hint="ai chef assistant"
                     />
                   </div>
