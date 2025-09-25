@@ -197,25 +197,19 @@ const CTAButton = ({
 
 export default function Home() {
   const [contentUnlocked, setContentUnlocked] = useState(false);
-  const [buttonEnabled, setButtonEnabled] = useState(false);
 
   useEffect(() => {
     const unlockTimeout = setTimeout(() => {
       setContentUnlocked(true);
     }, 180000); // 3 minutes
 
-    const buttonTimeout = setTimeout(() => {
-      setButtonEnabled(true);
-    }, 140000); // 2 minutes and 20 seconds
-
     return () => {
       clearTimeout(unlockTimeout);
-      clearTimeout(buttonTimeout);
     };
   }, []);
 
   return (
-    <div className="flex flex-col min-h-screen bg-background">
+    <div className="flex flex-col min-h-screen bg-background overflow-x-hidden">
       <main className="flex-grow">
         {/* Hero Section */}
         <section className="relative min-h-[90vh] sm:min-h-screen flex items-center justify-center text-center text-white overflow-hidden py-20">
@@ -264,8 +258,7 @@ export default function Home() {
                 <Button
                   onClick={() => setContentUnlocked(true)}
                   size="lg"
-                  disabled={!buttonEnabled}
-                  className="bg-primary hover:bg-primary/90 text-primary-foreground font-semibold text-base sm:text-lg py-4 px-8 rounded-full shadow-lg shadow-primary/20 disabled:opacity-50 disabled:cursor-not-allowed enabled:animate-pulse w-full max-w-sm"
+                  className="bg-primary hover:bg-primary/90 text-primary-foreground font-semibold text-base sm:text-lg py-4 px-8 rounded-full shadow-lg shadow-primary/20 enabled:animate-pulse w-full max-w-sm"
                 >
                   Quero ver o resto do segredo 🍃
                 </Button>
@@ -417,12 +410,22 @@ export default function Home() {
             <section className="py-16 sm:py-24">
               <div className="container mx-auto px-4">
                 <div className="grid md:grid-cols-2 gap-8 md:gap-16 items-center">
-                  <div className="md:order-2 flex flex-col items-center md:items-start">
-                    <div className="text-center md:text-left mb-8 md:mb-0">
+                  <div className="flex justify-center md:order-1">
+                     <Image
+                      src="https://i.imgur.com/lpWzA7Z.png"
+                      alt="Tecnologia Gourmet Secreta - Chef Robô"
+                      width={600}
+                      height={700}
+                      className="rounded-xl shadow-2xl mx-auto w-full max-w-md h-auto shadow-primary/20 border-2 border-primary/30"
+                      data-ai-hint="ai chef assistant"
+                    />
+                  </div>
+                  <div className="flex flex-col items-center text-center md:text-left md:items-start md:order-2">
+                    <div className="mb-8 md:mb-0">
                       <h2 className="font-headline text-3xl sm:text-5xl md:text-6xl uppercase leading-tight mb-8">
                         A inteligência que muda tudo 🍃🤖
                       </h2>
-                      <div className="text-lg space-y-4 text-center md:text-left">
+                      <div className="text-lg space-y-4">
                         <p className='text-foreground/80'>Além de receitas, cardápios e experiências, o Verdinha’s Secret esconde um recurso que ninguém mais tem.</p>
                         <p>A <strong className="text-primary">Tecnologia Gourmet Secreta</strong> é a sua chef particular da folha sagrada:</p>
                       </div>
@@ -443,20 +446,10 @@ export default function Home() {
                         )
                       })}
                     </div>
-                     <p className='mt-8 text-center md:text-left'>É como ter uma verdadeira chef-robô exclusiva, feita só para quem atravessa o portal.</p>
+                     <p className='mt-8'>É como ter uma verdadeira chef-robô exclusiva, feita só para quem atravessa o portal.</p>
                      <Button variant="link" className="mt-4 p-0 h-auto text-base text-accent hover:text-accent/90">
                        Quero experimentar a Tecnologia Gourmet Secreta <ArrowRight className="w-4 h-4 ml-2" />
                      </Button>
-                  </div>
-                  <div className="md:order-1 flex justify-center">
-                     <Image
-                      src="https://i.imgur.com/lpWzA7Z.png"
-                      alt="Tecnologia Gourmet Secreta - Chef Robô"
-                      width={600}
-                      height={700}
-                      className="rounded-xl shadow-2xl mx-auto w-full max-w-md h-auto shadow-primary/20 border-2 border-primary/30"
-                      data-ai-hint="ai chef assistant"
-                    />
                   </div>
                 </div>
               </div>
