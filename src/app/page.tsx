@@ -176,6 +176,7 @@ const techBenefits = [
   }
 ];
 
+const checkoutUrl = 'https://www.ggcheckout.com/checkout/v2/K5J4NJtPrnBk5uOAvcPp';
 
 const CTAButton = ({
   children,
@@ -186,13 +187,15 @@ const CTAButton = ({
   className?: string;
   [key: string]: any;
 }) => (
-  <Button
-    size="lg"
-    className={`bg-accent text-accent-foreground hover:bg-accent/90 font-semibold text-lg py-6 sm:py-7 px-8 rounded-full shadow-lg shadow-accent/20 transition-transform transform hover:scale-105 w-full sm:w-auto ${className}`}
-    {...props}
-  >
-    {children}
-  </Button>
+  <a href={checkoutUrl} target="_blank" rel="noopener noreferrer" className={`w-full sm:w-auto ${className}`}>
+    <Button
+      size="lg"
+      className="bg-accent text-accent-foreground hover:bg-accent/90 font-semibold text-lg py-6 sm:py-7 px-8 rounded-full shadow-lg shadow-accent/20 transition-transform transform hover:scale-105 w-full"
+      {...props}
+    >
+      {children}
+    </Button>
+  </a>
 );
 
 export default function Home() {
@@ -447,9 +450,11 @@ export default function Home() {
                       })}
                     </div>
                      <p className='mt-8'>É como ter uma verdadeira chef-robô exclusiva, feita só para quem atravessa o portal.</p>
-                     <Button variant="link" className="mt-4 p-0 h-auto text-base text-accent hover:text-accent/90">
-                       Quero experimentar a Tecnologia Gourmet Secreta <ArrowRight className="w-4 h-4 ml-2" />
-                     </Button>
+                     <a href={checkoutUrl} target="_blank" rel="noopener noreferrer">
+                      <Button variant="link" className="mt-4 p-0 h-auto text-base text-accent hover:text-accent/90">
+                        Quero experimentar a Tecnologia Gourmet Secreta <ArrowRight className="w-4 h-4 ml-2" />
+                      </Button>
+                     </a>
                   </div>
                 </div>
               </div>
@@ -503,7 +508,7 @@ export default function Home() {
                             </strong>{' '}
                             e você leva o segredo para sempre.
                           </p>
-                          <CTAButton className="mt-8 w-full sm:w-auto">Liberar meu Acesso Vitalício Agora 🌿✨</CTAButton>
+                          <CTAButton className="mt-8">Liberar meu Acesso Vitalício Agora 🌿✨</CTAButton>
                           <p className="mt-4 text-xs text-white/60">O portal está aberto, mas só quem se atreve pode atravessar.</p>
                         </div>
                     </div>
@@ -523,7 +528,7 @@ export default function Home() {
                         <p className="text-base sm:text-lg text-foreground/80 mb-6 max-w-2xl mx-auto">Esta é sua única chance. Acesso vitalício por apenas R$21,99. Quando o contador zerar, o preço sobe e o portal para o clube secreto da verdinha se fecha. Para sempre.</p>
                         <Countdown />
                         <div className="mt-8">
-                            <CTAButton className="w-full sm:w-auto">Garantir meu acesso secreto agora</CTAButton>
+                            <CTAButton>Garantir meu acesso secreto agora</CTAButton>
                         </div>
                         <p className="mt-6 text-sm text-foreground/60">Depois que o tempo acabar, não adianta chorar. Você perdeu a chance.</p>
                     </div>
