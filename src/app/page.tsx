@@ -371,54 +371,52 @@ export default function Home() {
             </section>
 
             {/* Social Proof Section */}
-            <section className="py-16 sm:py-24 bg-card">
-              <div className="container mx-auto px-4">
-                <h2 className="font-headline text-3xl sm:text-5xl md:text-6xl uppercase text-center mb-12 leading-tight">
-                  O que os corajosos <span className="text-primary">estão dizendo</span>:
-                </h2>
-                <Carousel
-                  opts={{ align: 'start', loop: true }}
-                  className="w-full max-w-sm sm:max-w-xl md:max-w-3xl lg:max-w-5xl mx-auto"
-                >
-                  <CarouselContent className="-ml-4">
-                    {testimonials.map((testimonial, index) => (
-                      <CarouselItem
-                        key={index}
-                        className="pl-4 sm:basis-1/2 lg:basis-1/3"
-                      >
-                        <div className="p-1 h-full">
-                          <Card className="h-full bg-background/50 border-0 p-0 rounded-lg overflow-hidden">
-                            <CardContent className="p-0 h-full relative aspect-[9/16]">
-                              <Image
-                                src={testimonial.image}
-                                alt={`Depoimento ${index + 1}`}
-                                fill
-                                className="object-contain"
-                                data-ai-hint={testimonial.hint}
-                              />
-                            </CardContent>
-                          </Card>
-                        </div>
-                      </CarouselItem>
-                    ))}
-                  </CarouselContent>
-                  <CarouselPrevious className="hidden sm:flex" />
-                  <CarouselNext className="hidden sm:flex" />
-                </Carousel>
-              </div>
+            <section className="py-16 sm:py-24 bg-card overflow-hidden">
+                <div className="container mx-auto px-4 relative">
+                    <div className="text-center mb-16">
+                        <h2 className="font-headline text-4xl sm:text-5xl md:text-6xl uppercase leading-tight text-primary">A voz do clube secreto</h2>
+                        <p className="mt-4 text-lg text-foreground/70 max-w-2xl mx-auto">Esses são prints de quem já atravessou o portal. Sem filtros, sem edições.</p>
+                    </div>
+                    <div className="relative h-[500px] sm:h-[600px] max-w-6xl mx-auto">
+                        {testimonials.map((testimonial, index) => (
+                            <div
+                                key={index}
+                                className="absolute transition-all duration-300 ease-in-out"
+                                style={{
+                                    width: 'clamp(150px, 40vw, 280px)',
+                                    top: '50%',
+                                    left: '50%',
+                                    transform: `translate(-50%, -50%) rotate(${index * 5 - 15}deg) translateX(${(index - 2.5) * 80}px)`,
+                                    zIndex: testimonials.length - index,
+                                }}
+                            >
+                                <div className="aspect-[9/16] relative group">
+                                    <Image
+                                        src={testimonial.image}
+                                        alt={`Depoimento ${index + 1}`}
+                                        fill
+                                        className="object-contain rounded-lg sm:rounded-xl border-2 border-border/20 shadow-2xl group-hover:scale-105 group-hover:shadow-accent/20 group-hover:border-accent transition-all duration-300"
+                                        data-ai-hint={testimonial.hint}
+                                    />
+                                </div>
+                            </div>
+                        ))}
+                    </div>
+                </div>
             </section>
+            
 
             {/* AI Tech Section */}
             <section className="py-16 sm:py-24">
-              <div className="container mx-auto px-4">
-                <div className="flex flex-col md:grid md:grid-cols-2 gap-8 md:gap-16 items-center">
-                  <div className="md:order-2 text-center">
+              <div className="container mx-auto px-4 text-center">
+                <div className="grid md:grid-cols-2 gap-12 md:gap-16 items-center">
+                  <div className="md:order-2">
                      <Image
                       src="https://i.imgur.com/lpWzA7Z.png"
                       alt="Tecnologia Gourmet Secreta - Chef Robô"
                       width={600}
                       height={700}
-                      className="rounded-xl shadow-2xl w-full max-w-md h-auto shadow-primary/20 border-2 border-primary/30 mx-auto"
+                      className="rounded-xl shadow-2xl w-full max-w-sm h-auto shadow-primary/20 border-2 border-primary/30 mx-auto"
                       data-ai-hint="ai chef assistant"
                     />
                   </div>
@@ -427,7 +425,7 @@ export default function Home() {
                       <h2 className="font-headline text-3xl sm:text-5xl md:text-6xl uppercase leading-tight mb-8">
                         A inteligência que muda tudo 🍃🤖
                       </h2>
-                      <div className="text-lg space-y-4">
+                      <div className="text-lg space-y-4 max-w-xl">
                         <p className='text-foreground/80'>Além de receitas, cardápios e experiências, o Verdinha’s Secret esconde um recurso que ninguém mais tem.</p>
                         <p>A <strong className="text-primary">Tecnologia Gourmet Secreta</strong> é a sua chef particular da folha sagrada:</p>
                       </div>
@@ -448,7 +446,7 @@ export default function Home() {
                         )
                       })}
                     </div>
-                     <p className='mt-8'>É como ter uma verdadeira chef-robô exclusiva, feita só para quem atravessa o portal.</p>
+                     <p className='mt-8 max-w-xl'>É como ter uma verdadeira chef-robô exclusiva, feita só para quem atravessa o portal.</p>
                      <a href={checkoutUrl} target="_blank" rel="noopener noreferrer">
                       <Button variant="link" className="mt-4 p-0 h-auto text-base text-accent hover:text-accent/90">
                         Quero experimentar a Tecnologia Gourmet Secreta <ArrowRight className="w-4 h-4 ml-2" />
