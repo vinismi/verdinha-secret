@@ -95,29 +95,6 @@ const benefits = [
   },
 ];
 
-const differentials = [
-  {
-    icon: Award,
-    title: 'Evolução por Níveis',
-    description: 'Do iniciante curioso ao Mestre Verde, você desbloqueia conquistas e avança em sua jornada gastronômica secreta.',
-  },
-  {
-    icon: Users,
-    title: 'Clube Fechado',
-    description: 'Participe de um clube fechado, onde os membros compartilham segredos, descobertas e experiências que você não encontra em nenhum livro, curso ou restaurante.',
-  },
-  {
-    icon: Martini,
-    title: 'Receitas Inéditas',
-    description: 'Drinks e pratos que você nunca encontrará em lugar nenhum. Criações exclusivas que transformam qualquer ocasião em experiência gourmet.',
-  },
-  {
-    icon: Lock,
-    title: 'O Diferencial Oculto',
-    description: 'Aqui não é só sobre aprender receitas. É sobre evoluir por níveis e participar de uma comunidade que compartilha segredos que ninguém mais conhece.',
-  },
-];
-
 const testimonials = [
   {
     quote: 'Achei que era só sobre receitinhas… mas virou minha forma favorita de cozinhar.',
@@ -211,7 +188,7 @@ const CTAButton = ({
 }) => (
   <Button
     size="lg"
-    className={`bg-accent text-accent-foreground hover:bg-accent/90 font-semibold text-base sm:text-lg py-6 sm:py-7 px-8 rounded-full shadow-lg shadow-accent/20 transition-transform transform hover:scale-105 ${className}`}
+    className={`bg-accent text-accent-foreground hover:bg-accent/90 font-semibold text-lg py-6 sm:py-7 px-8 rounded-full shadow-lg shadow-accent/20 transition-transform transform hover:scale-105 w-full sm:w-auto ${className}`}
     {...props}
   >
     {children}
@@ -239,9 +216,9 @@ export default function Home() {
 
   return (
     <div className="flex flex-col min-h-screen bg-background">
-      <main>
+      <main className="flex-grow">
         {/* Hero Section */}
-        <section className="relative min-h-screen h-auto w-full flex items-center justify-center text-center text-white overflow-hidden py-20">
+        <section className="relative min-h-[90vh] sm:min-h-screen flex items-center justify-center text-center text-white overflow-hidden py-20">
           <Image
             src="https://i.imgur.com/VOmiqBj.png"
             alt="Jantar gourmet sofisticado"
@@ -253,14 +230,14 @@ export default function Home() {
           <div className="absolute inset-0 bg-black/70" />
           <div className="relative z-10 container mx-auto px-4 flex flex-col items-center justify-center">
             <div className="max-w-3xl">
-              <h1 className="font-headline uppercase text-5xl sm:text-6xl md:text-7xl font-normal leading-tight drop-shadow-lg">
+              <h1 className="font-headline uppercase text-4xl sm:text-6xl md:text-7xl font-normal leading-tight drop-shadow-lg">
                 Você realmente acha que conhece o poder da verdinha? Pense de novo.
               </h1>
-              <p className="mt-6 text-base sm:text-lg md:text-xl max-w-2xl mx-auto">
+              <p className="mt-6 text-lg sm:text-xl md:text-2xl max-w-2xl mx-auto text-white/90">
                 Prepare-se para destravar a arte da cozinha verde gourmet, uma experiência que transforma o prato em ritual, o drink em magia e o momento em uma celebração secreta. Você tem coragem?
               </p>
             </div>
-            <div className="mt-12 w-full max-w-2xl sm:max-w-3xl md:max-w-4xl px-4 md:px-0">
+            <div className="mt-12 w-full max-w-lg sm:max-w-2xl">
                <Image
                 src="https://i.imgur.com/jbMButp.jpeg"
                 alt="Mockup de pratos da plataforma"
@@ -276,19 +253,19 @@ export default function Home() {
         {/* VSL Section */}
         <section className="py-16 sm:py-24">
           <div className="container mx-auto px-4 text-center">
-            <h2 className="font-headline uppercase text-4xl sm:text-5xl md:text-6xl text-primary mb-8 leading-tight">
+            <h2 className="font-headline uppercase text-3xl sm:text-5xl md:text-6xl text-primary mb-8 sm:mb-12 leading-tight">
               Descubra em poucos minutos
             </h2>
             <div className="relative max-w-md mx-auto aspect-[9/16] rounded-xl overflow-hidden shadow-2xl shadow-primary/10 border-2 border-primary/20 group">
               <WistiaPlayer />
             </div>
             {!contentUnlocked && (
-              <div className="mt-8 text-center flex flex-col items-center gap-4">
+              <div className="mt-8 text-center flex flex-col items-center gap-4 px-4">
                 <Button
                   onClick={() => setContentUnlocked(true)}
                   size="lg"
                   disabled={!buttonEnabled}
-                  className="bg-primary hover:bg-primary/90 text-primary-foreground font-semibold text-base sm:text-lg py-4 px-8 rounded-full shadow-lg shadow-primary/20 disabled:opacity-50 disabled:cursor-not-allowed enabled:animate-pulse"
+                  className="bg-primary hover:bg-primary/90 text-primary-foreground font-semibold text-base sm:text-lg py-4 px-8 rounded-full shadow-lg shadow-primary/20 disabled:opacity-50 disabled:cursor-not-allowed enabled:animate-pulse w-full max-w-sm"
                 >
                   Quero ver o resto do segredo 🍃
                 </Button>
@@ -314,7 +291,7 @@ export default function Home() {
                     <p className="text-lg md:text-xl leading-relaxed mb-6">
                       Já cansou do mesmo brownie batido que todo mundo conhece? E se eu te dissesse que existe um portal gourmet da folha sagrada que vai muito além disso?
                     </p>
-                    <div className="font-headline text-2xl md:text-3xl leading-snug mb-8 normal-case space-y-4">
+                    <div className="font-headline text-xl md:text-3xl leading-snug mb-8 normal-case space-y-4">
                       <p className='text-left'>👉 Você já se perguntou como seria transformar uma cozinha comum em um laboratório secreto, onde:</p>
                       <ul className="list-none space-y-2 text-lg md:text-xl font-body font-normal text-left pl-4">
                           <li>- Seus jantares provocam inveja (e espanto).</li>
@@ -331,7 +308,7 @@ export default function Home() {
                       alt="Drink premium verde"
                       width={500}
                       height={700}
-                      className="rounded-xl shadow-2xl mx-auto md:-rotate-2 w-full max-w-sm h-auto"
+                      className="rounded-xl shadow-2xl mx-auto md:-rotate-2 w-full max-w-sm h-auto transition-transform duration-300 hover:scale-105 hover:rotate-0"
                       data-ai-hint="green cocktail"
                     />
                   </div>
@@ -342,8 +319,8 @@ export default function Home() {
             {/* Benefits Section */}
             <section className="py-16 sm:py-24">
               <div className="container mx-auto px-4">
-                <div className="text-center mb-12">
-                  <h2 className="font-headline text-4xl sm:text-5xl md:text-6xl uppercase leading-tight">
+                <div className="text-center mb-12 sm:mb-16">
+                  <h2 className="font-headline text-3xl sm:text-5xl md:text-6xl uppercase leading-tight">
                     Se até agora você só experimentou o básico, prepare-se para destravar o lado mais ousado da verdinha.
                   </h2>
                 </div>
@@ -353,7 +330,7 @@ export default function Home() {
                     return (
                       <Card
                         key={index}
-                        className="bg-card border-border/50 overflow-hidden group text-left flex flex-col transition-all duration-300 hover:border-accent hover:shadow-2xl hover:shadow-accent/10"
+                        className="bg-card border-border/50 overflow-hidden group text-left flex flex-col transition-all duration-300 hover:border-accent hover:shadow-2xl hover:shadow-accent/10 hover:-translate-y-2"
                       >
                          <div className="relative h-48">
                           <Image
@@ -386,10 +363,10 @@ export default function Home() {
             {/* Differentials Section */}
             <section className="py-16 sm:py-24">
                 <div className="container mx-auto px-4 text-center">
-                    <h2 className="font-headline text-4xl sm:text-5xl md:text-6xl uppercase mb-12 leading-tight">
+                    <h2 className="font-headline text-3xl sm:text-5xl md:text-6xl uppercase mb-12 leading-tight">
                       Não confunda: isto não é um livro de receitas.
                     </h2>
-                    <div className="max-w-3xl mx-auto text-lg text-left space-y-6">
+                    <div className="max-w-3xl mx-auto text-lg sm:text-xl text-left space-y-6">
                       <p>Isto é sobre <span className="text-primary font-semibold">evoluir e dominar</span>, do iniciante curioso ao Mestre Verde, desbloqueando rituais que ninguém fora do clube ousa conhecer.</p>
                       <p>É sobre ter acesso a um <span className="text-primary font-semibold">clube proibido</span>, onde membros trocam segredos que fariam qualquer chef tremer na base.</p>
                       <p>É sobre provar <span className="text-primary font-semibold">criações que desafiam a lógica</span> e que só existem aqui — transformando qualquer noite em um evento que ninguém vai esquecer.</p>
@@ -400,7 +377,7 @@ export default function Home() {
             {/* Social Proof Section */}
             <section className="py-16 sm:py-24 bg-card">
               <div className="container mx-auto px-4">
-                <h2 className="font-headline text-4xl sm:text-5xl md:text-6xl uppercase text-center mb-12 leading-tight">
+                <h2 className="font-headline text-3xl sm:text-5xl md:text-6xl uppercase text-center mb-12 leading-tight">
                   O que os corajosos <span className="text-primary">estão dizendo</span>:
                 </h2>
                 <Carousel opts={{ align: "start", loop: true, }} className="w-full max-w-sm sm:max-w-xl md:max-w-3xl lg:max-w-5xl mx-auto">
@@ -439,8 +416,8 @@ export default function Home() {
             {/* AI Tech Section */}
             <section className="py-16 sm:py-24">
               <div className="container mx-auto px-4">
-                <div className="text-center mb-12">
-                  <h2 className="font-headline text-4xl sm:text-5xl md:text-6xl uppercase leading-tight">
+                <div className="text-center mb-12 sm:mb-16">
+                  <h2 className="font-headline text-3xl sm:text-5xl md:text-6xl uppercase leading-tight">
                     A inteligência que muda tudo 🍃🤖
                   </h2>
                 </div>
@@ -496,14 +473,14 @@ export default function Home() {
                     data-ai-hint="dark elegant texture"
                   />
                  <div className="container mx-auto px-4 text-center">
-                    <h2 className="font-headline text-4xl sm:text-5xl md:text-6xl uppercase mb-4 leading-tight">Acesso vitalício ao segredo mais verde e gourmet do mundo</h2>
+                    <h2 className="font-headline text-3xl sm:text-5xl md:text-6xl uppercase mb-4 leading-tight">Acesso vitalício ao segredo mais verde e gourmet do mundo</h2>
                      <p className="max-w-3xl mx-auto mb-12 text-base sm:text-lg text-white/80">
                         Ao entrar hoje, você libera um ecossistema secreto completo, feito para transformar qualquer prato em uma experiência única — e colocar você na jornada até se tornar um verdadeiro Mestre Verde.
                      </p>
                      
                     <div className="bg-card/50 backdrop-blur-sm border-2 border-accent/50 rounded-2xl p-6 sm:p-10 max-w-4xl mx-auto shadow-2xl shadow-accent/10">
                         <h3 className='font-headline text-2xl sm:text-3xl normal-case mb-8 text-white'>O que está incluído no seu acesso secreto:</h3>
-                        <div className="grid grid-cols-1 sm:grid-cols-2 gap-x-6 gap-y-4 mb-10 text-left">
+                        <div className="grid grid-cols-1 sm:grid-cols-2 gap-x-6 gap-y-6 mb-10 text-left">
                             {offerStack.map(item => {
                                 const Icon = item.icon
                                 return (
@@ -512,7 +489,7 @@ export default function Home() {
                                             <Icon className="w-5 h-5 text-accent-foreground" />
                                         </div>
                                         <div>
-                                            <h4 className="text-base font-bold">{item.title}</h4>
+                                            <h4 className="text-base font-semibold">{item.title}</h4>
                                         </div>
                                     </div>
                                 )
@@ -523,7 +500,7 @@ export default function Home() {
                              De <span className="line-through opacity-70">R$97,00</span> por
                           </p>
                           <p className="text-4xl sm:text-5xl md:text-6xl font-headline uppercase text-accent my-2 flex items-center justify-center gap-3">
-                             <Sparkles className='w-10 h-10 opacity-80' /> Apenas R$21,99 <Sparkles className='w-10 h-10 opacity-80' />
+                             <Sparkles className='w-8 h-8 sm:w-10 sm:h-10 opacity-80' /> Apenas R$21,99 <Sparkles className='w-8 h-8 sm:w-10 sm:h-10 opacity-80' />
                           </p>
                           <p className="text-sm sm:text-base text-white/80">
                             Pagamento único e vitalício (mais barato que um correzinho ☕).
@@ -557,7 +534,7 @@ export default function Home() {
             {/* FAQ Section */}
             <section className="py-16 sm:py-24 bg-card">
               <div className="container mx-auto px-4 max-w-3xl">
-                <h2 className="font-headline text-4xl sm:text-5xl md:text-6xl uppercase text-center mb-12 leading-tight">
+                <h2 className="font-headline text-3xl sm:text-5xl md:text-6xl uppercase text-center mb-12 leading-tight">
                   Ainda com medo? Suas dúvidas respondidas.
                 </h2>
                  <Accordion type="single" collapsible className="w-full">
@@ -587,7 +564,7 @@ export default function Home() {
                    <h2 className="font-headline text-3xl sm:text-4xl md:text-5xl uppercase mb-6 max-w-4xl leading-tight">
                      O Verdinha’s Secret não é só sobre cozinhar. É sobre dominar.
                    </h2>
-                   <div className="max-w-3xl mx-auto text-base sm:text-lg text-white/90 mb-10 space-y-4">
+                   <div className="max-w-3xl mx-auto text-lg sm:text-xl text-white/90 mb-10 space-y-4">
                       <p>É sobre acender uma experiência em cada prato, transformar sua mesa em um altar e viver o prazer de ser um dos poucos que conhece o segredo.</p>
                       <p className="font-bold text-accent pt-4">O portal está aberto. A decisão de entrar (ou ficar de fora para sempre) é sua.</p>
                    </div>
