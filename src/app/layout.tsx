@@ -21,6 +21,12 @@ export const metadata: Metadata = {
   title: "Verdinha's Secret",
   description:
     'Descubra o segredo da cozinha com o tempero verde mais famoso do mundo.',
+  viewport: {
+    width: 'device-width',
+    initialScale: 1,
+    maximumScale: 1,
+    userScalable: false,
+  },
 };
 
 export default function RootLayout({
