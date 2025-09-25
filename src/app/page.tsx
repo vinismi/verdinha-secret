@@ -97,40 +97,28 @@ const benefits = [
 
 const testimonials = [
   {
-    quote: 'Achei que era só sobre receitinhas… mas virou minha forma favorita de cozinhar.',
-    author: 'Juliana R.',
     image: 'https://i.imgur.com/n9vikdJ.png',
-    hint: 'woman portrait',
+    hint: 'testimonial screenshot 1',
   },
   {
-    quote: 'Vale muito mais que o preço. Cada semana descubro um segredo novo.',
-    author: 'Marcos L.',
     image: 'https://i.imgur.com/Ef6zsCL.png',
-    hint: 'man portrait',
+    hint: 'testimonial screenshot 2',
   },
   {
-    quote: 'Transformei meus jantares com amigos. Todo mundo fica chocado com os sabores.',
-    author: 'Beatriz S.',
     image: 'https://i.imgur.com/jW3CQeP.png',
-    hint: 'woman smiling',
+    hint: 'testimonial screenshot 3',
   },
   {
-    quote: 'A IA é genial. Cria pratos incríveis com o que tenho na geladeira.',
-    author: 'Lucas P.',
     image: 'https://i.imgur.com/m3IB8eg.png',
-    hint: 'happy man',
+    hint: 'testimonial screenshot 4',
   },
   {
-    quote: 'O investimento se pagou no primeiro jantar que fiz. Recomendo demais!',
-    author: 'Fernanda M.',
     image: 'https://i.imgur.com/hnfumBA.png',
-    hint: 'smiling woman',
+    hint: 'testimonial screenshot 5',
   },
   {
-    quote: 'Nunca imaginei que poderia fazer drinks tão bons em casa. O segredo realmente funciona.',
-    author: 'Ricardo T.',
     image: 'https://i.imgur.com/0TF6w3S.png',
-    hint: 'man drinking cocktail',
+    hint: 'testimonial screenshot 6',
   }
 ];
 
@@ -388,35 +376,34 @@ export default function Home() {
                 <h2 className="font-headline text-3xl sm:text-5xl md:text-6xl uppercase text-center mb-12 leading-tight">
                   O que os corajosos <span className="text-primary">estão dizendo</span>:
                 </h2>
-                <Carousel opts={{ align: "start", loop: true, }} className="w-full max-w-sm sm:max-w-xl md:max-w-3xl lg:max-w-5xl mx-auto">
+                <Carousel
+                  opts={{ align: 'start', loop: true }}
+                  className="w-full max-w-sm sm:max-w-xl md:max-w-3xl lg:max-w-5xl mx-auto"
+                >
                   <CarouselContent className="-ml-4">
                     {testimonials.map((testimonial, index) => (
-                      <CarouselItem key={index} className="pl-4 sm:basis-1/2 lg:basis-1/3">
+                      <CarouselItem
+                        key={index}
+                        className="pl-4 sm:basis-1/2 lg:basis-1/3"
+                      >
                         <div className="p-1 h-full">
-                          <Card className="h-full bg-background/50 border border-accent/20 p-6 rounded-lg flex flex-col justify-between">
-                            <CardContent className="p-0">
-                              <p className="text-base italic">"{testimonial.quote}"</p>
-                            </CardContent>
-                            <div className="flex items-center gap-4 mt-6 pt-4 border-t border-border/20">
+                          <Card className="h-full bg-background/50 border-0 p-0 rounded-lg overflow-hidden">
+                            <CardContent className="p-0 h-full relative aspect-[9/16]">
                               <Image
                                 src={testimonial.image}
-                                alt={testimonial.author}
-                                width={40}
-                                height={40}
-                                className="rounded-full object-cover"
+                                alt={`Depoimento ${index + 1}`}
+                                fill
+                                className="object-cover"
                                 data-ai-hint={testimonial.hint}
                               />
-                              <div>
-                                <p className="font-bold text-sm">{testimonial.author}</p>
-                              </div>
-                            </div>
+                            </CardContent>
                           </Card>
                         </div>
                       </CarouselItem>
                     ))}
                   </CarouselContent>
                   <CarouselPrevious className="hidden sm:flex" />
-                  <CarouselNext className="hidden sm:flex"/>
+                  <CarouselNext className="hidden sm:flex" />
                 </Carousel>
               </div>
             </section>
