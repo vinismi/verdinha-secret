@@ -416,16 +416,16 @@ export default function Home() {
             {/* AI Tech Section */}
             <section className="py-16 sm:py-24">
               <div className="container mx-auto px-4">
-                <div className="text-center mb-12 sm:mb-16">
-                  <h2 className="font-headline text-3xl sm:text-5xl md:text-6xl uppercase leading-tight">
-                    A inteligência que muda tudo 🍃🤖
-                  </h2>
-                </div>
                 <div className="grid md:grid-cols-2 gap-8 md:gap-16 items-center">
                   <div className="md:order-2">
-                    <div className="text-lg space-y-4 text-left">
-                       <p className='text-foreground/80'>Além de receitas, cardápios e experiências, o Verdinha’s Secret esconde um recurso que ninguém mais tem.</p>
-                       <p>A <strong className="text-primary">Tecnologia Gourmet Secreta</strong> é a sua chef particular da folha sagrada:</p>
+                    <div className="text-center md:text-left mb-8 md:mb-0">
+                      <h2 className="font-headline text-3xl sm:text-5xl md:text-6xl uppercase leading-tight mb-8">
+                        A inteligência que muda tudo 🍃🤖
+                      </h2>
+                      <div className="text-lg space-y-4 text-left">
+                        <p className='text-foreground/80'>Além de receitas, cardápios e experiências, o Verdinha’s Secret esconde um recurso que ninguém mais tem.</p>
+                        <p>A <strong className="text-primary">Tecnologia Gourmet Secreta</strong> é a sua chef particular da folha sagrada:</p>
+                      </div>
                     </div>
                     <div className="mt-8 space-y-4">
                       {techBenefits.map((item, index) => {
@@ -449,7 +449,7 @@ export default function Home() {
                      </Button>
                   </div>
                   <div className="md:order-1">
-                    <Image
+                     <Image
                       src="https://i.imgur.com/lpWzA7Z.png"
                       alt="Tecnologia Gourmet Secreta - Chef Robô"
                       width={600}
