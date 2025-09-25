@@ -99,25 +99,25 @@ const testimonials = [
   {
     quote: 'Achei que era só sobre receitinhas… mas virou minha forma favorita de cozinhar.',
     author: 'Juliana R.',
-    image: 'https://picsum.photos/seed/test1/200/200',
+    image: 'https://i.imgur.com/n9vikdJ.png',
     hint: 'woman portrait',
   },
   {
     quote: 'Vale muito mais que o preço. Cada semana descubro um segredo novo.',
     author: 'Marcos L.',
-    image: 'https://picsum.photos/seed/test2/200/200',
+    image: 'https://i.imgur.com/Ef6zsCL.png',
     hint: 'man portrait',
   },
   {
     quote: 'Transformei meus jantares com amigos. Todo mundo fica chocado com os sabores.',
     author: 'Beatriz S.',
-    image: 'https://picsum.photos/seed/test3/200/200',
+    image: 'https://i.imgur.com/jW3CQeP.png',
     hint: 'woman smiling',
   },
     {
     quote: 'A IA é genial. Cria pratos incríveis com o que tenho na geladeira.',
     author: 'Lucas P.',
-    image: 'https://picsum.photos/seed/test4/200/200',
+    image: 'https://i.imgur.com/m3IB8eg.png',
     hint: 'happy man',
   },
 ];
@@ -391,7 +391,7 @@ export default function Home() {
                                 alt={testimonial.author}
                                 width={40}
                                 height={40}
-                                className="rounded-full"
+                                className="rounded-full object-cover"
                                 data-ai-hint={testimonial.hint}
                               />
                               <div>
@@ -413,17 +413,17 @@ export default function Home() {
             <section className="py-16 sm:py-24">
               <div className="container mx-auto px-4">
                 <div className="grid md:grid-cols-2 gap-8 md:gap-16 items-center">
-                  <div className="flex justify-center md:order-1">
+                  <div className="flex justify-center md:order-2 text-center">
                      <Image
                       src="https://i.imgur.com/lpWzA7Z.png"
                       alt="Tecnologia Gourmet Secreta - Chef Robô"
                       width={600}
                       height={700}
-                      className="rounded-xl shadow-2xl mx-auto w-full max-w-md h-auto shadow-primary/20 border-2 border-primary/30"
+                      className="rounded-xl shadow-2xl w-full max-w-md h-auto shadow-primary/20 border-2 border-primary/30"
                       data-ai-hint="ai chef assistant"
                     />
                   </div>
-                  <div className="flex flex-col items-center text-center md:text-left md:items-start md:order-2">
+                  <div className="flex flex-col items-center text-center md:text-left md:items-start md:order-1">
                     <div className="mb-8 md:mb-0">
                       <h2 className="font-headline text-3xl sm:text-5xl md:text-6xl uppercase leading-tight mb-8">
                         A inteligência que muda tudo 🍃🤖
