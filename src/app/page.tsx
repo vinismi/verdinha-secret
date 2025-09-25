@@ -393,7 +393,7 @@ export default function Home() {
                                 src={testimonial.image}
                                 alt={`Depoimento ${index + 1}`}
                                 fill
-                                className="object-cover"
+                                className="object-contain"
                                 data-ai-hint={testimonial.hint}
                               />
                             </CardContent>
