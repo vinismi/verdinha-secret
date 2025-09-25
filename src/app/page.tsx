@@ -501,10 +501,14 @@ export default function Home() {
                              De <span className="line-through opacity-70">R$97,00</span> por
                           </p>
                           <p className="text-4xl sm:text-5xl md:text-6xl font-headline uppercase text-accent my-2 flex items-center justify-center gap-3">
-                             <Sparkles className='w-8 h-8 sm:w-10 sm:h-10 opacity-80' /> Apenas R$21,99 <Sparkles className='w-8 h-8 sm:w-10 sm:h-10 opacity-80' />
+                             <Sparkles className='w-8 h-8 sm:w-10 sm:h-10 opacity-80' /> Apenas R$21,99 <Sparkles className='w-8 h-8 sm:w-10 smh-10 opacity-80' />
                           </p>
-                          <p className="text-sm sm:text-base text-white/80 italic">
-                            Pagamento único, vitalício. Mais barato que um correzinho ☕ e você leva o segredo para sempre.
+                          <p className="text-sm sm:text-base text-white/80 not-italic">
+                            Pagamento único, vitalício.{' '}
+                            <strong className="text-accent font-semibold">
+                              Mais barato que um correzinho ☕
+                            </strong>{' '}
+                            e você leva o segredo para sempre.
                           </p>
                           <CTAButton className="mt-8 w-full sm:w-auto">Liberar meu Acesso Vitalício Agora 🌿✨</CTAButton>
                           <p className="mt-4 text-xs text-white/60">O portal está aberto, mas só quem se atreve pode atravessar.</p>
