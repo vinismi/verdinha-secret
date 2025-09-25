@@ -417,17 +417,17 @@ export default function Home() {
             <section className="py-16 sm:py-24">
               <div className="container mx-auto px-4">
                 <div className="grid md:grid-cols-2 gap-8 md:gap-16 items-center">
-                  <div className="md:order-2">
+                  <div className="md:order-2 flex flex-col items-center md:items-start">
                     <div className="text-center md:text-left mb-8 md:mb-0">
                       <h2 className="font-headline text-3xl sm:text-5xl md:text-6xl uppercase leading-tight mb-8">
                         A inteligência que muda tudo 🍃🤖
                       </h2>
-                      <div className="text-lg space-y-4 text-left">
+                      <div className="text-lg space-y-4 text-center md:text-left">
                         <p className='text-foreground/80'>Além de receitas, cardápios e experiências, o Verdinha’s Secret esconde um recurso que ninguém mais tem.</p>
                         <p>A <strong className="text-primary">Tecnologia Gourmet Secreta</strong> é a sua chef particular da folha sagrada:</p>
                       </div>
                     </div>
-                    <div className="mt-8 space-y-4">
+                    <div className="mt-8 space-y-4 w-full max-w-md">
                       {techBenefits.map((item, index) => {
                         const Icon = item.icon;
                         return (
@@ -443,12 +443,12 @@ export default function Home() {
                         )
                       })}
                     </div>
-                     <p className='mt-8 text-left'>É como ter uma verdadeira chef-robô exclusiva, feita só para quem atravessa o portal.</p>
+                     <p className='mt-8 text-center md:text-left'>É como ter uma verdadeira chef-robô exclusiva, feita só para quem atravessa o portal.</p>
                      <Button variant="link" className="mt-4 p-0 h-auto text-base text-accent hover:text-accent/90">
                        Quero experimentar a Tecnologia Gourmet Secreta <ArrowRight className="w-4 h-4 ml-2" />
                      </Button>
                   </div>
-                  <div className="md:order-1">
+                  <div className="md:order-1 flex justify-center">
                      <Image
                       src="https://i.imgur.com/lpWzA7Z.png"
                       alt="Tecnologia Gourmet Secreta - Chef Robô"
