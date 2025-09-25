@@ -424,8 +424,8 @@ export default function Home() {
             {/* AI Tech Section */}
             <section className="py-16 sm:py-24">
               <div className="container mx-auto px-4">
-                <div className="flex flex-col md:grid md:grid-cols-2 gap-8 md:gap-16 items-center text-center">
-                  <div className="md:order-2">
+                <div className="flex flex-col md:grid md:grid-cols-2 gap-8 md:gap-16 items-center">
+                  <div className="md:order-2 text-center">
                      <Image
                       src="https://i.imgur.com/lpWzA7Z.png"
                       alt="Tecnologia Gourmet Secreta - Chef Robô"
