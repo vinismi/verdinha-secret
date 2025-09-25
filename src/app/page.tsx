@@ -123,11 +123,11 @@ const testimonials = [
 ];
 
 const offerStack = [
-    { icon: Leaf, title: 'Plataforma secreta gourmet', description: 'Seu laboratório culinário exclusivo, sempre à sua disposição.' },
-    { icon: Target, title: 'Cardápios temáticos completos', description: 'Experiências prontas para impressionar em qualquer ocasião.' },
-    { icon: Donut, title: 'Receitas criativas e exclusivas', description: 'Do clássico ao sofisticado, tudo com o tempero verde da folha sagrada.' },
-    { icon: Bot, title: 'Tecnologia gourmet da verdinha', description: 'Recursos inteligentes que elevam sua cozinha a outro patamar.' },
-    { icon: Flame, title: 'Experiências e desafios secretos', description: 'Prove sua criatividade e conquiste seu lugar como Mestre Verde.' },
+    { icon: Leaf, title: 'Plataforma Secreta Gourmet', description: 'O seu laboratório secreto de criações culinárias, onde todo prato se transforma.' },
+    { icon: Target, title: 'Cardápios Temáticos Exclusivos', description: 'Receitas perfeitas para qualquer ocasião, montadas para impressionar e encantar.' },
+    { icon: Donut, title: 'Receitas Criativas e Exclusivas', description: 'Acesso a receitas únicas, que ninguém mais vai encontrar. Você vai criar como um verdadeiro chef.' },
+    { icon: Bot, title: 'Tecnologia Gourmet da Verdinha', description: 'A chef-robô que sugere combinações, cria pratos personalizados e transforma sua cozinha com o toque secreto da folha sagrada.' },
+    { icon: Flame, title: 'Desafios e Experiências Secretas', description: 'Prove suas habilidades e desafie-se para desbloquear novas receitas e conquistas secretas.' },
 ]
 
 const faqItems = [
@@ -473,23 +473,24 @@ export default function Home() {
                     data-ai-hint="dark elegant texture"
                   />
                  <div className="container mx-auto px-4 text-center">
-                    <h2 className="font-headline text-3xl sm:text-5xl md:text-6xl uppercase mb-4 leading-tight">Acesso vitalício ao segredo mais verde e gourmet do mundo</h2>
+                    <h2 className="font-headline text-3xl sm:text-5xl md:text-6xl uppercase mb-4 leading-tight">Acesso Vitalício ao Verdadeiro Segredo Verde 🌿✨</h2>
                      <p className="max-w-3xl mx-auto mb-12 text-base sm:text-lg text-white/80">
-                        Ao entrar hoje, você libera um ecossistema secreto completo, feito para transformar qualquer prato em uma experiência única — e colocar você na jornada até se tornar um verdadeiro Mestre Verde.
+                        Hoje, você tem a chance de acessar o segredo mais verde e gourmet do mundo, um <strong>ecossistema exclusivo</strong>, feito para transformar qualquer prato simples em uma experiência única. Ao entrar, você começa a jornada rumo ao título de <strong>Mestre Verde</strong>, explorando segredos que poucos têm acesso.
                      </p>
                      
                     <div className="bg-card/50 backdrop-blur-sm border-2 border-accent/50 rounded-2xl p-6 sm:p-10 max-w-4xl mx-auto shadow-2xl shadow-accent/10">
                         <h3 className='font-headline text-2xl sm:text-3xl normal-case mb-8 text-white'>O que está incluído no seu acesso secreto:</h3>
-                        <div className="grid grid-cols-1 sm:grid-cols-2 gap-x-6 gap-y-6 mb-10 text-left">
+                        <div className="grid grid-cols-1 sm:grid-cols-2 gap-x-8 gap-y-8 mb-10 text-left">
                             {offerStack.map(item => {
                                 const Icon = item.icon
                                 return (
-                                    <div key={item.title} className="flex items-center gap-4 text-white">
-                                        <div className="w-10 h-10 flex items-center justify-center rounded-lg bg-accent flex-shrink-0">
+                                    <div key={item.title} className="flex items-start gap-4 text-white">
+                                        <div className="w-10 h-10 flex items-center justify-center rounded-lg bg-accent flex-shrink-0 mt-1">
                                             <Icon className="w-5 h-5 text-accent-foreground" />
                                         </div>
                                         <div>
-                                            <h4 className="text-base font-semibold">{item.title}</h4>
+                                            <h4 className="text-lg font-semibold">{item.title}</h4>
+                                            <p className="text-sm text-white/70">{item.description}</p>
                                         </div>
                                     </div>
                                 )
@@ -502,10 +503,11 @@ export default function Home() {
                           <p className="text-4xl sm:text-5xl md:text-6xl font-headline uppercase text-accent my-2 flex items-center justify-center gap-3">
                              <Sparkles className='w-8 h-8 sm:w-10 sm:h-10 opacity-80' /> Apenas R$21,99 <Sparkles className='w-8 h-8 sm:w-10 sm:h-10 opacity-80' />
                           </p>
-                          <p className="text-sm sm:text-base text-white/80">
-                            Pagamento único e vitalício (mais barato que um correzinho ☕).
+                          <p className="text-sm sm:text-base text-white/80 italic">
+                            Pagamento único, vitalício. Mais barato que um correzinho ☕ e você leva o segredo para sempre.
                           </p>
-                          <CTAButton className="mt-8 w-full sm:w-auto">Liberar meu acesso vitalício agora</CTAButton>
+                          <CTAButton className="mt-8 w-full sm:w-auto">Liberar meu Acesso Vitalício Agora 🌿✨</CTAButton>
+                          <p className="mt-4 text-xs text-white/60">O portal está aberto, mas só quem se atreve pode atravessar.</p>
                         </div>
                     </div>
                  </div>
