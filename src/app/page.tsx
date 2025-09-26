@@ -418,28 +418,26 @@ export default function Home() {
             {/* AI Tech Section */}
             <section className="py-16 sm:py-24">
               <div className="container mx-auto px-4">
-                <div className="flex flex-col md:grid md:grid-cols-2 gap-12 md:gap-16 items-center">
-                  <div className="flex justify-center md:order-2">
+                <div className="grid md:grid-cols-2 gap-12 md:gap-16 items-center">
+                  <div className="md:order-2 flex justify-center">
                      <Image
                       src="https://i.imgur.com/lpWzA7Z.png"
                       alt="Tecnologia Gourmet Secreta - Chef Robô"
                       width={600}
                       height={700}
-                      className="rounded-xl shadow-2xl w-full max-w-sm h-auto shadow-primary/20 border-2 border-primary/30"
+                      className="rounded-xl shadow-2xl w-full max-w-[320px] sm:max-w-sm h-auto shadow-primary/20 border-2 border-primary/30"
                       data-ai-hint="ai chef assistant"
                     />
                   </div>
-                  <div className="flex flex-col items-center text-center md:items-start md:text-left md:order-1">
-                    <div className="w-full">
-                      <h2 className="font-headline text-3xl sm:text-5xl uppercase leading-tight mb-8">
-                        A inteligência que muda tudo 🍃🤖
-                      </h2>
-                      <div className="text-lg space-y-4">
-                        <p className='text-foreground/80'>Além de receitas, cardápios e experiências, o Verdinha’s Secret esconde um recurso que ninguém mais tem.</p>
-                        <p>A <strong className="text-primary">Tecnologia Gourmet Secreta</strong> é a sua chef particular da folha sagrada:</p>
-                      </div>
+                  <div className="md:order-1 text-center md:text-left">
+                    <h2 className="font-headline text-3xl sm:text-5xl uppercase leading-tight mb-8">
+                      A inteligência que muda tudo 🍃🤖
+                    </h2>
+                    <div className="text-lg space-y-4 text-foreground/80">
+                      <p>Além de receitas, cardápios e experiências, o Verdinha’s Secret esconde um recurso que ninguém mais tem.</p>
+                      <p>A <strong className="text-primary">Tecnologia Gourmet Secreta</strong> é a sua chef particular da folha sagrada:</p>
                     </div>
-                    <div className="mt-8 space-y-4 w-full">
+                    <div className="mt-8 space-y-4 w-full max-w-md mx-auto md:mx-0">
                       {techBenefits.map((item, index) => {
                         const Icon = item.icon;
                         return (
@@ -456,11 +454,13 @@ export default function Home() {
                       })}
                     </div>
                      <p className='mt-8'>É como ter uma verdadeira chef-robô exclusiva, feita só para quem atravessa o portal.</p>
-                     <a href={checkoutUrl} target="_blank" rel="noopener noreferrer">
-                      <Button variant="link" className="mt-4 p-0 h-auto text-base text-accent hover:text-accent/90">
-                        Quero experimentar a Tecnologia Gourmet Secreta <ArrowRight className="w-4 h-4 ml-2" />
-                      </Button>
-                     </a>
+                     <div className='flex justify-center md:justify-start'>
+                       <a href={checkoutUrl} target="_blank" rel="noopener noreferrer">
+                        <Button variant="link" className="mt-4 p-0 h-auto text-base text-accent hover:text-accent/90">
+                          Quero experimentar a Tecnologia Gourmet Secreta <ArrowRight className="w-4 h-4 ml-2" />
+                        </Button>
+                       </a>
+                     </div>
                   </div>
                 </div>
               </div>
