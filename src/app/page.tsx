@@ -392,15 +392,15 @@ export default function Home() {
                   <CarouselContent>
                     {testimonials.map((testimonial, index) => (
                       <CarouselItem key={index} className="md:basis-1/2 lg:basis-1/3">
-                        <div className="p-1">
-                          <Card className="overflow-hidden border-2 border-border/20 shadow-lg group-hover:shadow-accent/20 group-hover:border-accent transition-all duration-300">
-                            <CardContent className="p-0 aspect-[9/16] flex items-center justify-center">
+                        <div className="p-1 h-full">
+                          <Card className="overflow-hidden border-2 border-border/20 shadow-lg h-full bg-black/20 flex flex-col">
+                            <CardContent className="p-2 sm:p-4 flex-grow flex items-center justify-center">
                               <Image
                                 src={testimonial.image}
                                 alt={`Depoimento ${index + 1}`}
                                 width={450}
                                 height={800}
-                                className="object-cover w-full h-full"
+                                className="object-contain w-full h-full"
                                 data-ai-hint={testimonial.hint}
                               />
                             </CardContent>
@@ -420,7 +420,7 @@ export default function Home() {
             <section className="py-16 sm:py-24">
               <div className="container mx-auto px-4">
                 <div className="grid md:grid-cols-2 gap-12 md:gap-16 items-center">
-                  <div className="md:order-2 flex justify-center">
+                  <div className="flex justify-center md:order-2">
                      <Image
                       src="https://i.imgur.com/lpWzA7Z.png"
                       alt="Tecnologia Gourmet Secreta - Chef Robô"
@@ -430,7 +430,7 @@ export default function Home() {
                       data-ai-hint="ai chef assistant"
                     />
                   </div>
-                  <div className="flex flex-col items-center text-center md:text-left md:items-start md:order-1">
+                  <div className="flex flex-col items-center text-center md:items-start md:order-1">
                     <div className="w-full">
                       <h2 className="font-headline text-3xl sm:text-5xl md:text-6xl uppercase leading-tight mb-8">
                         A inteligência que muda tudo 🍃🤖
@@ -508,7 +508,7 @@ export default function Home() {
                           <p className="text-4xl sm:text-5xl md:text-6xl font-headline uppercase text-accent my-2 flex items-center justify-center gap-3">
                              <Sparkles className='w-8 h-8 sm:w-10 sm:h-10 opacity-80' /> Apenas R$21,99 <Sparkles className='w-8 h-8 sm:w-10 smh-10 opacity-80' />
                           </p>
-                          <p className="text-sm sm:text-base text-white/80 not-italic">
+                           <p className="text-sm sm:text-base text-white/80 not-italic">
                             Pagamento único, vitalício.{' '}
                             <strong className="text-accent font-semibold">
                               Mais barato que um correzinho ☕
