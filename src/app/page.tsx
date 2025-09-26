@@ -414,12 +414,11 @@ export default function Home() {
                 </Carousel>
               </div>
             </section>
-            
 
             {/* AI Tech Section */}
             <section className="py-16 sm:py-24">
               <div className="container mx-auto px-4">
-                <div className="grid md:grid-cols-2 gap-12 md:gap-16 items-center">
+                <div className="flex flex-col md:grid md:grid-cols-2 gap-12 md:gap-16 items-center">
                   <div className="flex justify-center md:order-2">
                      <Image
                       src="https://i.imgur.com/lpWzA7Z.png"
@@ -435,12 +434,12 @@ export default function Home() {
                       <h2 className="font-headline text-3xl sm:text-5xl uppercase leading-tight mb-8">
                         A inteligência que muda tudo 🍃🤖
                       </h2>
-                      <div className="text-lg space-y-4 max-w-xl mx-auto md:mx-0">
+                      <div className="text-lg space-y-4">
                         <p className='text-foreground/80'>Além de receitas, cardápios e experiências, o Verdinha’s Secret esconde um recurso que ninguém mais tem.</p>
                         <p>A <strong className="text-primary">Tecnologia Gourmet Secreta</strong> é a sua chef particular da folha sagrada:</p>
                       </div>
                     </div>
-                    <div className="mt-8 space-y-4 w-full max-w-md mx-auto md:mx-0">
+                    <div className="mt-8 space-y-4 w-full">
                       {techBenefits.map((item, index) => {
                         const Icon = item.icon;
                         return (
@@ -449,14 +448,14 @@ export default function Home() {
                                 <Icon className="w-5 h-5 text-accent-foreground" />
                             </div>
                             <div>
-                                <h4 className="text-lg font-bold text-foreground">{item.title}</h4>
-                                <p className="text-sm text-foreground/70">{item.description}</p>
+                                <h4 className="text-lg font-bold text-foreground text-left">{item.title}</h4>
+                                <p className="text-sm text-foreground/70 text-left">{item.description}</p>
                             </div>
                           </div>
                         )
                       })}
                     </div>
-                     <p className='mt-8 max-w-xl mx-auto md:mx-0'>É como ter uma verdadeira chef-robô exclusiva, feita só para quem atravessa o portal.</p>
+                     <p className='mt-8'>É como ter uma verdadeira chef-robô exclusiva, feita só para quem atravessa o portal.</p>
                      <a href={checkoutUrl} target="_blank" rel="noopener noreferrer">
                       <Button variant="link" className="mt-4 p-0 h-auto text-base text-accent hover:text-accent/90">
                         Quero experimentar a Tecnologia Gourmet Secreta <ArrowRight className="w-4 h-4 ml-2" />
@@ -506,7 +505,7 @@ export default function Home() {
                              De <span className="line-through opacity-70">R$97,00</span> por
                           </p>
                           <p className="text-4xl sm:text-5xl md:text-6xl font-headline uppercase text-accent my-2 flex items-center justify-center gap-3">
-                             <Sparkles className='w-8 h-8 sm:w-10 sm:h-10 opacity-80' /> Apenas R$21,99 <Sparkles className='w-8 h-8 sm:w-10 smh-10 opacity-80' />
+                             <Sparkles className='w-8 h-8 sm:w-10 sm:h-10 opacity-80' /> Apenas R$21,99 <Sparkles className='w-8 h-8 sm:w-10 sm:h-10 opacity-80' />
                           </p>
                            <p className="text-sm sm:text-base text-white/80 not-italic">
                             Pagamento único, vitalício.{' '}
