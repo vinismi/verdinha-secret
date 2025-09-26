@@ -425,15 +425,15 @@ export default function Home() {
                       alt="Tecnologia Gourmet Secreta - Chef Robô"
                       width={600}
                       height={700}
-                      className="rounded-xl shadow-2xl w-full max-w-[240px] sm:max-w-sm h-auto shadow-primary/20 border-2 border-primary/30"
+                      className="rounded-xl shadow-2xl w-full max-w-[280px] sm:max-w-sm h-auto shadow-primary/20 border-2 border-primary/30"
                       data-ai-hint="ai chef assistant"
                     />
                   </div>
                   <div className="mt-8 md:mt-0 md:order-1">
-                    <h2 className="font-headline text-2xl sm:text-5xl uppercase leading-tight mb-8">
+                    <h2 className="font-headline text-3xl sm:text-5xl uppercase leading-tight mb-8">
                       A inteligência que muda tudo 🍃🤖
                     </h2>
-                    <div className="text-sm sm:text-lg space-y-4 text-foreground/80">
+                    <div className="text-base sm:text-lg space-y-4 text-foreground/80">
                       <p>Além de receitas, cardápios e experiências, o Verdinha’s Secret esconde um recurso que ninguém mais tem.</p>
                       <p>A <strong className="text-primary">Tecnologia Gourmet Secreta</strong> é a sua chef particular da folha sagrada:</p>
                     </div>
@@ -453,7 +453,7 @@ export default function Home() {
                         )
                       })}
                     </div>
-                     <p className='mt-8 text-sm sm:text-lg'>É como ter uma verdadeira chef-robô exclusiva, feita só para quem atravessa o portal.</p>
+                     <p className='mt-8 text-base sm:text-lg'>É como ter uma verdadeira chef-robô exclusiva, feita só para quem atravessa o portal.</p>
                      <div className='flex justify-center md:justify-start'>
                        <a href={checkoutUrl} target="_blank" rel="noopener noreferrer">
                         <Button variant="link" className="mt-4 p-0 h-auto text-base text-accent hover:text-accent/90">
