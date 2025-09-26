@@ -430,9 +430,9 @@ export default function Home() {
                       data-ai-hint="ai chef assistant"
                     />
                   </div>
-                  <div className="flex flex-col items-center text-center md:items-start md:order-1">
+                  <div className="flex flex-col items-center text-center md:items-start md:text-left md:order-1">
                     <div className="w-full">
-                      <h2 className="font-headline text-3xl sm:text-5xl md:text-6xl uppercase leading-tight mb-8">
+                      <h2 className="font-headline text-3xl sm:text-5xl uppercase leading-tight mb-8">
                         A inteligência que muda tudo 🍃🤖
                       </h2>
                       <div className="text-lg space-y-4 max-w-xl mx-auto md:mx-0">
