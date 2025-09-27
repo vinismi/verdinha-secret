@@ -488,7 +488,7 @@ export default function Home() {
                     <h2 className="font-headline text-3xl sm:text-4xl uppercase leading-tight mb-8">
                       A inteligência que muda tudo 🍃🤖
                     </h2>
-                    <div className="text-base sm:text-base space-y-4 text-foreground/80">
+                    <div className="text-sm sm:text-base space-y-4 text-foreground/80">
                       <p>Além de receitas, cardápios e experiências, o Verdinha’s Secret esconde um recurso que ninguém mais tem.</p>
                       <p>A <strong className="text-primary">Tecnologia Gourmet Secreta</strong> é a sua chef particular da folha sagrada:</p>
                     </div>
@@ -501,14 +501,14 @@ export default function Home() {
                                 <Icon className="w-5 h-5 text-accent-foreground" />
                             </div>
                             <div>
-                                <h4 className="text-base font-bold text-foreground text-left">{item.title}</h4>
+                                <h4 className="text-base font-semibold text-foreground text-left">{item.title}</h4>
                                 <p className="text-sm text-foreground/70 text-left">{item.description}</p>
                             </div>
                           </div>
                         )
                       })}
                     </div>
-                     <p className='mt-8 text-base sm:text-base'>É como ter uma verdadeira chef-robô exclusiva, feita só para quem atravessa o portal.</p>
+                     <p className='mt-8 text-sm sm:text-base'>É como ter uma verdadeira chef-robô exclusiva, feita só para quem atravessa o portal.</p>
                      <div className='flex justify-center'>
                        <a href={checkoutUrl} target="_blank" rel="noopener noreferrer">
                         <Button variant="link" className="mt-4 p-0 h-auto text-base text-accent hover:text-accent/90">
