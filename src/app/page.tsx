@@ -485,10 +485,10 @@ export default function Home() {
                     />
                   </div>
                   <div className="mt-8 md:mt-0 md:order-1">
-                    <h2 className="font-headline text-3xl sm:text-4xl uppercase leading-tight mb-8">
+                    <h2 className="font-headline text-2xl sm:text-4xl uppercase leading-tight mb-8">
                       A inteligência que muda tudo 🍃🤖
                     </h2>
-                    <div className="text-sm sm:text-base space-y-4 text-foreground/80">
+                    <div className="text-sm space-y-4 text-foreground/80">
                       <p>Além de receitas, cardápios e experiências, o Verdinha’s Secret esconde um recurso que ninguém mais tem.</p>
                       <p>A <strong className="text-primary">Tecnologia Gourmet Secreta</strong> é a sua chef particular da folha sagrada:</p>
                     </div>
@@ -496,23 +496,23 @@ export default function Home() {
                       {techBenefits.map((item, index) => {
                         const Icon = item.icon;
                         return (
-                          <div key={index} className="flex items-start gap-4">
-                            <div className="w-10 h-10 flex items-center justify-center rounded-full bg-accent flex-shrink-0 mt-1">
-                                <Icon className="w-5 h-5 text-accent-foreground" />
+                          <div key={index} className="flex items-start gap-3">
+                            <div className="w-8 h-8 flex items-center justify-center rounded-full bg-accent flex-shrink-0 mt-1">
+                                <Icon className="w-4 h-4 text-accent-foreground" />
                             </div>
                             <div>
-                                <h4 className="text-base font-semibold text-foreground text-left">{item.title}</h4>
-                                <p className="text-sm text-foreground/70 text-left">{item.description}</p>
+                                <h4 className="text-sm font-semibold text-foreground text-left">{item.title}</h4>
+                                <p className="text-xs text-foreground/70 text-left">{item.description}</p>
                             </div>
                           </div>
                         )
                       })}
                     </div>
-                     <p className='mt-8 text-sm sm:text-base'>É como ter uma verdadeira chef-robô exclusiva, feita só para quem atravessa o portal.</p>
+                     <p className='mt-8 text-sm'>É como ter uma verdadeira chef-robô exclusiva, feita só para quem atravessa o portal.</p>
                      <div className='flex justify-center'>
                        <a href={checkoutUrl} target="_blank" rel="noopener noreferrer">
-                        <Button variant="link" className="mt-4 p-0 h-auto text-base text-accent hover:text-accent/90">
-                          Quero experimentar a Tecnologia Gourmet Secreta <ArrowRight className="w-4 h-4 ml-2" />
+                        <Button variant="link" className="mt-4 p-0 h-auto text-accent hover:text-accent/90 text-sm">
+                          Quero experimentar a Tecnologia Gourmet Secreta <ArrowRight className="w-4 h-4 ml-1" />
                         </Button>
                        </a>
                      </div>
