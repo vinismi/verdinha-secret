@@ -1,6 +1,6 @@
 'use client';
 
-import React, { useState, useEffect } from 'react';
+import React, from 'react';
 import Image from 'next/image';
 import {
   UtensilsCrossed,
@@ -209,17 +209,30 @@ const CTAButton = ({
 );
 
 export default function Home() {
-  const [contentUnlocked, setContentUnlocked] = useState(false);
+  const [contentUnlocked, setContentUnlocked] = React.useState(false);
 
-  useEffect(() => {
+  React.useEffect(() => {
+    // Check if the user has already seen the content
+    const hasUnlocked = sessionStorage.getItem('verdinhaSecretUnlocked');
+    if (hasUnlocked) {
+      setContentUnlocked(true);
+      return;
+    }
+
     const unlockTimeout = setTimeout(() => {
       setContentUnlocked(true);
+      sessionStorage.setItem('verdinhaSecretUnlocked', 'true');
     }, 180000); // 3 minutes
 
     return () => {
       clearTimeout(unlockTimeout);
     };
   }, []);
+
+  const handleUnlock = () => {
+    setContentUnlocked(true);
+    sessionStorage.setItem('verdinhaSecretUnlocked', 'true');
+  };
 
   return (
     <div className="flex flex-col min-h-screen bg-background overflow-x-hidden">
@@ -261,7 +274,7 @@ export default function Home() {
         <section className="py-16 sm:py-24">
           <div className="container mx-auto px-4 text-center">
             <h2 className="font-headline uppercase text-3xl sm:text-5xl md:text-6xl text-primary mb-8 sm:mb-12 leading-tight">
-              Descubra em poucos minutos
+              Assista ao vídeo secreto antes que saia do ar
             </h2>
             <div className="relative max-w-md mx-auto aspect-[9/16] rounded-xl overflow-hidden shadow-2xl shadow-primary/10 border-2 border-primary/20 group">
               <WistiaPlayer />
@@ -269,14 +282,14 @@ export default function Home() {
             {!contentUnlocked && (
               <div className="mt-8 text-center flex flex-col items-center gap-4 px-4">
                 <Button
-                  onClick={() => setContentUnlocked(true)}
+                  onClick={handleUnlock}
                   size="lg"
                   className="bg-primary hover:bg-primary/90 text-primary-foreground font-semibold text-base sm:text-lg py-4 px-8 rounded-full shadow-lg shadow-primary/20 enabled:animate-pulse w-full max-w-sm"
                 >
                   Quero ver o resto do segredo 🍃
                 </Button>
                 <Button
-                    onClick={() => setContentUnlocked(true)}
+                    onClick={handleUnlock}
                     variant="link"
                     className="text-foreground/70"
                 >
@@ -459,8 +472,8 @@ export default function Home() {
             </section>
 
             {/* AI Tech Section */}
-            <section className="py-16 sm:py-24 px-4">
-              <div className="container mx-auto px-4 flex flex-col items-center text-center md:grid md:grid-cols-2 md:gap-12 md:text-left">
+            <section className="py-16 sm:py-24">
+              <div className="container mx-auto px-4 flex flex-col items-center text-center">
                   <div className="flex justify-center md:order-2">
                      <Image
                       src="https://i.imgur.com/lpWzA7Z.png"
@@ -479,7 +492,7 @@ export default function Home() {
                       <p>Além de receitas, cardápios e experiências, o Verdinha’s Secret esconde um recurso que ninguém mais tem.</p>
                       <p>A <strong className="text-primary">Tecnologia Gourmet Secreta</strong> é a sua chef particular da folha sagrada:</p>
                     </div>
-                    <div className="mt-8 space-y-4 w-full max-w-md mx-auto md:mx-0">
+                    <div className="mt-8 space-y-4 w-full max-w-md mx-auto">
                       {techBenefits.map((item, index) => {
                         const Icon = item.icon;
                         return (
@@ -496,7 +509,7 @@ export default function Home() {
                       })}
                     </div>
                      <p className='mt-8 text-base sm:text-base'>É como ter uma verdadeira chef-robô exclusiva, feita só para quem atravessa o portal.</p>
-                     <div className='flex justify-center md:justify-start'>
+                     <div className='flex justify-center'>
                        <a href={checkoutUrl} target="_blank" rel="noopener noreferrer">
                         <Button variant="link" className="mt-4 p-0 h-auto text-base text-accent hover:text-accent/90">
                           Quero experimentar a Tecnologia Gourmet Secreta <ArrowRight className="w-4 h-4 ml-2" />
@@ -637,5 +650,3 @@ export default function Home() {
     </div>
   );
 }
-
-    
