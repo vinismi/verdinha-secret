@@ -129,6 +129,7 @@ const communityCreations = [
   { image: 'https://i.imgur.com/UDzq33a.png', hint: 'delicious plate', user: 'Verdinha Lover' },
   { image: 'https://i.imgur.com/VPYpd06.png', hint: 'creative food', user: 'Mestre Cuca' },
   { image: 'https://i.imgur.com/unzvtrv.png', hint: 'tasty creation', user: 'Cozinheiro Anônimo' },
+  { image: 'https://i.imgur.com/UDpnTc3.png', hint: 'new creation', user: 'Chef Inovador' },
 ];
 
 const offerStack = [
@@ -403,13 +404,13 @@ export default function Home() {
                       <CarouselItem key={index} className="md:basis-1/2 lg:basis-1/3">
                         <div className="p-1 h-full">
                            <Card className="overflow-hidden border-2 border-border/20 shadow-lg h-full bg-black/20 flex flex-col justify-center">
-                             <CardContent className="p-2 sm:p-4 flex-grow flex items-center justify-center">
+                             <CardContent className="p-2 sm:p-4 flex flex-col justify-center items-center">
                                <Image
                                 src={testimonial.image}
                                 alt={`Depoimento ${index + 1}`}
                                 width={450}
                                 height={800}
-                                className="object-contain w-full h-full"
+                                className="object-contain w-auto h-auto max-h-[70vh]"
                                 data-ai-hint={testimonial.hint}
                               />
                             </CardContent>
@@ -438,7 +439,7 @@ export default function Home() {
                     Veja como outros chefs estão usando o Verdinha’s Secret para criar pratos incríveis. Compartilhe suas próprias receitas, inspire-se e descubra novas combinações. Sua criatividade gourmet agora faz parte da comunidade!
                   </p>
                 </div>
-                <div className="grid grid-cols-2 md:grid-cols-4 gap-4 sm:gap-6">
+                <div className="grid grid-cols-2 md:grid-cols-3 gap-4 sm:gap-6">
                   {communityCreations.map((creation, index) => (
                     <div key={index} className="group relative overflow-hidden rounded-lg border-2 border-border/20 shadow-lg aspect-square">
                       <Image
@@ -465,17 +466,17 @@ export default function Home() {
                      <Image
                       src="https://i.imgur.com/lpWzA7Z.png"
                       alt="Tecnologia Gourmet Secreta - Chef Robô"
-                      width={600}
+                      width={320}
                       height={700}
-                      className="rounded-xl shadow-2xl w-full max-w-[280px] sm:max-w-sm h-auto shadow-primary/20 border-2 border-primary/30"
+                      className="rounded-xl shadow-2xl w-full max-w-[320px] h-auto shadow-primary/20 border-2 border-primary/30"
                       data-ai-hint="ai chef assistant"
                     />
                   </div>
                   <div className="mt-8 md:mt-0 md:order-1">
-                    <h2 className="font-headline text-3xl sm:text-5xl uppercase leading-tight mb-8">
+                    <h2 className="font-headline text-2xl sm:text-4xl uppercase leading-tight mb-8">
                       A inteligência que muda tudo 🍃🤖
                     </h2>
-                    <div className="text-base sm:text-lg space-y-4 text-foreground/80">
+                    <div className="text-sm sm:text-base space-y-4 text-foreground/80">
                       <p>Além de receitas, cardápios e experiências, o Verdinha’s Secret esconde um recurso que ninguém mais tem.</p>
                       <p>A <strong className="text-primary">Tecnologia Gourmet Secreta</strong> é a sua chef particular da folha sagrada:</p>
                     </div>
@@ -488,14 +489,14 @@ export default function Home() {
                                 <Icon className="w-5 h-5 text-accent-foreground" />
                             </div>
                             <div>
-                                <h4 className="text-lg font-bold text-foreground text-left">{item.title}</h4>
+                                <h4 className="text-base font-bold text-foreground text-left">{item.title}</h4>
                                 <p className="text-sm text-foreground/70 text-left">{item.description}</p>
                             </div>
                           </div>
                         )
                       })}
                     </div>
-                     <p className='mt-8 text-base sm:text-lg'>É como ter uma verdadeira chef-robô exclusiva, feita só para quem atravessa o portal.</p>
+                     <p className='mt-8 text-sm sm:text-base'>É como ter uma verdadeira chef-robô exclusiva, feita só para quem atravessa o portal.</p>
                      <div className='flex justify-center md:justify-start'>
                        <a href={checkoutUrl} target="_blank" rel="noopener noreferrer">
                         <Button variant="link" className="mt-4 p-0 h-auto text-base text-accent hover:text-accent/90">
@@ -638,3 +639,5 @@ export default function Home() {
     </div>
   );
 }
+
+    
