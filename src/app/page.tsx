@@ -30,7 +30,8 @@ import {
   Salad,
   ChefHat,
   Clock4,
-  ArrowRight
+  ArrowRight,
+  Camera
 } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
@@ -120,6 +121,13 @@ const testimonials = [
     image: 'https://i.imgur.com/0TF6w3S.png',
     hint: 'testimonial screenshot 6',
   }
+];
+
+const communityCreations = [
+  { image: 'https://picsum.photos/seed/plate1/500/500', hint: 'gourmet plate', user: 'Chef Anônimo' },
+  { image: 'https://picsum.photos/seed/plate2/500/500', hint: 'colorful dish', user: 'Mestre Cuca' },
+  { image: 'https://picsum.photos/seed/plate3/500/500', hint: 'fusion food', user: 'Verdinha Lover' },
+  { image: 'https://picsum.photos/seed/plate4/500/500', hint: 'artisan recipe', user: 'Cozinheiro Secreto' },
 ];
 
 const offerStack = [
@@ -393,9 +401,9 @@ export default function Home() {
                     {testimonials.map((testimonial, index) => (
                       <CarouselItem key={index} className="md:basis-1/2 lg:basis-1/3">
                         <div className="p-1 h-full">
-                          <Card className="overflow-hidden border-2 border-border/20 shadow-lg h-full bg-black/20 flex flex-col justify-center">
-                            <CardContent className="p-2 sm:p-4 flex-grow flex items-center justify-center">
-                              <Image
+                           <Card className="overflow-hidden border-2 border-border/20 shadow-lg h-full bg-black/20 flex flex-col justify-center">
+                             <CardContent className="p-2 sm:p-4 flex-grow flex items-center justify-center">
+                               <Image
                                 src={testimonial.image}
                                 alt={`Depoimento ${index + 1}`}
                                 width={450}
@@ -412,6 +420,39 @@ export default function Home() {
                   <CarouselPrevious className="hidden sm:flex" />
                   <CarouselNext className="hidden sm:flex" />
                 </Carousel>
+              </div>
+            </section>
+            
+            {/* Community Creations Section */}
+            <section className="py-16 sm:py-24">
+              <div className="container mx-auto px-4 text-center">
+                <div className="flex flex-col items-center mb-12 sm:mb-16">
+                  <div className="w-16 h-16 bg-primary rounded-full flex items-center justify-center mb-4 shadow-lg shadow-primary/20">
+                    <Users className="w-8 h-8 text-primary-foreground" />
+                  </div>
+                  <h2 className="font-headline text-3xl sm:text-5xl md:text-6xl uppercase leading-tight">
+                    Compartilhe Suas Criações 🌱✨
+                  </h2>
+                  <p className="mt-4 text-lg text-foreground/70 max-w-2xl mx-auto">
+                    Veja como outros chefs estão usando o Verdinha’s Secret para criar pratos incríveis. Compartilhe suas próprias receitas, inspire-se e descubra novas combinações. Sua criatividade gourmet agora faz parte da comunidade!
+                  </p>
+                </div>
+                <div className="grid grid-cols-2 md:grid-cols-4 gap-4 sm:gap-6">
+                  {communityCreations.map((creation, index) => (
+                    <div key={index} className="group relative overflow-hidden rounded-lg border-2 border-border/20 shadow-lg aspect-square">
+                      <Image
+                        src={creation.image}
+                        alt={creation.hint}
+                        fill
+                        className="object-cover transition-transform duration-500 group-hover:scale-110"
+                        data-ai-hint={creation.hint}
+                      />
+                      <div className="absolute inset-0 bg-black/30 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-end p-4">
+                        <p className="text-white text-sm font-semibold drop-shadow-md">{creation.user}</p>
+                      </div>
+                    </div>
+                  ))}
+                </div>
               </div>
             </section>
 
