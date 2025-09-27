@@ -3,6 +3,7 @@ import { Poppins, Lilita_One } from 'next/font/google';
 import './globals.css';
 import { Toaster } from '@/components/ui/toaster';
 import Script from 'next/script';
+import Head from 'next/head';
 
 const poppins = Poppins({
   subsets: ['latin'],
@@ -40,6 +41,11 @@ export default function RootLayout({
       lang="pt-BR"
       className={`${poppins.variable} ${lilitaOne.variable}`}
     >
+      <Head>
+        <link rel="dns-prefetch" href="https://fast.wistia.com" />
+        <link rel="dns-prefetch" href="https://embedwistia-a.akamaihd.net" />
+        <link rel="dns-prefetch" href="https://fonts.gstatic.com" />
+      </Head>
       <body className="font-body antialiased">
         {/* Meta Pixel Code */}
         <Script id="fb-pixel-script" strategy="afterInteractive">

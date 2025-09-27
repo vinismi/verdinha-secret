@@ -459,24 +459,23 @@ export default function Home() {
             </section>
 
             {/* AI Tech Section */}
-            <section className="py-16 sm:py-24">
-              <div className="container mx-auto px-4">
-                <div className="flex flex-col items-center text-center md:grid md:grid-cols-2 md:gap-12 md:text-left">
+            <section className="py-16 sm:py-24 px-4">
+              <div className="container mx-auto px-4 flex flex-col items-center text-center md:grid md:grid-cols-2 md:gap-12 md:text-left">
                   <div className="flex justify-center md:order-2">
                      <Image
                       src="https://i.imgur.com/lpWzA7Z.png"
                       alt="Tecnologia Gourmet Secreta - Chef Robô"
-                      width={320}
-                      height={700}
-                      className="rounded-xl shadow-2xl w-full max-w-[320px] h-auto shadow-primary/20 border-2 border-primary/30"
+                      width={300}
+                      height={650}
+                      className="rounded-xl shadow-2xl w-full max-w-[280px] h-auto shadow-primary/20 border-2 border-primary/30"
                       data-ai-hint="ai chef assistant"
                     />
                   </div>
                   <div className="mt-8 md:mt-0 md:order-1">
-                    <h2 className="font-headline text-2xl sm:text-4xl uppercase leading-tight mb-8">
+                    <h2 className="font-headline text-3xl sm:text-4xl uppercase leading-tight mb-8">
                       A inteligência que muda tudo 🍃🤖
                     </h2>
-                    <div className="text-sm sm:text-base space-y-4 text-foreground/80">
+                    <div className="text-base sm:text-base space-y-4 text-foreground/80">
                       <p>Além de receitas, cardápios e experiências, o Verdinha’s Secret esconde um recurso que ninguém mais tem.</p>
                       <p>A <strong className="text-primary">Tecnologia Gourmet Secreta</strong> é a sua chef particular da folha sagrada:</p>
                     </div>
@@ -496,7 +495,7 @@ export default function Home() {
                         )
                       })}
                     </div>
-                     <p className='mt-8 text-sm sm:text-base'>É como ter uma verdadeira chef-robô exclusiva, feita só para quem atravessa o portal.</p>
+                     <p className='mt-8 text-base sm:text-base'>É como ter uma verdadeira chef-robô exclusiva, feita só para quem atravessa o portal.</p>
                      <div className='flex justify-center md:justify-start'>
                        <a href={checkoutUrl} target="_blank" rel="noopener noreferrer">
                         <Button variant="link" className="mt-4 p-0 h-auto text-base text-accent hover:text-accent/90">
@@ -506,7 +505,6 @@ export default function Home() {
                      </div>
                   </div>
                 </div>
-              </div>
             </section>
 
             {/* Offer Stack Section */}
