@@ -124,10 +124,11 @@ const testimonials = [
 ];
 
 const communityCreations = [
-  { image: 'https://picsum.photos/seed/plate1/500/500', hint: 'gourmet plate', user: 'Chef Anônimo' },
-  { image: 'https://picsum.photos/seed/plate2/500/500', hint: 'colorful dish', user: 'Mestre Cuca' },
-  { image: 'https://picsum.photos/seed/plate3/500/500', hint: 'fusion food', user: 'Verdinha Lover' },
-  { image: 'https://picsum.photos/seed/plate4/500/500', hint: 'artisan recipe', user: 'Cozinheiro Secreto' },
+  { image: 'https://i.imgur.com/UbhPBSA.png', hint: 'gourmet dish', user: 'Membro Criativo' },
+  { image: 'https://i.imgur.com/ATq6mxv.png', hint: 'special recipe', user: 'Chef Secreto' },
+  { image: 'https://i.imgur.com/UDzq33a.png', hint: 'delicious plate', user: 'Verdinha Lover' },
+  { image: 'https://i.imgur.com/VPYpd06.png', hint: 'creative food', user: 'Mestre Cuca' },
+  { image: 'https://i.imgur.com/unzvtrv.png', hint: 'tasty creation', user: 'Cozinheiro Anônimo' },
 ];
 
 const offerStack = [
