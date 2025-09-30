@@ -576,7 +576,7 @@ export default function Home() {
                             </strong>{' '}
                             e você leva o segredo para sempre.
                           </p>
-                          <CTAButton className="mt-8">Liberar meu Acesso Vitalício Agora 🌿✨</CTAButton>
+                          <CTAButton className="mt-8">Quero o Acesso Vitalício 🌿</CTAButton>
                           <p className="mt-4 text-xs text-white/60">O portal está aberto, mas só quem se atreve pode atravessar.</p>
                         </div>
                     </div>
@@ -596,7 +596,7 @@ export default function Home() {
                         <p className="text-base sm:text-lg text-foreground/80 mb-6 max-w-2xl mx-auto">Esta é sua única chance. Acesso vitalício por apenas R$21,99. Quando o contador zerar, o preço sobe e o portal para o clube secreto da verdinha se fecha. Para sempre.</p>
                         <Countdown />
                         <div className="mt-8">
-                            <CTAButton>Garantir meu acesso secreto agora</CTAButton>
+                            <CTAButton>Quero o Acesso Vitalício 🌿</CTAButton>
                         </div>
                         <p className="mt-6 text-sm text-foreground/60">Depois que o tempo acabar, não adianta chorar. Você perdeu a chance.</p>
                     </div>
@@ -640,7 +640,7 @@ export default function Home() {
                       <p>É sobre acender uma experiência em cada prato, transformar sua mesa em um altar e viver o prazer de ser um dos poucos que conhece o segredo.</p>
                       <p className="font-bold text-accent pt-4">O portal está aberto. A decisão de entrar (ou ficar de fora para sempre) é sua.</p>
                    </div>
-                   <CTAButton>Quero entrar no Verdinha’s Secret</CTAButton>
+                   <CTAButton>Quero o Acesso Vitalício 🌿</CTAButton>
                </div>
             </section>
           </>
