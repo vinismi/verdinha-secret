@@ -174,7 +174,7 @@ const techBenefits = [
     title: "Pratos Personalizados",
     description: "Crie receitas únicas com os ingredientes que você já tem na sua geladeira ou despensa."
   },
-  {
+{
     icon: Salad,
     title: "Harmonizações Únicas",
     description: "Descubra os drinks e acompanhamentos perfeitos para cada uma das suas criações verdes."
@@ -478,8 +478,8 @@ export default function Home() {
                      <Image
                       src="https://i.imgur.com/lpWzA7Z.png"
                       alt="Tecnologia Gourmet Secreta - Chef Robô"
-                      width={300}
-                      height={650}
+                      width={280}
+                      height={609}
                       className="rounded-xl shadow-2xl w-full max-w-[280px] h-auto shadow-primary/20 border-2 border-primary/30"
                       data-ai-hint="ai chef assistant"
                     />
