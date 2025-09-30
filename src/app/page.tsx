@@ -343,36 +343,44 @@ export default function Home() {
                     Se até agora você só experimentou o básico, prepare-se para destravar o lado mais ousado da verdinha.
                   </h2>
                 </div>
-                <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8">
+                <div className="space-y-16 sm:space-y-24">
                   {benefits.map((benefit, index) => {
                     const Icon = benefit.icon;
+                    const isEven = index % 2 === 0;
                     return (
-                      <Card
+                      <div
                         key={index}
-                        className="bg-card border-border/50 overflow-hidden group text-left flex flex-col transition-all duration-300 hover:border-accent hover:shadow-2xl hover:shadow-accent/10 hover:-translate-y-2"
+                        className="grid grid-cols-1 md:grid-cols-2 gap-8 md:gap-16 items-center"
                       >
-                         <div className="relative h-48">
+                        <div
+                          className={`relative aspect-[4/3] w-full max-w-lg mx-auto ${
+                            isEven ? 'md:order-1' : 'md:order-2'
+                          }`}
+                        >
                           <Image
                             src={benefit.image}
                             alt={benefit.title}
                             fill
-                            className="object-cover transition-transform duration-500 group-hover:scale-105"
+                            className="object-cover rounded-xl shadow-2xl transition-transform duration-500 hover:scale-105"
                             data-ai-hint={benefit.hint}
                           />
-                          <div className="absolute inset-0 bg-gradient-to-t from-card to-transparent" />
-                        </div>
-                        <CardHeader className="relative pt-4 flex-shrink-0">
-                           <div className="w-14 h-14 bg-accent rounded-full flex items-center justify-center mb-4 shadow-lg shadow-accent/20">
-                            <Icon className="w-7 h-7 text-accent-foreground" />
+                           <div className="absolute -bottom-6 -left-6 w-16 h-16 bg-accent rounded-full flex items-center justify-center shadow-lg shadow-accent/30">
+                            <Icon className="w-8 h-8 text-accent-foreground" />
                           </div>
-                          <CardTitle className="font-headline text-2xl normal-case leading-snug">
+                        </div>
+                        <div
+                          className={`text-center md:text-left ${
+                            isEven ? 'md:order-2' : 'md:order-1'
+                          }`}
+                        >
+                          <h3 className="font-headline text-3xl sm:text-4xl normal-case leading-snug mb-4">
                             {benefit.title}
-                          </CardTitle>
-                        </CardHeader>
-                        <CardContent className='flex-grow'>
-                          <p className='text-foreground/70 text-sm leading-relaxed'>{benefit.description}</p>
-                        </CardContent>
-                      </Card>
+                          </h3>
+                          <p className="text-foreground/80 text-lg leading-relaxed">
+                            {benefit.description}
+                          </p>
+                        </div>
+                      </div>
                     );
                   })}
                 </div>
