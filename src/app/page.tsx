@@ -200,7 +200,7 @@ const CTAButton = ({
   <a href={checkoutUrl} target="_blank" rel="noopener noreferrer" className={`w-full sm:w-auto ${className}`}>
     <Button
       size="lg"
-      className="bg-accent text-accent-foreground hover:bg-accent/90 font-semibold text-lg py-7 px-10 rounded-full shadow-lg shadow-accent/20 transition-transform transform hover:scale-105 w-full"
+      className="bg-accent text-accent-foreground hover:bg-accent/90 font-semibold text-base sm:text-lg py-8 sm:py-7 px-10 rounded-full shadow-lg shadow-accent/20 transition-transform transform hover:scale-105 w-full"
       {...props}
     >
       {children}
