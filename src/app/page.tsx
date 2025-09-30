@@ -200,7 +200,7 @@ const CTAButton = ({
   <a href={checkoutUrl} target="_blank" rel="noopener noreferrer" className={`w-full sm:w-auto ${className}`}>
     <Button
       size="lg"
-      className="bg-accent text-accent-foreground hover:bg-accent/90 font-semibold text-lg py-6 sm:py-7 px-8 rounded-full shadow-lg shadow-accent/20 transition-transform transform hover:scale-105 w-full"
+      className="bg-accent text-accent-foreground hover:bg-accent/90 font-semibold text-lg py-7 px-10 rounded-full shadow-lg shadow-accent/20 transition-transform transform hover:scale-105 w-full"
       {...props}
     >
       {children}
@@ -539,24 +539,24 @@ export default function Home() {
                     data-ai-hint="dark elegant texture"
                   />
                  <div className="container mx-auto px-4 text-center">
-                    <h2 className="font-headline text-3xl sm:text-5xl md:text-6xl uppercase mb-4 leading-tight">Acesso Vitalício ao Verdadeiro Segredo Verde 🌿✨</h2>
-                     <p className="max-w-3xl mx-auto mb-12 text-base sm:text-lg text-white/80">
+                    <h2 className="font-headline text-2xl sm:text-4xl md:text-5xl uppercase mb-4 leading-tight">Acesso Vitalício ao Verdadeiro Segredo Verde 🌿✨</h2>
+                     <p className="max-w-3xl mx-auto mb-12 text-sm sm:text-base text-white/80">
                         Hoje, você tem a chance de acessar o segredo mais verde e gourmet do mundo, um <strong>ecossistema exclusivo</strong>, feito para transformar qualquer prato simples em uma experiência única. Ao entrar, você começa a jornada rumo ao título de <strong>Mestre Verde</strong>, explorando segredos que poucos têm acesso.
                      </p>
                      
                     <div className="bg-card/50 backdrop-blur-sm border-2 border-accent/50 rounded-2xl p-6 sm:p-10 max-w-4xl mx-auto shadow-2xl shadow-accent/10">
-                        <h3 className='font-headline text-2xl sm:text-3xl normal-case mb-8 text-white'>O que está incluído no seu acesso secreto:</h3>
-                        <div className="grid grid-cols-1 sm:grid-cols-2 gap-x-8 gap-y-8 mb-10 text-left">
+                        <h3 className='font-headline text-xl sm:text-2xl normal-case mb-8 text-white'>O que está incluído no seu acesso secreto:</h3>
+                        <div className="grid grid-cols-1 sm:grid-cols-2 gap-x-6 gap-y-6 mb-10 text-left">
                             {offerStack.map(item => {
                                 const Icon = item.icon
                                 return (
-                                    <div key={item.title} className="flex items-start gap-4 text-white">
-                                        <div className="w-10 h-10 flex items-center justify-center rounded-lg bg-accent flex-shrink-0 mt-1">
-                                            <Icon className="w-5 h-5 text-accent-foreground" />
+                                    <div key={item.title} className="flex items-start gap-3 text-white">
+                                        <div className="w-8 h-8 flex items-center justify-center rounded-lg bg-accent flex-shrink-0 mt-1">
+                                            <Icon className="w-4 h-4 text-accent-foreground" />
                                         </div>
                                         <div>
-                                            <h4 className="text-lg font-semibold">{item.title}</h4>
-                                            <p className="text-sm text-white/70">{item.description}</p>
+                                            <h4 className="text-base font-semibold">{item.title}</h4>
+                                            <p className="text-xs text-white/70">{item.description}</p>
                                         </div>
                                     </div>
                                 )
