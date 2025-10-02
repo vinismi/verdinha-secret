@@ -66,67 +66,7 @@ const CTAButton = ({
   </a>
 );
 
-const ProgressRing = ({
-  progress,
-  timeLeft,
-}: {
-  progress: number;
-  timeLeft: number;
-}) => {
-  const radius = 50;
-  const stroke = 8;
-  const normalizedRadius = radius - stroke * 2;
-  const circumference = normalizedRadius * 2 * Math.PI;
-  const strokeDashoffset = circumference - (progress / 100) * circumference;
-
-  return (
-    <div className="relative flex flex-col items-center justify-center gap-4">
-      <div className="relative h-32 w-32">
-        <svg
-          height={radius * 2}
-          width={radius * 2}
-          className="-rotate-90 transform"
-        >
-          <circle
-            stroke="hsl(var(--border))"
-            fill="transparent"
-            strokeWidth={stroke}
-            r={normalizedRadius}
-            cx={radius}
-            cy={radius}
-          />
-          <circle
-            stroke="hsl(var(--accent))"
-            fill="transparent"
-            strokeWidth={stroke}
-            strokeDasharray={circumference + ' ' + circumference}
-            style={{ strokeDashoffset }}
-            r={normalizedRadius}
-            cx={radius}
-            cy={radius}
-            className="transition-all duration-1000 ease-linear"
-          />
-        </svg>
-        <div className="absolute inset-0 flex flex-col items-center justify-center">
-          {progress < 100 ? (
-            <>
-              <span className="text-3xl font-bold text-white">
-                {timeLeft}
-              </span>
-              <span className="text-xs uppercase text-white/60">
-                segundos
-              </span>
-            </>
-          ) : (
-            <Lock className="h-10 w-10 text-accent" />
-          )}
-        </div>
-      </div>
-    </div>
-  );
-};
-
-export default function Home() {
+const UnlockSection = () => {
   const [contentUnlocked, setContentUnlocked] = useState(false);
   const [buttonEnabled, setButtonEnabled] = useState(false);
   const [progress, setProgress] = useState(0);
@@ -166,6 +106,81 @@ export default function Home() {
       setContentUnlocked(true);
     }
   };
+
+  const radius = 50;
+  const stroke = 8;
+  const normalizedRadius = radius - stroke * 2;
+  const circumference = normalizedRadius * 2 * Math.PI;
+  const strokeDashoffset = circumference - (progress / 100) * circumference;
+
+  if (contentUnlocked) {
+    return null;
+  }
+
+  return (
+    <div className="mt-12 flex flex-col items-center gap-6">
+      <div className="relative flex flex-col items-center justify-center gap-4">
+        <div className="relative h-32 w-32">
+          <svg
+            height={radius * 2}
+            width={radius * 2}
+            className="-rotate-90 transform"
+          >
+            <circle
+              stroke="hsl(var(--border))"
+              fill="transparent"
+              strokeWidth={stroke}
+              r={normalizedRadius}
+              cx={radius}
+              cy={radius}
+            />
+            <circle
+              stroke="hsl(var(--accent))"
+              fill="transparent"
+              strokeWidth={stroke}
+              strokeDasharray={circumference + ' ' + circumference}
+              style={{ strokeDashoffset }}
+              r={normalizedRadius}
+              cx={radius}
+              cy={radius}
+              className="transition-all duration-1000 ease-linear"
+            />
+          </svg>
+          <div className="absolute inset-0 flex flex-col items-center justify-center">
+            {progress < 100 ? (
+              <>
+                <span className="text-3xl font-bold text-white">
+                  {timeLeft}
+                </span>
+                <span className="text-xs uppercase text-white/60">
+                  segundos
+                </span>
+              </>
+            ) : (
+              <Lock className="h-10 w-10 text-accent" />
+            )}
+          </div>
+        </div>
+      </div>
+      <Button
+        size="lg"
+        onClick={handleUnlock}
+        disabled={!buttonEnabled}
+        className="bg-accent text-accent-foreground hover:bg-accent/90 font-semibold text-lg py-7 px-8 rounded-full shadow-lg shadow-accent/30 transition-all transform hover:scale-105 disabled:opacity-50 disabled:cursor-not-allowed disabled:hover:scale-100 w-full max-w-xs"
+      >
+        Quero ver o resto do segredo 🍃
+      </Button>
+    </div>
+  );
+};
+
+export default function Home() {
+  const [contentUnlocked, setContentUnlocked] = useState(false);
+  const [isClient, setIsClient] = useState(false);
+
+  useEffect(() => {
+    setIsClient(true);
+  }, []);
 
   return (
     <div className="flex flex-col min-h-screen bg-transparent overflow-x-hidden">
@@ -215,20 +230,7 @@ export default function Home() {
             <div className="relative max-w-md mx-auto aspect-[9/16] rounded-xl overflow-hidden shadow-2xl shadow-primary/20 border-2 border-primary/20 group">
               <WistiaPlayer />
             </div>
-
-            {!contentUnlocked && (
-              <div className="mt-12 flex flex-col items-center gap-6">
-                <ProgressRing progress={progress} timeLeft={timeLeft} />
-                <Button
-                  size="lg"
-                  onClick={handleUnlock}
-                  disabled={!buttonEnabled}
-                  className="bg-accent text-accent-foreground hover:bg-accent/90 font-semibold text-lg py-7 px-8 rounded-full shadow-lg shadow-accent/30 transition-all transform hover:scale-105 disabled:opacity-50 disabled:cursor-not-allowed disabled:hover:scale-100 w-full max-w-xs"
-                >
-                  Quero ver o resto do segredo 🍃
-                </Button>
-              </div>
-            )}
+             {isClient && <UnlockSection />}
           </div>
         </section>
         
