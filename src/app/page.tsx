@@ -272,22 +272,30 @@ const CTAButton = ({
 
 export default function Home() {
   const [contentUnlocked, setContentUnlocked] = React.useState(false);
+  const [unlockButtonEnabled, setUnlockButtonEnabled] = React.useState(false);
 
   React.useEffect(() => {
     // Check if the user has already seen the content
     const hasUnlocked = sessionStorage.getItem('verdinhaSecretUnlocked');
     if (hasUnlocked) {
       setContentUnlocked(true);
+      setUnlockButtonEnabled(true);
       return;
     }
 
-    const unlockTimeout = setTimeout(() => {
-      setContentUnlocked(true);
-      sessionStorage.setItem('verdinhaSecretUnlocked', 'true');
-    }, 180000); // 3 minutes
+    // Timer to enable the manual unlock button
+    const enableButtonTimeout = setTimeout(() => {
+      setUnlockButtonEnabled(true);
+    }, 80000); // 1 minute and 20 seconds
+
+    // Timer to unlock the content automatically
+    const autoUnlockTimeout = setTimeout(() => {
+      handleUnlock();
+    }, 105000); // 1 minute and 45 seconds
 
     return () => {
-      clearTimeout(unlockTimeout);
+      clearTimeout(enableButtonTimeout);
+      clearTimeout(autoUnlockTimeout);
     };
   }, []);
 
@@ -348,17 +356,11 @@ export default function Home() {
               <div className="mt-8 text-center flex flex-col items-center gap-4 px-4">
                 <Button
                   onClick={handleUnlock}
+                  disabled={!unlockButtonEnabled}
                   size="lg"
-                  className="bg-primary hover:bg-primary/90 text-primary-foreground font-semibold text-base sm:text-lg py-4 px-8 rounded-full shadow-lg shadow-primary/20 enabled:animate-pulse w-full max-w-sm"
+                  className="bg-primary hover:bg-primary/90 text-primary-foreground font-semibold text-base sm:text-lg py-4 px-8 rounded-full shadow-lg shadow-primary/20 enabled:animate-pulse disabled:opacity-50 disabled:cursor-not-allowed w-full max-w-sm"
                 >
                   Quero ver o resto do segredo 🍃
-                </Button>
-                <Button
-                  onClick={handleUnlock}
-                  variant="link"
-                  className="text-foreground/70"
-                >
-                  Pular vídeo
                 </Button>
               </div>
             )}
