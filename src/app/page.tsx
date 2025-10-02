@@ -272,8 +272,8 @@ const CTAButton = ({
 
 
 const ProgressCircle = ({ progress }: { progress: number }) => {
-  const radius = 18;
-  const stroke = 2;
+  const radius = 20;
+  const stroke = 3;
   const normalizedRadius = radius - stroke * 2;
   const circumference = normalizedRadius * 2 * Math.PI;
   const strokeDashoffset = circumference - (progress / 100) * circumference;
@@ -285,7 +285,7 @@ const ProgressCircle = ({ progress }: { progress: number }) => {
       className="transform -rotate-90"
     >
       <circle
-        stroke="rgba(255,255,255,0.2)"
+        stroke="hsla(var(--primary-foreground), 0.2)"
         fill="transparent"
         strokeWidth={stroke}
         r={normalizedRadius}
@@ -293,7 +293,7 @@ const ProgressCircle = ({ progress }: { progress: number }) => {
         cy={radius}
       />
       <circle
-        stroke="hsl(var(--accent))"
+        stroke="hsl(var(--primary-foreground))"
         fill="transparent"
         strokeWidth={stroke}
         strokeDasharray={circumference + ' ' + circumference}
@@ -301,6 +301,7 @@ const ProgressCircle = ({ progress }: { progress: number }) => {
         r={normalizedRadius}
         cx={radius}
         cy={radius}
+        className="transition-all duration-300"
       />
     </svg>
   );
@@ -325,6 +326,8 @@ export default function Home() {
       return;
     }
 
+    const startTime = Date.now();
+
     // Timer to enable the manual unlock button
     const enableButtonTimeout = setTimeout(() => {
       setUnlockButtonEnabled(true);
@@ -337,15 +340,14 @@ export default function Home() {
     
     // Timer for progress circle
     const progressInterval = setInterval(() => {
-      setProgress(prev => {
-        const newProgress = prev + (100 / (buttonEnableTime / 1000));
-        if (newProgress >= 100) {
-          clearInterval(progressInterval);
-          return 100;
-        }
-        return newProgress;
-      });
-    }, 1000);
+      const elapsedTime = Date.now() - startTime;
+      const newProgress = Math.min((elapsedTime / buttonEnableTime) * 100, 100);
+      setProgress(newProgress);
+
+      if (newProgress >= 100) {
+        clearInterval(progressInterval);
+      }
+    }, 100);
 
 
     return () => {
