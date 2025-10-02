@@ -1,6 +1,6 @@
 'use client';
 
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import Image from 'next/image';
 import {
   Leaf,
@@ -66,7 +66,113 @@ const CTAButton = ({
   </a>
 );
 
+const ProgressRing = ({
+  progress,
+  timeLeft,
+}: {
+  progress: number;
+  timeLeft: number;
+}) => {
+  const radius = 50;
+  const stroke = 8;
+  const normalizedRadius = radius - stroke * 2;
+  const circumference = normalizedRadius * 2 * Math.PI;
+  const strokeDashoffset = circumference - (progress / 100) * circumference;
+
+  return (
+    <div className="relative flex flex-col items-center justify-center gap-4">
+      <div className="relative h-32 w-32">
+        <svg
+          height={radius * 2}
+          width={radius * 2}
+          className="-rotate-90 transform"
+        >
+          <circle
+            stroke="hsl(var(--border))"
+            fill="transparent"
+            strokeWidth={stroke}
+            r={normalizedRadius}
+            cx={radius}
+            cy={radius}
+          />
+          <circle
+            stroke="hsl(var(--accent))"
+            fill="transparent"
+            strokeWidth={stroke}
+            strokeDasharray={circumference + ' ' + circumference}
+            style={{ strokeDashoffset }}
+            r={normalizedRadius}
+            cx={radius}
+            cy={radius}
+            className="transition-all duration-1000 ease-linear"
+          />
+        </svg>
+        <div className="absolute inset-0 flex flex-col items-center justify-center">
+          {progress < 100 ? (
+            <>
+              <span className="text-3xl font-bold text-white">
+                {timeLeft}
+              </span>
+              <span className="text-xs uppercase text-white/60">
+                segundos
+              </span>
+            </>
+          ) : (
+            <Lock className="h-10 w-10 text-accent" />
+          )}
+        </div>
+      </div>
+    </div>
+  );
+};
+
 export default function Home() {
+  const [contentUnlocked, setContentUnlocked] = useState(false);
+  const [buttonEnabled, setButtonEnabled] = useState(false);
+  const [progress, setProgress] = useState(0);
+  const [timeLeft, setTimeLeft] = useState(80);
+
+  const UNLOCK_DELAY_SECONDS = 80;
+  const AUTO_UNLOCK_SECONDS = 105;
+
+  useEffect(() => {
+    // Timer to enable the button and update progress
+    const buttonTimer = setTimeout(() => {
+      setButtonEnabled(true);
+    }, UNLOCK_DELAY_SECONDS * 1000);
+
+    // Timer for auto-unlock
+    const autoUnlockTimer = setTimeout(() => {
+      setContentUnlocked(true);
+    }, AUTO_UNLOCK_SECONDS * 1000);
+    
+    // Timer for progress ring
+    const progressInterval = setInterval(() => {
+      setTimeLeft(prevTime => {
+        const newTime = prevTime - 1;
+        if (newTime <= 0) {
+          clearInterval(progressInterval);
+          setProgress(100);
+          return 0;
+        }
+        const newProgress = ((UNLOCK_DELAY_SECONDS - newTime) / UNLOCK_DELAY_SECONDS) * 100;
+        setProgress(newProgress > 100 ? 100 : newProgress);
+        return newTime;
+      });
+    }, 1000);
+
+    return () => {
+      clearTimeout(buttonTimer);
+      clearTimeout(autoUnlockTimer);
+      clearInterval(progressInterval);
+    };
+  }, []);
+
+
+  const handleUnlock = () => {
+    setContentUnlocked(true);
+  };
+
   return (
     <div className="flex flex-col min-h-screen bg-transparent overflow-x-hidden">
       <main className="flex-grow">
@@ -115,9 +221,24 @@ export default function Home() {
             <div className="relative max-w-md mx-auto aspect-[9/16] rounded-xl overflow-hidden shadow-2xl shadow-primary/20 border-2 border-primary/20 group">
               <WistiaPlayer />
             </div>
+
+            {!contentUnlocked && (
+              <div className="mt-12 flex flex-col items-center gap-6">
+                <ProgressRing progress={progress} timeLeft={timeLeft} />
+                <Button
+                  size="lg"
+                  onClick={handleUnlock}
+                  disabled={!buttonEnabled}
+                  className="bg-accent text-accent-foreground hover:bg-accent/90 font-semibold text-lg py-7 px-8 rounded-full shadow-lg shadow-accent/30 transition-all transform hover:scale-105 disabled:opacity-50 disabled:cursor-not-allowed disabled:hover:scale-100 w-full max-w-xs"
+                >
+                  Quero ver o resto do segredo 🍃
+                </Button>
+              </div>
+            )}
           </div>
         </section>
-
+        
+        {contentUnlocked && (
         <>
           {/* Desire Section */}
           <section className="py-16 sm:py-24">
@@ -622,6 +743,7 @@ export default function Home() {
             </div>
           </section>
         </>
+        )}
       </main>
 
       <footer className="py-8 bg-black/50">
