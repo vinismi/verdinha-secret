@@ -66,56 +66,44 @@ const CTAButton = ({
   </a>
 );
 
-const UnlockSection = () => {
-  const [contentUnlocked, setContentUnlocked] = useState(false);
+const UnlockSection = ({ onUnlock }: { onUnlock: () => void }) => {
   const [buttonEnabled, setButtonEnabled] = useState(false);
   const [progress, setProgress] = useState(0);
-  const [timeLeft, setTimeLeft] = useState(5); 
-  const UNLOCK_DELAY_SECONDS = 5; 
+  const [timeLeft, setTimeLeft] = useState(5);
+  const UNLOCK_DELAY_SECONDS = 5;
 
   useEffect(() => {
-    if (contentUnlocked) return;
-
-    const timer = setTimeout(() => {
+    const enableButtonTimer = setTimeout(() => {
       setButtonEnabled(true);
       setProgress(100);
       setTimeLeft(0);
     }, UNLOCK_DELAY_SECONDS * 1000);
 
     const progressInterval = setInterval(() => {
-        setTimeLeft(prev => {
-            if (prev <= 1) {
-                clearInterval(progressInterval);
-                return 0;
-            }
-            const newTime = prev - 1;
-            setProgress(((UNLOCK_DELAY_SECONDS - newTime) / UNLOCK_DELAY_SECONDS) * 100);
-            return newTime;
-        });
+      setTimeLeft((prev) => {
+        if (prev <= 1) {
+          clearInterval(progressInterval);
+          return 0;
+        }
+        const newTime = prev - 1;
+        const newProgress =
+          ((UNLOCK_DELAY_SECONDS - newTime) / UNLOCK_DELAY_SECONDS) * 100;
+        setProgress(newProgress);
+        return newTime;
+      });
     }, 1000);
 
     return () => {
-      clearTimeout(timer);
+      clearTimeout(enableButtonTimer);
       clearInterval(progressInterval);
     };
-  }, [contentUnlocked]);
-
-
-  const handleUnlock = () => {
-    if (buttonEnabled) {
-      setContentUnlocked(true);
-    }
-  };
+  }, []);
 
   const radius = 50;
   const stroke = 8;
   const normalizedRadius = radius - stroke * 2;
   const circumference = normalizedRadius * 2 * Math.PI;
   const strokeDashoffset = circumference - (progress / 100) * circumference;
-
-  if (contentUnlocked) {
-    return null;
-  }
 
   return (
     <div className="mt-12 flex flex-col items-center gap-6">
@@ -164,7 +152,7 @@ const UnlockSection = () => {
       </div>
       <Button
         size="lg"
-        onClick={handleUnlock}
+        onClick={onUnlock}
         disabled={!buttonEnabled}
         className="bg-accent text-accent-foreground hover:bg-accent/90 font-semibold text-lg py-7 px-8 rounded-full shadow-lg shadow-accent/30 transition-all transform hover:scale-105 disabled:opacity-50 disabled:cursor-not-allowed disabled:hover:scale-100 w-full max-w-xs"
       >
@@ -174,6 +162,7 @@ const UnlockSection = () => {
   );
 };
 
+
 export default function Home() {
   const [contentUnlocked, setContentUnlocked] = useState(false);
   const [isClient, setIsClient] = useState(false);
@@ -181,6 +170,8 @@ export default function Home() {
   useEffect(() => {
     setIsClient(true);
   }, []);
+  
+  const handleUnlock = () => setContentUnlocked(true);
 
   return (
     <div className="flex flex-col min-h-screen bg-transparent overflow-x-hidden">
@@ -230,7 +221,7 @@ export default function Home() {
             <div className="relative max-w-md mx-auto aspect-[9/16] rounded-xl overflow-hidden shadow-2xl shadow-primary/20 border-2 border-primary/20 group">
               <WistiaPlayer />
             </div>
-             {isClient && <UnlockSection />}
+             {isClient && !contentUnlocked && <UnlockSection onUnlock={handleUnlock} />}
           </div>
         </section>
         
