@@ -213,16 +213,6 @@ const faqItems = [
     answer:
       "Não! O Verdinha's Secret foi desenhado para todos os níveis. Temos conteúdos que vão do zero absoluto até técnicas avançadas para quem já domina a arte do tempero secreto.",
   },
-  {
-    question: 'Preciso de utensílios caros?',
-    answer:
-      'De forma alguma. Ensinamos você a criar experiências incríveis com o que você já tem em casa. O segredo não está no equipamento, mas na técnica e na criatividade.',
-  },
-  {
-    question: 'O conteúdo é atualizado sempre?',
-    answer:
-      'Sim! Nossa comunidade secreta está sempre em movimento. Lançamos novas receitas, desafios e técnicas exclusivas regularmente para que sua jornada nunca perca a graça.',
-  },
 ];
 
 const techBenefits = [
@@ -692,7 +682,7 @@ export default function Home() {
                     {portalImages.map((item, index) => (
                       <CarouselItem
                         key={index}
-                        className="basis-full sm:basis-1/2 md:basis-1/3"
+                        className="basis-full"
                       >
                         <div className="p-1 h-full">
                            <div className="aurora-glass overflow-hidden shadow-lg rounded-2xl p-2">
