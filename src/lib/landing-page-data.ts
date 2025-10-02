@@ -69,11 +69,11 @@ export const benefits = [
   },
 ];
 
-export const testimonials = placeholderImages.testimonials.images;
+export const testimonials = placeholderImages.testimonials;
 
-export const portalImages = placeholderImages.portalPreviews.images;
+export const portalImages = placeholderImages.portalPreviews;
 
-export const communityCreations = placeholderImages.communityCreations.creations;
+export const communityCreations = placeholderImages.communityCreations;
 
 export const offerStack = [
   {

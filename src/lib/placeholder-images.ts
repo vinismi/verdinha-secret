@@ -22,23 +22,33 @@ type CommunityCreations = {
   creations: { image: string; hint: string; user: string }[];
 }
 
+const placeholderData = data.placeholderImages as (ImagePlaceholder | ImageCollection | CommunityCreations)[];
+
+function findImage<T extends ImagePlaceholder | ImageCollection | CommunityCreations>(id: string): T {
+  const item = placeholderData.find(p => p.id === id);
+  if (!item) {
+    throw new Error(`Placeholder image with id "${id}" not found.`);
+  }
+  return item as T;
+}
+
 export const placeholderImages = {
-  heroGourmetDinner: data.placeholderImages.find(p => p.id === 'hero-gourmet-dinner') as ImagePlaceholder,
-  platformMockup: data.placeholderImages.find(p => p.id === 'platform-mockup') as ImagePlaceholder,
-  premiumGreenDrink: data.placeholderImages.find(p => p.id === 'premium-green-drink') as ImagePlaceholder,
-  finalCtaBackground: data.placeholderImages.find(p => p.id === 'final-cta-background') as ImagePlaceholder,
-  aiChefMockup: data.placeholderImages.find(p => p.id === 'ai-chef-mockup') as ImagePlaceholder,
+  heroGourmetDinner: findImage<ImagePlaceholder>('hero-gourmet-dinner'),
+  platformMockup: findImage<ImagePlaceholder>('platform-mockup'),
+  premiumGreenDrink: findImage<ImagePlaceholder>('premium-green-drink'),
+  finalCtaBackground: findImage<ImagePlaceholder>('final-cta-background'),
+  aiChefMockup: findImage<ImagePlaceholder>('ai-chef-mockup'),
   
   // Benefits
-  benefitRecipes: data.placeholderImages.find(p => p.id === 'benefit-recipes') as ImagePlaceholder,
-  benefitDrinks: data.placeholderImages.find(p => p.id === 'benefit-drinks') as ImagePlaceholder,
-  benefitSnacks: data.placeholderImages.find(p => p.id === 'benefit-snacks') as ImagePlaceholder,
-  benefitInfusion: data.placeholderImages.find(p => p.id === 'benefit-infusion') as ImagePlaceholder,
-  benefitMenus: data.placeholderImages.find(p => p.id === 'benefit-menus') as ImagePlaceholder,
-  benefitAiTech: data.placeholderImages.find(p => p.id === 'benefit-ai-tech') as ImagePlaceholder,
+  benefitRecipes: findImage<ImagePlaceholder>('benefit-recipes'),
+  benefitDrinks: findImage<ImagePlaceholder>('benefit-drinks'),
+  benefitSnacks: findImage<ImagePlaceholder>('benefit-snacks'),
+  benefitInfusion: findImage<ImagePlaceholder>('benefit-infusion'),
+  benefitMenus: findImage<ImagePlaceholder>('benefit-menus'),
+  benefitAiTech: findImage<ImagePlaceholder>('benefit-ai-tech'),
 
   // Collections
-  testimonials: data.placeholderImages.find(p => p.id === 'testimonials') as ImageCollection,
-  portalPreviews: data.placeholderImages.find(p => p.id === 'portal-previews') as ImageCollection,
-  communityCreations: data.placeholderImages.find(p => p.id === 'community-creations') as CommunityCreations,
+  testimonials: findImage<ImageCollection>('testimonials'),
+  portalPreviews: findImage<ImageCollection>('portal-previews'),
+  communityCreations: findImage<CommunityCreations>('community-creations'),
 };

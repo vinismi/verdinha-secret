@@ -39,6 +39,7 @@ import {
   techBenefits,
   checkoutUrl,
 } from '@/lib/landing-page-data';
+import { placeholderImages } from '@/lib/placeholder-images';
 
 const CTAButton = ({
   children,
@@ -185,11 +186,11 @@ export default function Home() {
         {/* Hero Section */}
         <section className="relative min-h-[90vh] sm:min-h-screen flex items-center justify-center text-center text-white overflow-hidden py-20">
           <Image
-            src="https://i.imgur.com/VOmiqBj.png"
+            src={placeholderImages.heroGourmetDinner.imageUrl}
             alt="Jantar gourmet sofisticado"
             fill
             className="object-cover"
-            data-ai-hint="dark elegant texture"
+            data-ai-hint={placeholderImages.heroGourmetDinner.imageHint}
             priority
           />
           <div className="absolute inset-0 bg-black/70" />
@@ -207,12 +208,12 @@ export default function Home() {
             </div>
             <div className="mt-12 w-full max-w-lg sm:max-w-2xl">
               <Image
-                src="https://i.imgur.com/jbMButp.jpeg"
+                src={placeholderImages.platformMockup.imageUrl}
                 alt="Mockup de pratos da plataforma"
                 width={800}
                 height={600}
                 className="rounded-xl shadow-2xl w-full h-auto"
-                data-ai-hint="gourmet selection"
+                data-ai-hint={placeholderImages.platformMockup.imageHint}
               />
             </div>
           </div>
@@ -282,12 +283,12 @@ export default function Home() {
                   </div>
                   <div className="order-1 md:order-2">
                     <Image
-                      src="https://i.imgur.com/eHsnwjG.jpeg"
+                      src={placeholderImages.premiumGreenDrink.imageUrl}
                       alt="Drink premium verde"
                       width={500}
                       height={700}
                       className="rounded-xl shadow-2xl mx-auto md:-rotate-2 w-full max-w-sm h-auto transition-transform duration-300 hover:scale-105 hover:rotate-0"
-                      data-ai-hint="green cocktail"
+                      data-ai-hint={placeholderImages.premiumGreenDrink.imageHint}
                     />
                   </div>
                 </div>
@@ -402,7 +403,7 @@ export default function Home() {
                   className="w-full max-w-xs sm:max-w-xl md:max-w-2xl lg:max-w-4xl mx-auto"
                 >
                   <CarouselContent>
-                    {testimonials.map((testimonial, index) => (
+                    {testimonials.images.map((testimonial, index) => (
                       <CarouselItem
                         key={index}
                         className="md:basis-1/2 lg:basis-1/3"
@@ -449,7 +450,7 @@ export default function Home() {
                   </p>
                 </div>
                 <div className="grid grid-cols-2 md:grid-cols-3 gap-4 sm:gap-6">
-                  {communityCreations.map((creation, index) => (
+                  {communityCreations.creations.map((creation, index) => (
                     <div
                       key={index}
                       className="group relative overflow-hidden rounded-lg border-2 border-border/20 shadow-lg aspect-square"
@@ -477,12 +478,12 @@ export default function Home() {
               <div className="container mx-auto px-4 flex flex-col items-center text-center">
                 <div className="flex justify-center md:order-2">
                   <Image
-                    src="https://i.imgur.com/lpWzA7Z.png"
+                    src={placeholderImages.aiChefMockup.imageUrl}
                     alt="Tecnologia Gourmet Secreta - Chef Robô"
                     width={280}
                     height={609}
                     className="rounded-xl shadow-2xl w-full max-w-[280px] h-auto shadow-primary/20 border-2 border-primary/30"
-                    data-ai-hint="ai chef assistant"
+                    data-ai-hint={placeholderImages.aiChefMockup.imageHint}
                   />
                 </div>
                 <div className="mt-8 md:mt-0 md:order-1">
@@ -565,7 +566,7 @@ export default function Home() {
                   className="w-full max-w-sm sm:max-w-md md:max-w-lg mx-auto"
                 >
                   <CarouselContent>
-                    {portalImages.map((item, index) => (
+                    {portalImages.images.map((item, index) => (
                       <CarouselItem key={index} className="basis-full">
                         <div className="p-1 h-full">
                           <div className="aurora-glass overflow-hidden shadow-lg rounded-2xl p-2">
@@ -724,11 +725,11 @@ export default function Home() {
             {/* Final CTA Section */}
             <section className="py-20 sm:py-24 relative overflow-hidden text-white text-center">
               <Image
-                src="https://picsum.photos/seed/finalcta/1920/1080"
+                src={placeholderImages.finalCtaBackground.imageUrl}
                 alt="Jantar gourmet final"
                 fill
                 className="object-cover"
-                data-ai-hint="elegant gourmet dinner"
+                data-ai-hint={placeholderImages.finalCtaBackground.imageHint}
               />
               <div className="absolute inset-0 bg-black/75" />
               <div className="container mx-auto px-4 relative z-10 flex flex-col items-center">
