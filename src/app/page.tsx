@@ -582,22 +582,22 @@ export default function Home() {
                     align: 'start',
                     loop: true,
                   }}
-                  className="w-full max-w-xs sm:max-w-xl md:max-w-4xl lg:max-w-6xl mx-auto"
+                  className="w-full max-w-xs sm:max-w-md md:max-w-lg lg:max-w-2xl mx-auto"
                 >
                   <CarouselContent>
                     {portalImages.map((item, index) => (
                       <CarouselItem
                         key={index}
-                        className="sm:basis-1/2 lg:basis-1/3"
+                        className="basis-1/2 sm:basis-1/3 md:basis-1/4"
                       >
                         <div className="p-1 h-full">
                            <div className="aurora-glass overflow-hidden shadow-lg rounded-2xl p-2">
                               <Image
                                 src={item.image}
                                 alt={`Portal por dentro ${index + 1}`}
-                                width={600}
-                                height={400}
-                                className="object-cover w-full h-full rounded-xl aspect-video"
+                                width={360}
+                                height={640}
+                                className="object-cover w-full h-full rounded-xl aspect-[9/16]"
                                 data-ai-hint={item.hint}
                               />
                             </div>
