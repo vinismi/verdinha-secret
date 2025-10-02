@@ -134,33 +134,37 @@ export default function Home() {
   const UNLOCK_DELAY_SECONDS = 5; 
 
   useEffect(() => {
-    // This effect now only handles the progress ring and enabling the button.
-    // It is simpler and less prone to hydration errors.
     if (contentUnlocked) return;
 
+    const timer = setTimeout(() => {
+      setButtonEnabled(true);
+      setProgress(100);
+      setTimeLeft(0);
+    }, UNLOCK_DELAY_SECONDS * 1000);
+
     const progressInterval = setInterval(() => {
-      setTimeLeft(prevTime => {
-        const newTime = prevTime - 1;
-        if (newTime <= 0) {
-          clearInterval(progressInterval);
-          setProgress(100);
-          setButtonEnabled(true);
-          return 0;
-        }
-        const newProgress = ((UNLOCK_DELAY_SECONDS - newTime) / UNLOCK_DELAY_SECONDS) * 100;
-        setProgress(newProgress > 100 ? 100 : newProgress);
-        return newTime;
-      });
+        setTimeLeft(prev => {
+            if (prev <= 1) {
+                clearInterval(progressInterval);
+                return 0;
+            }
+            const newTime = prev - 1;
+            setProgress(((UNLOCK_DELAY_SECONDS - newTime) / UNLOCK_DELAY_SECONDS) * 100);
+            return newTime;
+        });
     }, 1000);
 
     return () => {
+      clearTimeout(timer);
       clearInterval(progressInterval);
     };
   }, [contentUnlocked]);
 
 
   const handleUnlock = () => {
-    setContentUnlocked(true);
+    if (buttonEnabled) {
+      setContentUnlocked(true);
+    }
   };
 
   return (
