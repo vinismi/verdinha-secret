@@ -44,6 +44,7 @@ import {
 import {
   Carousel,
   CarouselContent,
+  CarouselDots,
   CarouselItem,
   CarouselNext,
   CarouselPrevious,
@@ -542,6 +543,7 @@ export default function Home() {
                   </CarouselContent>
                   <CarouselPrevious className="hidden sm:flex" />
                   <CarouselNext className="hidden sm:flex" />
+                  <CarouselDots className="mt-4" />
                 </Carousel>
               </div>
             </section>
@@ -701,6 +703,7 @@ export default function Home() {
                   </CarouselContent>
                   <CarouselPrevious className="hidden sm:flex" />
                   <CarouselNext className="hidden sm:flex" />
+                  <CarouselDots className="mt-4" />
                 </Carousel>
               </div>
             </section>
