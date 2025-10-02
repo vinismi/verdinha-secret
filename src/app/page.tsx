@@ -129,6 +129,18 @@ const testimonials = [
   },
 ];
 
+const portalImages = [
+  { image: 'https://i.imgur.com/5I8QMAQ.png', hint: 'platform screenshot 1' },
+  { image: 'https://i.imgur.com/RKOUEPF.png', hint: 'platform screenshot 2' },
+  { image: 'https://i.imgur.com/eWklY9z.png', hint: 'platform screenshot 3' },
+  { image: 'https://i.imgur.com/B9cPYV1.png', hint: 'platform screenshot 4' },
+  { image: 'https://i.imgur.com/fbmF9ef.png', hint: 'platform screenshot 5' },
+  { image: 'https://i.imgur.com/uEhdRgo.png', hint: 'platform screenshot 6' },
+  { image: 'https://i.imgur.com/9ZCC5f7.png', hint: 'platform screenshot 7' },
+  { image: 'https://i.imgur.com/TSM0nUT.png', hint: 'platform screenshot 8' },
+  { image: 'https://i.imgur.com/h1yhiiV.png', hint: 'platform screenshot 9' },
+];
+
 const communityCreations = [
   {
     image: 'https://i.imgur.com/UbhPBSA.png',
@@ -544,6 +556,51 @@ export default function Home() {
                               />
                             </CardContent>
                           </Card>
+                        </div>
+                      </CarouselItem>
+                    ))}
+                  </CarouselContent>
+                  <CarouselPrevious className="hidden sm:flex" />
+                  <CarouselNext className="hidden sm:flex" />
+                </Carousel>
+              </div>
+            </section>
+            
+            {/* Portal Inside Section */}
+            <section className="py-16 sm:py-24">
+              <div className="container mx-auto px-4">
+                <div className="text-center mb-12 sm:mb-16">
+                  <h2 className="font-headline text-4xl sm:text-5xl md:text-6xl uppercase leading-tight">
+                    O portal por dentro
+                  </h2>
+                  <p className="mt-4 text-lg text-foreground/70 max-w-2xl mx-auto">
+                    Espie como é o nosso ecossistema secreto de receitas e técnicas.
+                  </p>
+                </div>
+                <Carousel
+                  opts={{
+                    align: 'start',
+                    loop: true,
+                  }}
+                  className="w-full max-w-xs sm:max-w-xl md:max-w-4xl lg:max-w-6xl mx-auto"
+                >
+                  <CarouselContent>
+                    {portalImages.map((item, index) => (
+                      <CarouselItem
+                        key={index}
+                        className="sm:basis-1/2 lg:basis-1/3"
+                      >
+                        <div className="p-1 h-full">
+                           <div className="aurora-glass overflow-hidden shadow-lg rounded-2xl p-2">
+                              <Image
+                                src={item.image}
+                                alt={`Portal por dentro ${index + 1}`}
+                                width={600}
+                                height={400}
+                                className="object-cover w-full h-full rounded-xl aspect-video"
+                                data-ai-hint={item.hint}
+                              />
+                            </div>
                         </div>
                       </CarouselItem>
                     ))}
