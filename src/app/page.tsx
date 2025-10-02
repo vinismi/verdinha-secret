@@ -68,96 +68,33 @@ const CTAButton = ({
 
 const UnlockSection = ({ onUnlock }: { onUnlock: () => void }) => {
   const [buttonEnabled, setButtonEnabled] = useState(false);
-  const [progress, setProgress] = useState(0);
-  const [timeLeft, setTimeLeft] = useState(5);
   const UNLOCK_DELAY_SECONDS = 5;
 
   useEffect(() => {
+    // This timer enables the button after a delay. It only runs on the client.
     const enableButtonTimer = setTimeout(() => {
       setButtonEnabled(true);
-      setProgress(100);
-      setTimeLeft(0);
     }, UNLOCK_DELAY_SECONDS * 1000);
 
-    const progressInterval = setInterval(() => {
-      setTimeLeft((prev) => {
-        if (prev <= 1) {
-          clearInterval(progressInterval);
-          return 0;
-        }
-        const newTime = prev - 1;
-        const newProgress =
-          ((UNLOCK_DELAY_SECONDS - newTime) / UNLOCK_DELAY_SECONDS) * 100;
-        setProgress(newProgress);
-        return newTime;
-      });
-    }, 1000);
-
-    return () => {
-      clearTimeout(enableButtonTimer);
-      clearInterval(progressInterval);
-    };
-  }, []);
-
-  const radius = 50;
-  const stroke = 8;
-  const normalizedRadius = radius - stroke * 2;
-  const circumference = normalizedRadius * 2 * Math.PI;
-  const strokeDashoffset = circumference - (progress / 100) * circumference;
+    // Cleanup the timer if the component unmounts.
+    return () => clearTimeout(enableButtonTimer);
+  }, []); // Empty dependency array ensures this runs only once on mount.
 
   return (
     <div className="mt-12 flex flex-col items-center gap-6">
-      <div className="relative flex flex-col items-center justify-center gap-4">
-        <div className="relative h-32 w-32">
-          <svg
-            height={radius * 2}
-            width={radius * 2}
-            className="-rotate-90 transform"
-          >
-            <circle
-              stroke="hsl(var(--border))"
-              fill="transparent"
-              strokeWidth={stroke}
-              r={normalizedRadius}
-              cx={radius}
-              cy={radius}
-            />
-            <circle
-              stroke="hsl(var(--accent))"
-              fill="transparent"
-              strokeWidth={stroke}
-              strokeDasharray={circumference + ' ' + circumference}
-              style={{ strokeDashoffset }}
-              r={normalizedRadius}
-              cx={radius}
-              cy={radius}
-              className="transition-all duration-1000 ease-linear"
-            />
-          </svg>
-          <div className="absolute inset-0 flex flex-col items-center justify-center">
-            {progress < 100 ? (
-              <>
-                <span className="text-3xl font-bold text-white">
-                  {timeLeft}
-                </span>
-                <span className="text-xs uppercase text-white/60">
-                  segundos
-                </span>
-              </>
-            ) : (
-              <Lock className="h-10 w-10 text-accent" />
-            )}
-          </div>
-        </div>
-      </div>
       <Button
         size="lg"
         onClick={onUnlock}
         disabled={!buttonEnabled}
         className="bg-accent text-accent-foreground hover:bg-accent/90 font-semibold text-lg py-7 px-8 rounded-full shadow-lg shadow-accent/30 transition-all transform hover:scale-105 disabled:opacity-50 disabled:cursor-not-allowed disabled:hover:scale-100 w-full max-w-xs"
       >
-        Quero ver o resto do segredo 🍃
+        {buttonEnabled ? 'Quero ver o resto do segredo 🍃' : 'Aguarde...'}
       </Button>
+      {!buttonEnabled && (
+        <p className="text-sm text-foreground/60">
+          Liberando o acesso em instantes...
+        </p>
+      )}
     </div>
   );
 };
