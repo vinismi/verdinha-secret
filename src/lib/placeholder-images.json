@@ -3,68 +3,107 @@
     {
       "id": "hero-gourmet-dinner",
       "description": "An impactful image of a sophisticated gourmet dinner, setting a premium and mysterious tone.",
-      "imageUrl": "https://picsum.photos/seed/vsecret1/1920/1080",
-      "imageHint": "gourmet dinner"
+      "imageUrl": "https://i.imgur.com/VOmiqBj.png",
+      "imageHint": "dark elegant texture"
     },
     {
       "id": "platform-mockup",
       "description": "A mockup showing delicious-looking dishes and drinks available on the Verdinha's Secret platform.",
-      "imageUrl": "https://picsum.photos/seed/vsecret2/600/800",
-      "imageHint": "gourmet plate"
+      "imageUrl": "https://i.imgur.com/jbMButp.jpeg",
+      "imageHint": "gourmet selection"
     },
     {
       "id": "premium-green-drink",
       "description": "A premium-looking green cocktail, conveying exclusivity and unique experiences.",
-      "imageUrl": "https://picsum.photos/seed/vsecret3/600/800",
+      "imageUrl": "https://i.imgur.com/eHsnwjG.jpeg",
       "imageHint": "green cocktail"
+    },
+    {
+      "id": "final-cta-background",
+      "description": "Background for the final call to action section.",
+      "imageUrl": "https://picsum.photos/seed/finalcta/1920/1080",
+      "imageHint": "elegant gourmet dinner"
     },
     {
       "id": "benefit-recipes",
       "description": "A gourmet dish representing the wide range of recipes from basic to advanced.",
-      "imageUrl": "https://picsum.photos/seed/vsecret4/400/300",
+      "imageUrl": "https://i.imgur.com/IIrGwax.png",
       "imageHint": "gourmet recipe"
     },
     {
       "id": "benefit-drinks",
       "description": "Creative cocktails and drink pairings.",
-      "imageUrl": "https://picsum.photos/seed/vsecret5/400/300",
+      "imageUrl": "https://i.imgur.com/IpwK5eJ.png",
       "imageHint": "cocktail pairing"
     },
     {
       "id": "benefit-snacks",
       "description": "Quick and easy gourmet snacks.",
-      "imageUrl": "https://picsum.photos/seed/vsecret6/400/300",
+      "imageUrl": "https://i.imgur.com/jt7kSFx.jpeg",
       "imageHint": "gourmet snack"
     },
     {
       "id": "benefit-infusion",
       "description": "Image representing secret infusion techniques.",
-      "imageUrl": "https://picsum.photos/seed/vsecret7/400/300",
+      "imageUrl": "https://i.imgur.com/QXKMzhJ.jpeg",
       "imageHint": "herbs infusion"
     },
     {
       "id": "benefit-menus",
       "description": "A festive table setting representing themed menus.",
-      "imageUrl": "https://picsum.photos/seed/vsecret8/400/300",
+      "imageUrl": "https://i.imgur.com/jhjap7M.png",
       "imageHint": "dinner party"
     },
     {
-      "id": "benefit-conscious",
-      "description": "Image representing light and conscious consumption.",
-      "imageUrl": "https://picsum.photos/seed/vsecret9/400/300",
-      "imageHint": "healthy food"
+      "id": "benefit-ai-tech",
+      "description": "Image representing the AI-powered gourmet assistant.",
+      "imageUrl": "https://i.imgur.com/QDzt8Rb.jpeg",
+      "imageHint": "ai gourmet dish"
     },
     {
-      "id": "benefit-challenges",
-      "description": "A celebratory image representing creative challenges.",
-      "imageUrl": "https://picsum.photos/seed/vsecret10/400/300",
-      "imageHint": "celebration food"
+      "id": "testimonials",
+      "description": "A collection of testimonial screenshots from users.",
+      "images": [
+        { "image": "https://i.imgur.com/n9vikdJ.png", "hint": "testimonial screenshot 1" },
+        { "image": "https://i.imgur.com/Ef6zsCL.png", "hint": "testimonial screenshot 2" },
+        { "image": "https://i.imgur.com/jW3CQeP.png", "hint": "testimonial screenshot 3" },
+        { "image": "https://i.imgur.com/m3IB8eg.png", "hint": "testimonial screenshot 4" },
+        { "image": "https://i.imgur.com/hnfumBA.png", "hint": "testimonial screenshot 5" },
+        { "image": "https://i.imgur.com/0TF6w3S.png", "hint": "testimonial screenshot 6" }
+      ]
     },
     {
-      "id": "vsl-thumbnail",
-      "description": "Thumbnail for the video sales letter.",
-      "imageUrl": "https://picsum.photos/seed/vsvideo/1280/720",
-      "imageHint": "recipe video"
+      "id": "portal-previews",
+      "description": "A collection of screenshots showing the inside of the platform.",
+      "images": [
+        { "image": "https://i.imgur.com/5I8QMAQ.png", "hint": "platform screenshot 1" },
+        { "image": "https://i.imgur.com/RKOUEPF.png", "hint": "platform screenshot 2" },
+        { "image": "https://i.imgur.com/eWklY9z.png", "hint": "platform screenshot 3" },
+        { "image": "https://i.imgur.com/B9cPYV1.png", "hint": "platform screenshot 4" },
+        { "image": "https://i.imgur.com/fbmF9ef.png", "hint": "platform screenshot 5" },
+        { "image": "https://i.imgur.com/uEhdRgo.png", "hint": "platform screenshot 6" },
+        { "image": "https://i.imgur.com/9ZCC5f7.png", "hint": "platform screenshot 7" },
+        { "image": "https://i.imgur.com/TSM0nUT.png", "hint": "platform screenshot 8" },
+        { "image": "https://i.imgur.com/h1yhiiV.png", "hint": "platform screenshot 9" }
+      ]
+    },
+    {
+      "id": "community-creations",
+      "description": "A collection of dishes created by community members.",
+      "creations": [
+        { "image": "https://i.imgur.com/UbhPBSA.png", "hint": "gourmet dish", "user": "Membro Criativo" },
+        { "image": "https://i.imgur.com/ATq6mxv.png", "hint": "special recipe", "user": "Chef Secreto" },
+        { "image": "https://i.imgur.com/UDzq33a.png", "hint": "delicious plate", "user": "Verdinha Lover" },
+        { "image": "https://i.imgur.com/VPYpd06.png", "hint": "creative food", "user": "Mestre Cuca" },
+        { "image": "https://i.imgur.com/unzvtrv.png", "hint": "tasty creation", "user": "Cozinheiro Anônimo" },
+        { "image": "https://i.imgur.com/UDpnTc3.png", "hint": "new creation", "user": "Chef Inovador" }
+      ]
+    },
+    {
+      "id": "ai-chef-mockup",
+      "description": "Mockup of the AI chef assistant feature on a phone.",
+      "imageUrl": "https://i.imgur.com/lpWzA7Z.png",
+      "imageHint": "ai chef assistant"
     }
   ]
 }

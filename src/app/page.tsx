@@ -3,38 +3,15 @@
 import React from 'react';
 import Image from 'next/image';
 import {
-  UtensilsCrossed,
-  Martini,
-  Cookie,
-  Lightbulb,
-  PartyPopper,
   Leaf,
-  Trophy,
-  PlayCircle,
-  Sparkles,
-  Award,
-  Users,
   ChevronRight,
-  Plus,
-  Minus,
-  Bot,
-  Crown,
-  Donut,
-  Flame,
-  Target,
-  Lock,
-  Clock,
   KeyRound,
-  Unlock,
-  Wand2,
-  Salad,
-  ChefHat,
-  Clock4,
   ArrowRight,
-  Camera,
+  Lock,
+  Sparkles,
+  Users,
 } from 'lucide-react';
 import { Button } from '@/components/ui/button';
-import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import {
   Accordion,
   AccordionContent,
@@ -49,201 +26,19 @@ import {
   CarouselNext,
   CarouselPrevious,
 } from '@/components/ui/carousel';
+import { Card, CardContent } from '@/components/ui/card';
 import { Countdown } from '@/components/countdown';
 import { WistiaPlayer } from '@/components/WistiaPlayer';
-
-const benefits = [
-  {
-    icon: Leaf,
-    title: 'Do básico ao Mestre Verde',
-    description:
-      'Segredos que transformam sua cozinha no palco da erva da alegria, do simples ao sofisticado.',
-    image: 'https://i.imgur.com/IIrGwax.png',
-    hint: 'gourmet recipe',
-  },
-  {
-    icon: Martini,
-    title: 'Drinks que ninguém mais conhece',
-    description:
-      'Cansado da mesmice? Aprenda combinações que você não encontra em nenhum bar (e que ninguém terá coragem de copiar).',
-    image: 'https://i.imgur.com/IpwK5eJ.png',
-    hint: 'cocktail pairing',
-  },
-  {
-    icon: Cookie,
-    title: 'Snacks que desafiam o óbvio',
-    description:
-      'Lanches rápidos, perfeitos para qualquer hora, com um toque secreto que vicia mais que o normal.',
-    image: 'https://i.imgur.com/jt7kSFx.jpeg',
-    hint: 'gourmet snack',
-  },
-  {
-    icon: Lightbulb,
-    title: 'O poder real da folha sagrada',
-    description:
-      'Aprenda técnicas de infusão que separam os amadores dos mestres. Você está pronto para extrair o poder máximo?',
-    image: 'https://i.imgur.com/QXKMzhJ.jpeg',
-    hint: 'herbs infusion',
-  },
-  {
-    icon: PartyPopper,
-    title: 'Cardápios para noites lendárias',
-    description:
-      'Experiências completas para impressionar qualquer rolê e deixar todo mundo perguntando seu segredo.',
-    image: 'https://i.imgur.com/jhjap7M.png',
-    hint: 'dinner party',
-  },
-  {
-    icon: Bot,
-    title: 'Tecnologia Gourmet Secreta',
-    description:
-      'Uma chef-robô particular, 24h por dia, para sugerir ousadias, combinações e usos que você nunca imaginou.',
-    image: 'https://i.imgur.com/QDzt8Rb.jpeg',
-    hint: 'ai gourmet dish',
-  },
-];
-
-const testimonials = [
-  {
-    image: 'https://i.imgur.com/n9vikdJ.png',
-    hint: 'testimonial screenshot 1',
-  },
-  {
-    image: 'https://i.imgur.com/Ef6zsCL.png',
-    hint: 'testimonial screenshot 2',
-  },
-  {
-    image: 'https://i.imgur.com/jW3CQeP.png',
-    hint: 'testimonial screenshot 3',
-  },
-  {
-    image: 'https://i.imgur.com/m3IB8eg.png',
-    hint: 'testimonial screenshot 4',
-  },
-  {
-    image: 'https://i.imgur.com/hnfumBA.png',
-    hint: 'testimonial screenshot 5',
-  },
-  {
-    image: 'https://i.imgur.com/0TF6w3S.png',
-    hint: 'testimonial screenshot 6',
-  },
-];
-
-const portalImages = [
-  { image: 'https://i.imgur.com/5I8QMAQ.png', hint: 'platform screenshot 1' },
-  { image: 'https://i.imgur.com/RKOUEPF.png', hint: 'platform screenshot 2' },
-  { image: 'https://i.imgur.com/eWklY9z.png', hint: 'platform screenshot 3' },
-  { image: 'https://i.imgur.com/B9cPYV1.png', hint: 'platform screenshot 4' },
-  { image: 'https://i.imgur.com/fbmF9ef.png', hint: 'platform screenshot 5' },
-  { image: 'https://i.imgur.com/uEhdRgo.png', hint: 'platform screenshot 6' },
-  { image: 'https://i.imgur.com/9ZCC5f7.png', hint: 'platform screenshot 7' },
-  { image: 'https://i.imgur.com/TSM0nUT.png', hint: 'platform screenshot 8' },
-  { image: 'https://i.imgur.com/h1yhiiV.png', hint: 'platform screenshot 9' },
-];
-
-const communityCreations = [
-  {
-    image: 'https://i.imgur.com/UbhPBSA.png',
-    hint: 'gourmet dish',
-    user: 'Membro Criativo',
-  },
-  {
-    image: 'https://i.imgur.com/ATq6mxv.png',
-    hint: 'special recipe',
-    user: 'Chef Secreto',
-  },
-  {
-    image: 'https://i.imgur.com/UDzq33a.png',
-    hint: 'delicious plate',
-    user: 'Verdinha Lover',
-  },
-  {
-    image: 'https://i.imgur.com/VPYpd06.png',
-    hint: 'creative food',
-    user: 'Mestre Cuca',
-  },
-  {
-    image: 'https://i.imgur.com/unzvtrv.png',
-    hint: 'tasty creation',
-    user: 'Cozinheiro Anônimo',
-  },
-  {
-    image: 'https://i.imgur.com/UDpnTc3.png',
-    hint: 'new creation',
-    user: 'Chef Inovador',
-  },
-];
-
-const offerStack = [
-  {
-    icon: Leaf,
-    title: 'Plataforma Secreta Gourmet',
-    description:
-      'O seu laboratório secreto de criações culinárias, onde todo prato se transforma.',
-  },
-  {
-    icon: Target,
-    title: 'Cardápios Temáticos Exclusivos',
-    description:
-      'Receitas perfeitas para qualquer ocasião, montadas para impressionar e encantar.',
-  },
-  {
-    icon: Donut,
-    title: 'Receitas Criativas e Exclusivas',
-    description:
-      'Acesso a receitas únicas, que ninguém mais vai encontrar. Você vai criar como um verdadeiro chef.',
-  },
-  {
-    icon: Bot,
-    title: 'Tecnologia Gourmet da Verdinha',
-    description:
-      'A chef-robô que sugere combinações, cria pratos personalizados e transforma sua cozinha com o toque secreto da folha sagrada.',
-  },
-  {
-    icon: Flame,
-    title: 'Desafios e Experiências Secretas',
-    description:
-      'Prove suas habilidades e desafie-se para desbloquear novas receitas e conquistas secretas.',
-  },
-];
-
-const faqItems = [
-  {
-    question: 'Preciso ser bom na cozinha?',
-    answer:
-      "Não! O Verdinha's Secret foi desenhado para todos os níveis. Temos conteúdos que vão do zero absoluto até técnicas avançadas para quem já domina a arte do tempero secreto.",
-  },
-];
-
-const techBenefits = [
-  {
-    icon: Wand2,
-    title: 'Sugestões Inusitadas',
-    description:
-      'Combinações que você nunca imaginou, para surpreender até os paladares mais exigentes.',
-  },
-  {
-    icon: ChefHat,
-    title: 'Pratos Personalizados',
-    description:
-      'Crie receitas únicas com os ingredientes que você já tem na sua geladeira ou despensa.',
-  },
-  {
-    icon: Salad,
-    title: 'Harmonizações Únicas',
-    description:
-      'Descubra os drinks e acompanhamentos perfeitos para cada uma das suas criações verdes.',
-  },
-  {
-    icon: Clock4,
-    title: 'Disponível 24/7',
-    description:
-      'Sua chef particular está sempre pronta para ajudar, a qualquer hora do dia ou da noite.',
-  },
-];
-
-const checkoutUrl = 'https://www.ggcheckout.com/checkout/v2/K5J4NJtPrnBk5uOAvcPp';
+import {
+  benefits,
+  testimonials,
+  portalImages,
+  communityCreations,
+  offerStack,
+  faqItems,
+  techBenefits,
+  checkoutUrl,
+} from '@/lib/landing-page-data';
 
 const CTAButton = ({
   children,
@@ -270,7 +65,13 @@ const CTAButton = ({
   </a>
 );
 
-const UnlockProgress = ({ progress, timeLeft }: { progress: number, timeLeft: number }) => {
+const UnlockProgress = ({
+  progress,
+  timeLeft,
+}: {
+  progress: number;
+  timeLeft: number;
+}) => {
   const radius = 48;
   const stroke = 5;
   const normalizedRadius = radius - stroke;
@@ -307,17 +108,18 @@ const UnlockProgress = ({ progress, timeLeft }: { progress: number, timeLeft: nu
           />
         </svg>
         <div className="absolute inset-0 flex flex-col items-center justify-center">
-            <Lock className="w-8 h-8 text-foreground/50" />
-            <span className="text-xl font-bold font-mono text-foreground mt-1">
-              {String(Math.ceil(timeLeft / 1000)).padStart(2, '0')}s
-            </span>
+          <Lock className="w-8 h-8 text-foreground/50" />
+          <span className="text-xl font-bold font-mono text-foreground mt-1">
+            {String(Math.ceil(timeLeft / 1000)).padStart(2, '0')}s
+          </span>
         </div>
       </div>
-      <p className="text-sm text-foreground/70 -mt-2">Aguarde para desbloquear...</p>
+      <p className="text-sm text-foreground/70 -mt-2">
+        Aguarde para desbloquear...
+      </p>
     </div>
   );
 };
-
 
 export default function Home() {
   const [contentUnlocked, setContentUnlocked] = React.useState(false);
@@ -347,21 +149,23 @@ export default function Home() {
     const autoUnlockTimeout = setTimeout(() => {
       handleUnlock();
     }, autoUnlockTime);
-    
+
     const progressInterval = setInterval(() => {
       const elapsedTime = Date.now() - startTime;
       const remaining = buttonEnableTime - elapsedTime;
-      
+
       setTimeLeft(remaining > 0 ? remaining : 0);
 
-      const newProgress = Math.min((elapsedTime / buttonEnableTime) * 100, 100);
+      const newProgress = Math.min(
+        (elapsedTime / buttonEnableTime) * 100,
+        100
+      );
       setProgress(newProgress);
 
       if (newProgress >= 100) {
         clearInterval(progressInterval);
       }
     }, 250);
-
 
     return () => {
       clearTimeout(enableButtonTimeout);
@@ -425,7 +229,7 @@ export default function Home() {
             </div>
             {!contentUnlocked && (
               <div className="mt-12 text-center flex flex-col items-center gap-6 px-4">
-                 {!unlockButtonEnabled && (
+                {!unlockButtonEnabled && (
                   <UnlockProgress progress={progress} timeLeft={timeLeft} />
                 )}
                 <Button
@@ -462,7 +266,9 @@ export default function Home() {
                       <ul className="list-none space-y-2 text-lg md:text-xl font-body font-normal text-left pl-4">
                         <li>- Seus jantares provocam inveja (e espanto).</li>
                         <li>- Suas sobremesas viram lendas urbanas.</li>
-                        <li>- Seus drinks definem o nível de qualquer encontro.</li>
+                        <li>
+                          - Seus drinks definem o nível de qualquer encontro.
+                        </li>
                         <li>
                           - E cada receita é uma passagem só de ida para o
                           extraordinário.
@@ -738,7 +544,7 @@ export default function Home() {
                 </div>
               </div>
             </section>
-            
+
             {/* Portal Inside Section */}
             <section className="py-16 sm:py-24">
               <div className="container mx-auto px-4">
@@ -747,7 +553,8 @@ export default function Home() {
                     O portal por dentro
                   </h2>
                   <p className="mt-4 text-lg text-foreground/70 max-w-2xl mx-auto">
-                    Espie como é o nosso ecossistema secreto de receitas e técnicas.
+                    Espie como é o nosso ecossistema secreto de receitas e
+                    técnicas.
                   </p>
                 </div>
                 <Carousel
@@ -759,21 +566,18 @@ export default function Home() {
                 >
                   <CarouselContent>
                     {portalImages.map((item, index) => (
-                      <CarouselItem
-                        key={index}
-                        className="basis-full"
-                      >
+                      <CarouselItem key={index} className="basis-full">
                         <div className="p-1 h-full">
-                           <div className="aurora-glass overflow-hidden shadow-lg rounded-2xl p-2">
-                              <Image
-                                src={item.image}
-                                alt={`Portal por dentro ${index + 1}`}
-                                width={360}
-                                height={640}
-                                className="object-cover w-full h-full rounded-xl aspect-[9/16]"
-                                data-ai-hint={item.hint}
-                              />
-                            </div>
+                          <div className="aurora-glass overflow-hidden shadow-lg rounded-2xl p-2">
+                            <Image
+                              src={item.image}
+                              alt={`Portal por dentro ${index + 1}`}
+                              width={360}
+                              height={640}
+                              className="object-cover w-full h-full rounded-xl aspect-[9/16]"
+                              data-ai-hint={item.hint}
+                            />
+                          </div>
                         </div>
                       </CarouselItem>
                     ))}
@@ -957,7 +761,9 @@ export default function Home() {
             direitos reservados.
           </p>
           <p className="mt-2 text-xs">
-            Este produto não garante a obtenção de resultados. Qualquer referência ao desempenho de uma estratégia não deve ser interpretada como uma garantia de resultados.
+            Este produto não garante a obtenção de resultados. Qualquer
+            referência ao desempenho de uma estratégia não deve ser interpretada
+            como uma garantia de resultados.
           </p>
         </div>
       </footer>
