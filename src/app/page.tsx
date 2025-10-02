@@ -270,9 +270,50 @@ const CTAButton = ({
   </a>
 );
 
+
+const ProgressCircle = ({ progress }: { progress: number }) => {
+  const radius = 18;
+  const stroke = 2;
+  const normalizedRadius = radius - stroke * 2;
+  const circumference = normalizedRadius * 2 * Math.PI;
+  const strokeDashoffset = circumference - (progress / 100) * circumference;
+
+  return (
+    <svg
+      height={radius * 2}
+      width={radius * 2}
+      className="transform -rotate-90"
+    >
+      <circle
+        stroke="rgba(255,255,255,0.2)"
+        fill="transparent"
+        strokeWidth={stroke}
+        r={normalizedRadius}
+        cx={radius}
+        cy={radius}
+      />
+      <circle
+        stroke="hsl(var(--accent))"
+        fill="transparent"
+        strokeWidth={stroke}
+        strokeDasharray={circumference + ' ' + circumference}
+        style={{ strokeDashoffset }}
+        r={normalizedRadius}
+        cx={radius}
+        cy={radius}
+      />
+    </svg>
+  );
+};
+
+
 export default function Home() {
   const [contentUnlocked, setContentUnlocked] = React.useState(false);
   const [unlockButtonEnabled, setUnlockButtonEnabled] = React.useState(false);
+  const [progress, setProgress] = React.useState(0);
+
+  const buttonEnableTime = 80000; // 80 seconds
+  const autoUnlockTime = 105000; // 105 seconds
 
   React.useEffect(() => {
     // Check if the user has already seen the content
@@ -280,22 +321,37 @@ export default function Home() {
     if (hasUnlocked) {
       setContentUnlocked(true);
       setUnlockButtonEnabled(true);
+      setProgress(100);
       return;
     }
 
     // Timer to enable the manual unlock button
     const enableButtonTimeout = setTimeout(() => {
       setUnlockButtonEnabled(true);
-    }, 80000); // 1 minute and 20 seconds
+    }, buttonEnableTime);
 
     // Timer to unlock the content automatically
     const autoUnlockTimeout = setTimeout(() => {
       handleUnlock();
-    }, 105000); // 1 minute and 45 seconds
+    }, autoUnlockTime);
+    
+    // Timer for progress circle
+    const progressInterval = setInterval(() => {
+      setProgress(prev => {
+        const newProgress = prev + (100 / (buttonEnableTime / 1000));
+        if (newProgress >= 100) {
+          clearInterval(progressInterval);
+          return 100;
+        }
+        return newProgress;
+      });
+    }, 1000);
+
 
     return () => {
       clearTimeout(enableButtonTimeout);
       clearTimeout(autoUnlockTimeout);
+      clearInterval(progressInterval);
     };
   }, []);
 
@@ -358,8 +414,9 @@ export default function Home() {
                   onClick={handleUnlock}
                   disabled={!unlockButtonEnabled}
                   size="lg"
-                  className="bg-primary hover:bg-primary/90 text-primary-foreground font-semibold text-base sm:text-lg py-4 px-8 rounded-full shadow-lg shadow-primary/20 enabled:animate-pulse disabled:opacity-50 disabled:cursor-not-allowed w-full max-w-sm"
+                  className="bg-primary hover:bg-primary/90 text-primary-foreground font-semibold text-base sm:text-lg py-4 px-8 rounded-full shadow-lg shadow-primary/20 enabled:animate-pulse disabled:opacity-50 disabled:cursor-not-allowed w-full max-w-sm flex items-center justify-center gap-3"
                 >
+                  {!unlockButtonEnabled && <ProgressCircle progress={progress} />}
                   Quero ver o resto do segredo 🍃
                 </Button>
               </div>
