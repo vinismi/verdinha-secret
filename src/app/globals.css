@@ -1,0 +1,67 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --background: 150 51% 8%; /* #0B1F14 */
+    --foreground: 0 0% 98%;
+    --card: 150 30% 12%;
+    --card-foreground: 0 0% 98%;
+    --popover: 150 51% 8%;
+    --popover-foreground: 0 0% 98%;
+    --primary: 145 63% 42%; /* #1DB954 */
+    --primary-foreground: 0 0% 98%;
+    --secondary: 150 20% 15%;
+    --secondary-foreground: 0 0% 98%;
+    --muted: 150 20% 15%;
+    --muted-foreground: 0 0% 63.9%;
+    --accent: 51 100% 50%; /* #FFD700 */
+    --accent-foreground: 150 51% 8%;
+    --destructive: 0 84.2% 60.2%;
+    --destructive-foreground: 0 0% 98%;
+    --border: 150 20% 20%;
+    --input: 150 20% 15%;
+    --ring: 51 100% 50%;
+    --chart-1: 12 76% 61%;
+    --chart-2: 173 58% 39%;
+    --chart-3: 197 37% 24%;
+    --chart-4: 43 74% 66%;
+    --chart-5: 27 87% 67%;
+    --radius: 0.75rem;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+  body {
+    @apply bg-background text-foreground;
+  }
+}
+
+@layer utilities {
+  .aurora-glass {
+    @apply bg-card/50 backdrop-blur-lg border border-accent/20;
+  }
+   .aurora-glass-dark {
+    @apply bg-background/60 backdrop-blur-lg border border-accent/30;
+  }
+}
+
+body {
+  background-color: hsl(var(--background));
+  background-image: radial-gradient(
+      at 27% 37%,
+      hsl(var(--primary) / 0.1),
+      transparent 50%
+    ),
+    radial-gradient(at 97% 21%, hsl(var(--accent) / 0.1), transparent 50%),
+    radial-gradient(at 52% 99%, hsl(var(--primary) / 0.15), transparent 50%),
+    radial-gradient(at 10% 29%, hsl(var(--accent) / 0.1), transparent 50%),
+    radial-gradient(at 97% 96%, hsl(var(--background)), transparent 50%),
+    radial-gradient(at 33% 50%, hsl(var(--primary) / 0.1), transparent 50%),
+    radial-gradient(at 79% 53%, hsl(var(--background)), transparent 50%);
+  background-attachment: fixed;
+}
