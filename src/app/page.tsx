@@ -130,24 +130,21 @@ export default function Home() {
   const [contentUnlocked, setContentUnlocked] = useState(false);
   const [buttonEnabled, setButtonEnabled] = useState(false);
   const [progress, setProgress] = useState(0);
-  const [timeLeft, setTimeLeft] = useState(5); // Reduzido para 5s para teste
-
-  const UNLOCK_DELAY_SECONDS = 5; // Reduzido para 5s para teste
+  const [timeLeft, setTimeLeft] = useState(5); 
+  const UNLOCK_DELAY_SECONDS = 5; 
 
   useEffect(() => {
-    // Timer para habilitar o botão
-    const buttonTimer = setTimeout(() => {
-      setButtonEnabled(true);
-    }, UNLOCK_DELAY_SECONDS * 1000);
+    // This effect now only handles the progress ring and enabling the button.
+    // It is simpler and less prone to hydration errors.
+    if (contentUnlocked) return;
 
-    // Timer para o anel de progresso
     const progressInterval = setInterval(() => {
       setTimeLeft(prevTime => {
         const newTime = prevTime - 1;
         if (newTime <= 0) {
           clearInterval(progressInterval);
           setProgress(100);
-          setButtonEnabled(true); // Garante que o botão esteja habilitado quando o tempo acabar
+          setButtonEnabled(true);
           return 0;
         }
         const newProgress = ((UNLOCK_DELAY_SECONDS - newTime) / UNLOCK_DELAY_SECONDS) * 100;
@@ -156,12 +153,10 @@ export default function Home() {
       });
     }, 1000);
 
-    // Limpeza dos timers quando o componente for desmontado
     return () => {
-      clearTimeout(buttonTimer);
       clearInterval(progressInterval);
     };
-  }, []);
+  }, [contentUnlocked]);
 
 
   const handleUnlock = () => {
