@@ -270,40 +270,51 @@ const CTAButton = ({
   </a>
 );
 
-
-const ProgressCircle = ({ progress }: { progress: number }) => {
-  const radius = 20;
-  const stroke = 3;
-  const normalizedRadius = radius - stroke * 2;
+const UnlockProgress = ({ progress, timeLeft }: { progress: number, timeLeft: number }) => {
+  const radius = 48;
+  const stroke = 5;
+  const normalizedRadius = radius - stroke;
   const circumference = normalizedRadius * 2 * Math.PI;
   const strokeDashoffset = circumference - (progress / 100) * circumference;
 
   return (
-    <svg
-      height={radius * 2}
-      width={radius * 2}
-      className="transform -rotate-90"
-    >
-      <circle
-        stroke="hsla(var(--primary-foreground), 0.2)"
-        fill="transparent"
-        strokeWidth={stroke}
-        r={normalizedRadius}
-        cx={radius}
-        cy={radius}
-      />
-      <circle
-        stroke="hsl(var(--primary-foreground))"
-        fill="transparent"
-        strokeWidth={stroke}
-        strokeDasharray={circumference + ' ' + circumference}
-        style={{ strokeDashoffset }}
-        r={normalizedRadius}
-        cx={radius}
-        cy={radius}
-        className="transition-all duration-300"
-      />
-    </svg>
+    <div className="relative flex flex-col items-center justify-center gap-4">
+      <div className="relative h-32 w-32">
+        <svg
+          height={radius * 2}
+          width={radius * 2}
+          className="transform -rotate-90 absolute top-0 left-0"
+        >
+          <circle
+            stroke="hsla(var(--foreground), 0.1)"
+            fill="transparent"
+            strokeWidth={stroke}
+            r={normalizedRadius}
+            cx={radius}
+            cy={radius}
+          />
+          <circle
+            stroke="hsl(var(--accent))"
+            fill="transparent"
+            strokeWidth={stroke}
+            strokeDasharray={circumference + ' ' + circumference}
+            style={{ strokeDashoffset }}
+            strokeLinecap="round"
+            r={normalizedRadius}
+            cx={radius}
+            cy={radius}
+            className="transition-all duration-1000 linear"
+          />
+        </svg>
+        <div className="absolute inset-0 flex flex-col items-center justify-center">
+            <Lock className="w-8 h-8 text-foreground/50" />
+            <span className="text-xl font-bold font-mono text-foreground mt-1">
+              {String(Math.ceil(timeLeft / 1000)).padStart(2, '0')}s
+            </span>
+        </div>
+      </div>
+      <p className="text-sm text-foreground/70 -mt-2">Aguarde para desbloquear...</p>
+    </div>
   );
 };
 
@@ -312,12 +323,12 @@ export default function Home() {
   const [contentUnlocked, setContentUnlocked] = React.useState(false);
   const [unlockButtonEnabled, setUnlockButtonEnabled] = React.useState(false);
   const [progress, setProgress] = React.useState(0);
+  const [timeLeft, setTimeLeft] = React.useState(0);
 
-  const buttonEnableTime = 80000; // 80 seconds
-  const autoUnlockTime = 105000; // 105 seconds
+  const buttonEnableTime = 80 * 1000; // 80 seconds
+  const autoUnlockTime = 105 * 1000; // 105 seconds
 
   React.useEffect(() => {
-    // Check if the user has already seen the content
     const hasUnlocked = sessionStorage.getItem('verdinhaSecretUnlocked');
     if (hasUnlocked) {
       setContentUnlocked(true);
@@ -327,27 +338,29 @@ export default function Home() {
     }
 
     const startTime = Date.now();
+    setTimeLeft(buttonEnableTime);
 
-    // Timer to enable the manual unlock button
     const enableButtonTimeout = setTimeout(() => {
       setUnlockButtonEnabled(true);
     }, buttonEnableTime);
 
-    // Timer to unlock the content automatically
     const autoUnlockTimeout = setTimeout(() => {
       handleUnlock();
     }, autoUnlockTime);
     
-    // Timer for progress circle
     const progressInterval = setInterval(() => {
       const elapsedTime = Date.now() - startTime;
+      const remaining = buttonEnableTime - elapsedTime;
+      
+      setTimeLeft(remaining > 0 ? remaining : 0);
+
       const newProgress = Math.min((elapsedTime / buttonEnableTime) * 100, 100);
       setProgress(newProgress);
 
       if (newProgress >= 100) {
         clearInterval(progressInterval);
       }
-    }, 100);
+    }, 250);
 
 
     return () => {
@@ -411,15 +424,18 @@ export default function Home() {
               <WistiaPlayer />
             </div>
             {!contentUnlocked && (
-              <div className="mt-8 text-center flex flex-col items-center gap-4 px-4">
+              <div className="mt-12 text-center flex flex-col items-center gap-6 px-4">
+                 {!unlockButtonEnabled && (
+                  <UnlockProgress progress={progress} timeLeft={timeLeft} />
+                )}
                 <Button
                   onClick={handleUnlock}
                   disabled={!unlockButtonEnabled}
                   size="lg"
-                  className="bg-primary hover:bg-primary/90 text-primary-foreground font-semibold text-base sm:text-lg py-4 px-8 rounded-full shadow-lg shadow-primary/20 enabled:animate-pulse disabled:opacity-50 disabled:cursor-not-allowed w-full max-w-sm flex items-center justify-center gap-3"
+                  className="bg-primary hover:bg-primary/90 text-primary-foreground font-semibold text-base sm:text-lg py-4 px-8 rounded-full shadow-lg shadow-primary/20 enabled:animate-pulse disabled:opacity-30 disabled:cursor-not-allowed w-full max-w-sm flex items-center justify-center gap-3 transition-opacity"
                 >
-                  {!unlockButtonEnabled && <ProgressCircle progress={progress} />}
-                  Quero ver o resto do segredo 🍃
+                  <KeyRound className="w-5 h-5" />
+                  Quero ver o resto do segredo
                 </Button>
               </div>
             )}
