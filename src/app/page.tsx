@@ -555,51 +555,6 @@ export default function Home() {
                 </Carousel>
               </div>
             </section>
-            
-            {/* Portal Inside Section */}
-            <section className="py-16 sm:py-24">
-              <div className="container mx-auto px-4">
-                <div className="text-center mb-12 sm:mb-16">
-                  <h2 className="font-headline text-4xl sm:text-5xl md:text-6xl uppercase leading-tight">
-                    O portal por dentro
-                  </h2>
-                  <p className="mt-4 text-lg text-foreground/70 max-w-2xl mx-auto">
-                    Espie como é o nosso ecossistema secreto de receitas e técnicas.
-                  </p>
-                </div>
-                <Carousel
-                  opts={{
-                    align: 'start',
-                    loop: true,
-                  }}
-                  className="w-full max-w-sm sm:max-w-md md:max-w-lg mx-auto"
-                >
-                  <CarouselContent>
-                    {portalImages.map((item, index) => (
-                      <CarouselItem
-                        key={index}
-                        className="basis-full sm:basis-1/2 md:basis-1/3"
-                      >
-                        <div className="p-1 h-full">
-                           <div className="aurora-glass overflow-hidden shadow-lg rounded-2xl p-2">
-                              <Image
-                                src={item.image}
-                                alt={`Portal por dentro ${index + 1}`}
-                                width={360}
-                                height={640}
-                                className="object-cover w-full h-full rounded-xl aspect-[9/16]"
-                                data-ai-hint={item.hint}
-                              />
-                            </div>
-                        </div>
-                      </CarouselItem>
-                    ))}
-                  </CarouselContent>
-                  <CarouselPrevious className="hidden sm:flex" />
-                  <CarouselNext className="hidden sm:flex" />
-                </Carousel>
-              </div>
-            </section>
 
             {/* Community Creations Section */}
             <section className="py-16 sm:py-24">
@@ -712,6 +667,51 @@ export default function Home() {
                     </a>
                   </div>
                 </div>
+              </div>
+            </section>
+            
+            {/* Portal Inside Section */}
+            <section className="py-16 sm:py-24">
+              <div className="container mx-auto px-4">
+                <div className="text-center mb-12 sm:mb-16">
+                  <h2 className="font-headline text-4xl sm:text-5xl md:text-6xl uppercase leading-tight">
+                    O portal por dentro
+                  </h2>
+                  <p className="mt-4 text-lg text-foreground/70 max-w-2xl mx-auto">
+                    Espie como é o nosso ecossistema secreto de receitas e técnicas.
+                  </p>
+                </div>
+                <Carousel
+                  opts={{
+                    align: 'start',
+                    loop: true,
+                  }}
+                  className="w-full max-w-sm sm:max-w-md md:max-w-lg mx-auto"
+                >
+                  <CarouselContent>
+                    {portalImages.map((item, index) => (
+                      <CarouselItem
+                        key={index}
+                        className="basis-full sm:basis-1/2 md:basis-1/3"
+                      >
+                        <div className="p-1 h-full">
+                           <div className="aurora-glass overflow-hidden shadow-lg rounded-2xl p-2">
+                              <Image
+                                src={item.image}
+                                alt={`Portal por dentro ${index + 1}`}
+                                width={360}
+                                height={640}
+                                className="object-cover w-full h-full rounded-xl aspect-[9/16]"
+                                data-ai-hint={item.hint}
+                              />
+                            </div>
+                        </div>
+                      </CarouselItem>
+                    ))}
+                  </CarouselContent>
+                  <CarouselPrevious className="hidden sm:flex" />
+                  <CarouselNext className="hidden sm:flex" />
+                </Carousel>
               </div>
             </section>
 
