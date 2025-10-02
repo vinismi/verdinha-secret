@@ -223,16 +223,6 @@ const faqItems = [
     answer:
       'Sim! Nossa comunidade secreta está sempre em movimento. Lançamos novas receitas, desafios e técnicas exclusivas regularmente para que sua jornada nunca perca a graça.',
   },
-  {
-    question: 'Existem opções leves (sem exagerar)?',
-    answer:
-      'Com certeza. Um dos nossos pilares é o consumo consciente. Você encontrará diversas receitas e dicas para criar pratos e drinks mais leves, focados no sabor e bem-estar.',
-  },
-  {
-    question: 'O acesso é imediato?',
-    answer:
-      'Sim! Após a confirmação do pagamento, você recebe seu acesso secreto imediatamente no seu e-mail e já pode começar a desvendar os segredos da verdinha.',
-  },
 ];
 
 const techBenefits = [
@@ -582,13 +572,13 @@ export default function Home() {
                     align: 'start',
                     loop: true,
                   }}
-                  className="w-full max-w-xs sm:max-w-md md:max-w-lg lg:max-w-2xl mx-auto"
+                  className="w-full max-w-sm sm:max-w-md md:max-w-lg mx-auto"
                 >
                   <CarouselContent>
                     {portalImages.map((item, index) => (
                       <CarouselItem
                         key={index}
-                        className="basis-1/2 sm:basis-1/3 md:basis-1/4"
+                        className="basis-full sm:basis-1/2 md:basis-1/3"
                       >
                         <div className="p-1 h-full">
                            <div className="aurora-glass overflow-hidden shadow-lg rounded-2xl p-2">
@@ -895,6 +885,9 @@ export default function Home() {
           <p>
             &copy; {new Date().getFullYear()} Verdinha's Secret. Todos os
             direitos reservados.
+          </p>
+          <p className="mt-2 text-xs">
+            Este produto não garante a obtenção de resultados. Qualquer referência ao desempenho de uma estratégia não deve ser interpretada como uma garantia de resultados.
           </p>
         </div>
       </footer>
