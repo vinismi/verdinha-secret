@@ -28,7 +28,7 @@
     --chart-3: 197 37% 24%;
     --chart-4: 43 74% 66%;
     --chart-5: 27 87% 67%;
-    --radius: 0.5rem;
+    --radius: 0.75rem;
   }
 }
 
@@ -39,4 +39,29 @@
   body {
     @apply bg-background text-foreground;
   }
+}
+
+@layer utilities {
+  .aurora-glass {
+    @apply bg-card/50 backdrop-blur-lg border border-accent/20;
+  }
+   .aurora-glass-dark {
+    @apply bg-background/60 backdrop-blur-lg border border-accent/30;
+  }
+}
+
+body {
+  background-color: hsl(var(--background));
+  background-image: radial-gradient(
+      at 27% 37%,
+      hsl(var(--primary) / 0.1),
+      transparent 50%
+    ),
+    radial-gradient(at 97% 21%, hsl(var(--accent) / 0.1), transparent 50%),
+    radial-gradient(at 52% 99%, hsl(var(--primary) / 0.15), transparent 50%),
+    radial-gradient(at 10% 29%, hsl(var(--accent) / 0.1), transparent 50%),
+    radial-gradient(at 97% 96%, hsl(var(--background)), transparent 50%),
+    radial-gradient(at 33% 50%, hsl(var(--primary) / 0.1), transparent 50%),
+    radial-gradient(at 79% 53%, hsl(var(--background)), transparent 50%);
+  background-attachment: fixed;
 }
